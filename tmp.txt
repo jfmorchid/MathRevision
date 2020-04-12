@@ -1,4 +1,0 @@
-The flowchart for Hashing and BSH. 
-During the stage of binary hashing, each element in feature image group $G_i$ is binarized by Heaviside function, 
-then each image hashed into $[0,2^{L_2}-1]$ to get a hashed feature map. 
-During the stage of Block-wise Stochastic Histogram,  the corresponding block-wise probability map for each feature block is randomly dropout and formed into $t$feature images. All these images are statist by histogram and merged into a representation vector as output vector.

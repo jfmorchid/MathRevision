@@ -1,0 +1,176 @@
+\chapter{数据库系统}
+\thispagestyle{empty}
+
+\setlength{\fboxrule}{0pt}\setlength{\fboxsep}{0cm}
+\noindent\shadowbox{
+\begin{tcolorbox}[arc=0mm,colback=lightblue,colframe=darkblue,title=Database System]
+\kai{~~~~SQL.}\\
+
+%\kai{~~~~数分1的重点: 极限与连续概念, 一元函数微分学, 微分中值定理}\\
+
+%\kai{~~~~数分2的重点: 一元函数积分学, 数项级数和函数项级数, 广义积分}\\
+
+%\kai{~~~~数分3的重点: 多元函数微分学, 含参变量积分, 多元函数积分学(重积分, 曲线与曲面积分)}
+
+\end{tcolorbox}}
+\setlength{\fboxrule}{1pt}\setlength{\fboxsep}{4pt}
+
+
+\newpage
+
+\section{数据库基本概念}
+
+\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
+    每章开头的介绍
+\end{tcolorbox}
+
+\subsection{数据抽象}
+
+1. 物理层: 接近底层物理存储的抽象层.
+
+2. 逻辑层: 描述数据及数据间关系的抽象层.
+
+3. 视图层: 较高层的抽象, 仅为特定用户展现数据库的某一部分.
+
+\subsection{实例和模式}
+
+1. 实例: 某时刻存储在数据库中的信息.
+
+2. 模式: 数据库的总体设计, 可分为物理模式, 逻辑模式和子模式.
+
+3. 物理数据独立性: 程序员使用逻辑模式构建的应用程序, 不依赖于数据库的物理模式.
+
+\subsection{数据模型}
+
+1. 定义: 描述物理层, 逻辑层与视图层设计的方式.
+
+2. 关系模型: 用二维表的几何表示数据和数据间的联系.
+
+3. E-R模型: 实体(基本对象)和实体间的联系构成的模型.
+
+\subsection{数据库设计}
+
+1. 概念设计: 得到数据需求后, 选择数据模型, 确定概念模式.
+
+2. 逻辑设计: 将概念模式映射到数据模型上.
+
+3. 物理设计: 指定物理存储模式.
+
+\section{关系型数据库}
+
+\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
+    每章开头的介绍
+\end{tcolorbox}
+
+\subsection{关系模型}
+
+1. 关系: 即二维表, 每张二维表表示一个关系.
+
+2. 关系数据库: 由表的集合构成, 行代表一组值(又称元组)之间的联系, 列对应记录类型的属性.
+
+3. 属性的域: 一个属性允许取值的集合.
+
+\subsection{关系数据库模式}
+
+1. 关系模式的组成: 属性序列以及各属性对应的域.
+
+2. 超码: 能唯一标识元组的一个或多个属性集合.
+
+3. 主码(PRIMARY KEY): 在数据库中用于区分不同元组的最小超码.
+
+4. 外码(FOREIGN KEY): 引入其它关系的主码, 表示了一组参照关系.
+
+5. 模式图:能表达关系, 主码和参照关系的图. 主码用下划线表示,外码通过连接线指向被参照关系.
+
+\subsection{SQL中对关系的操作}
+
+1. 定义一个关系: CREATE TABLE
+
+2. 删除一个关系: DROP TABLE
+
+3. 为关系增加属性: ALTER TABLE * ADD *
+
+\section{SQL查询语句}
+
+\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
+    每章开头的介绍
+\end{tcolorbox}
+
+\subsection{SQL基本数据类型}
+
+1. char: 定长字符型, char(n) 表n位字符串.
+
+2. varchar: 可变长字符串, varchar(n) 表至多n位的字符串.
+
+3. int: 整数型, 全称为integer, 通常取-65536到65535的整数.
+
+4. smallint: 小整数, 通常取-256到255的整数.
+
+5. numeric: 定点数, numeric(p,q) 表总共最多p位, 小数位最多q位
+
+6. float: 浮点小数
+
+\subsection{SQL查询语句}
+
+1. 基本结构: SELECT * FROM * WHERE *
+\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
+    ~~~~良好的书写习惯要求select, from, where分三行书写, 这样每个部分会呈现得比较清晰. 后面create这些语句最好也
+    分多行, 不要舍不得空间!!
+  \end{tcolorbox}
+
+2. SELECT A1, A2, ..., An: 查询后最终显示的属性为A1, A2, ..., An.
+
+3. FROM r1, r2, ..., rn: 查询过程中访问关系r1, r2, ..., rn的笛卡尔积.
+
+4. WHERE P: 显示符合逻辑表达式P的元组.
+
+\subsection{花式SELECT}
+
+1. 指定显示的排列顺序: 在WHERE后插入 ORDER BY A, 表示以属性A升序显示. ORDER BY A DESC 表示以属性A降序显示.
+
+2. 分组显示: 在WHERE后插入 GROUP BY A, 则显示结果时, 将属性A相同的元组放在同一组显示.
+
+3. 聚集函数: 以集合为输入, 单个值为输出的函数. 常见的有 AVG (均值), MIN/MAX (最值), SUM(总和), COUNT(计数), 用法为 SELECT f(A). 
+作用于GROUP BY分组时, 按组给出聚集结果.
+
+\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
+    ~~~~将聚集作用于分组时, SELECT的对象有一定要求, 就是不能把没有被聚集或分组的属性显示出来. 比如以学院为单位分组, 
+    一般不能直接显示教师年龄, 因为一个学院中的教师会有不同的年龄.
+\end{tcolorbox}
+
+4. 分组限定条件: 针对 GROUP BY 分组生效的逻辑约束. 在GROUP BY 后插入 HAVING Q, 则仅显示符合条件Q的分组.
+
+5. 集合运算: SELECT的结果还可以进行集合的交, 并, 差运算. (SELECT * FROM * WHERE *) UNION (SELECT * FROM * WHERE *)
+为求两个查询结果的并集. 类似地, INTERSECT表示求交集, EXCEPT 表示差集.
+
+6. DISTINCT: SELECT DISTINCT A 表示去除查询结果中重复的元组再显示.
+
+\subsection{花式FROM}
+
+1. 自然连接: ri NARURAL JOIN rj 表示 将ri和rj的所有属性拼接在一起,不重复保留共有的属性. 仅考虑在共有的属性中取值相同的元组.
+
+2. 同名属性处理方式: 若ri和rj 均含有属性A, 以示区分, 分别写作ri.A 和 rj.A. 若不引起歧义, 可直接写作A.
+
+3. 重命名: FROM ri AS S, 则可用名称S代替ri使用,常用于关系与自身的笛卡尔积. AS可用于SELECT部分和FROM部分.
+
+\subsection{花式WHERE}
+
+1. 缺省WHERE: 若查询语句仅有SELECT和FROM, 则不加筛选地展示所有元组.
+
+2. BETWEEN运算: WHERE Ai BETWEEN $a$ AND $b$ 等价于 $a \leq \text{Ai} \leq b$.
+
+3. 空值: NULL代表某一属性值为空, Ai IS NULL 当且仅当 A为空时取真值. NULL与任何值作比较均得到结果UNKNOWN. 若筛选结果为UNKNOWN, 也不显示元组.
+
+4. 空关系测试: EXISTS(SELECT\%)仅在查询结果不为空时取真值.
+
+5. 重复元组存在性测试: UNIQUE(SELECT \%)仅在查询结果不含重复元组时取真值.
+
+\subsection{字符串模式匹配}
+
+1. 模式符号\%: 匹配任意字串.
+
+2. 模式符号\_: 匹配任意一个字符.
+
+3. ESCAPE '$\backslash$': 使用'$\backslash$'作为转义字符, 如''$\backslash$'\%' 表百分号字符.
+
+4. LIKE操作符: WHERE s LIKE p 当且仅当字符串s适配模式p时为TRUE, 注意模式是大小写敏感的.

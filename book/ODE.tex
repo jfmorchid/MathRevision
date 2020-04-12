@@ -1,0 +1,58 @@
+\chapter{常微分方程}
+\thispagestyle{empty}
+
+\setlength{\fboxrule}{0pt}\setlength{\fboxsep}{0cm}
+\noindent\shadowbox{
+\begin{tcolorbox}[arc=0mm,colback=lightblue,colframe=darkblue,title=Ordinary Differencial Equation]
+\kai{~~~~常微分方程是数学分析的后继课, 解决的是包含一元函数导数$\frac{\mathrm{d}y}{\mathrm{d}x}$的方程求解. 
+在高等数学中, 仅就几种初等情况列举解法, 而常微分方程专业课涉及的内容较为深刻, 不仅给出解法, 还指出解存在, 唯一, 稳定(统称适定性)的条件. 
+常微分方程在控制论中是描述系统的有力工具, 也是描述混沌现象的数学基础. 
+}\\
+
+\kai{~~~~学习常微分方程, 需要具有较好的数学分析和高等代数基础.
+重点内容为: 常微分方程初等解法, 常微分方程适定性条件, 高阶微分方程, 线性微分方程组.
+}\\
+
+\kai{~~~~扩展内容: 李雅普诺夫稳定性, 首次积分法.
+}\\
+
+\end{tcolorbox}}
+\setlength{\fboxrule}{1pt}\setlength{\fboxsep}{4pt}
+
+
+\newpage
+
+\section{一阶微分方程}
+
+\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
+\kai{~~~~这一部分主要介绍了仅含一元函数$y(x)$的一次导数的方程, 一般形式为$F(x,y,\frac{\mathrm{d}y}{\mathrm{d}x})=0.$
+    首先介绍一阶微分方程的初等解法和隐式微分方程求解, 也就是列出几种非常特殊的形式, 给出对症下药的解法. 然而能给出初等解法的微分方程毕竟为极少数, 
+    为了研究一阶微分方程的通性, 针对形式$\frac{\mathrm{d}y}{\mathrm{d}x}=f(x,y)$, 
+    证明了Picard定理, 给出方程存在唯一解的条件, 成为微分方程数值解的理论基础; 又介绍了将皮卡定理确定的解在有界区域内延拓的方法, 并研究了解对初值的连续依赖性.}
+\end{tcolorbox}
+
+\subsection{一阶微分方程的初等解法}
+
+1. 变量分离方程: $\frac{\mathrm{d}y}{\mathrm{d}x}=f(x) \varphi(y)$. 
+
+~~~$\rightarrow$ 移项为$\frac{1}{\varphi(y)}\mathrm{d}y=f(x)dx$, 两边积分后得到不含微分项的等式.
+
+2. 齐次微分方程: $\frac{\mathrm{d}y}{\mathrm{d}x}=f(\frac{y}{x})$. 
+
+~~~$\rightarrow$ 令$y=x\cdot u(x).$ 此时$\mathrm{d}y=x\mathrm{d}u+u\mathrm{d}x$.
+
+~~~$\rightarrow$ 代入得到$x\frac{\mathrm{d}u}{\mathrm{d}x}=f(u)-u$, 化为变量可分离形式.
+
+3. 常数变易法: $\frac{\mathrm{d}y}{\mathrm{d}x}=p(x)\cdot y+Q(x)$. 
+
+~~~$\rightarrow$ 先考虑变量分离形式$\frac{\mathrm{d}y}{\mathrm{d}x}=P(x)\cdot y$, 解得$y=c\cdot e^{\int P(x) \mathrm{d} x}$.
+
+~~~$\rightarrow$ 将常数$c$变易为函数$c(x)$,即假设$y=c(x)e^{\int P(x) \mathrm{d}x}$, 代入求解.
+
+4. Bernoulli型方程: $\frac{\mathrm{d}y}{\mathrm{d}x}=P(x)\cdot y+Q(x)\cdot y^n$.
+
+~~~$\rightarrow$ 两边同除以$y^n$, 得$y^{-n}\frac{\mathrm{d}y}{\mathrm{d}x}=P(x)\cdot y^{1-n}+Q(x)$.
+
+~~~$\rightarrow$ 令$z=y^{1-n}$, $\frac{\mathrm{d}z}{\mathrm{d}x}=(1-n)y^{-n}\frac{\mathrm{d}y}{\mathrm{d}x}$.
+
+~~~$\rightarrow$ 代入得$\frac{1}{1-n}\frac{\mathrm{d}z}{\mathrm{d}x}=P(x)\cdot z+Q(x)$, 化为常数变易形式.

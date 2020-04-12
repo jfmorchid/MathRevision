@@ -1,0 +1,128 @@
+\chapter{高等代数}
+\thispagestyle{empty}
+
+\setlength{\fboxrule}{0pt}\setlength{\fboxsep}{0cm}
+\noindent\shadowbox{
+\begin{tcolorbox}[arc=0mm,colback=lightblue,colframe=darkblue,title=Advanced Algebra]
+\kai{~~~~高等代数同为大一新生必修的数院基础课, 与数分一样, 是多门后继学科最基本的理论基础. 山大的高代分为两个学期讲授: 
+第一个学期主要学习线性代数基础, 第二个学期主要学习线性变换和矩阵分析. 高代2被称为挂科神课不无道理, 
+相比前一学期内容跨度相当大, 瞬间抽象起来, 引入的线性空间和线性映射等抽象概念很难理解. 但是学得深入又会感觉非常有趣, 
+只要满足八大性质的集合, 就能用一组基和常见的欧氏空间和坐标联系起来, 充分体现了数学的抽象之美. }\\
+
+\kai{~~~~学习高等代数, 不需要任何先修知识, 但是要学会将复杂的事物抽象化描述(最好的例子:线性方程组改写为$\textbf{Ax=b}$). 
+初学阶段, 多思考, 多举例子, 多做题对提高很有帮助.}\\
+
+\kai{~~~~高代1的重点: 多项式, 行列式, 矩阵, 线性方程组, 二次型}\\
+
+\kai{~~~~高代2的重点: 线性空间, 线性映射与线性变换, 特征值与特征向量, $\lambda$矩阵与Jordan标准形, 欧氏空间, 正交变换}
+
+\end{tcolorbox}}
+\setlength{\fboxrule}{1pt}\setlength{\fboxsep}{4pt}
+
+
+\newpage
+
+\section{线性空间与线性变换}
+
+\subsection{线性空间}
+
+1. 定义: 在数域$P$和集合$V$上定义加法和数乘两种运算: 加法满足交换律, 结合律, 零元0与逆元1; 乘法有单位元1, 满足结合律与两条分配律, 则称
+V是数域P上的线性空间,其中的元素称为向量.
+
+2. 基: 若线性空间$V$内存在$n$个线性无关的向量$x_1,x_2,\cdots x_n$, 使得$\forall x \in V, \exists k_1,k_2,\cdots,k_n \in P, x=k_1x_1+k_2x_2+\cdots+k_nx_n$, 
+z则称向量$x_1,x_2,\cdots,x_n$为$V$的一组基.
+
+3. 维数: 线性空间$V$中任意一组基中的向量个数称为$V$的维数,记作 dim $V$. 
+
+\begin{tcolorbox}[colback=blue!5,colframe=blue!75!black,title=定义解析]
+    ~~~~这么定义有一个隐含结论: 同一线性空间的任意两组基有相同个数的向量. 可以从线性表示这一角度入手, 证明这一结论.
+\end{tcolorbox}
+
+4. 向量的坐标: 选定一组基$e_1,e_2,\cdots,e_n$后, 任一向量$x=x_1e_1+\cdots+x_ne_n$在基下的坐标为$(x_1,x_2,\cdots,x_n)$.
+又可写作
+\begin{equation*}
+    x=(e_1,e_2,\cdots,e_n)\begin{pmatrix}
+        x_1 \\
+        x_2\\
+        \cdots\\
+        x_n
+    \end{pmatrix}
+\end{equation*}.
+
+\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
+    ~~~~可以直接看成$1\times n$分块矩阵和$n \times 1$向量的乘积. 注意顺序最好不要颠倒, 习惯上把基写成行向量, 坐标写成列向量, 
+    在学习线性变换时我们默认了此种写法.
+  \end{tcolorbox}
+
+5. 两组基之间的关系: 令$x_1,x_2,\cdots,x_n$ 与 $y_1,y_2,\cdots,y_n$ 为同一个线性空间的两组基,则必存在矩阵\textbf{A}, 
+使得$(x_1,x_2,\cdots,x_n)=(y_1,y_2,\cdots,y_n)\textbf{A}$, 称矩阵\textbf{A}为基$y_1,y_2,\cdots,y_n$到$x_1,x_2,\cdots,x_n$ 的过渡矩阵.
+
+\begin{tcolorbox}[colback=yellow!10,colframe=red!75!black,title=小窍门]
+    ~~~~如果觉得基很难理解, 就放在欧氏空间上看. $(x_1,x_2,\cdots,x_n)$与$(y_1,y_2,\cdots,y_n)$是两个满秩矩阵, 它们必定相抵, \textbf{A}就可以理解为那个初等变换矩阵. 
+    到后面就知道, 线性空间和同一维数的欧氏空间本来就是等价的.
+\end{tcolorbox}
+
+
+6. 向量的坐标变换公式: 在线性空间$V$中,某向量在基$x_1,x_2,\cdots,x_n$下的坐标为$(a_1,a_2,\cdots,a_n)^T$,在基$y_1,y_2,\cdots,y_n$下的坐标为$(b_1,b_2,\cdots,b_n)^T$, 且
+$y_1,y_2,\cdots,y_n$到$x_1,x_2,\cdots,x_n$的过渡矩阵为\textbf{A},则有
+\begin{equation*}
+    \begin{pmatrix}
+        b_1\\
+        b_2\\
+        \cdots\\
+        b_n
+    \end{pmatrix}=\textbf{A}\cdot
+    \begin{pmatrix}
+        a_1\\
+        a_2\\
+        \cdots\\
+        a_n
+    \end{pmatrix}.
+\end{equation*}
+
+\subsection{线性子空间}
+
+1. 定义: 令$V$为线性空间. 若$V_1 \in V$且加法, 数乘运算对$V_1$封闭,则$V_1$称为$V$的一个线性子空间.
+
+2. 生成子空间: 若$x_1,x_2,\cdot x_m$为一组线性无关的向量,则
+
+$$V_1=\{k_1x_1+k_2x_2+\cdots+k_mx_m|k_1,k_2,\cdots,k_m \in P\}$$
+
+称为由向量$x_1,x_2,\cdots,x_m$生成的子空间.
+
+3. 基的扩张定理: 设$V_1$为$n$维线性空间$V$的子空间,且$x_1,x_2,\cdots,x_m$为$V_1$的一组基,则存在向量$x_{m+1},\cdots,x_n$, 
+使得$x_1,x_2,\cdots,x_m,x_{m+1},\cdots,x_n$为$V$的一组基.
+
+\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
+    ~~~~定理本身并不难证,数学归纳就能证出. 这个定理在用于求解子空间问题时很方便, 经常会出现"假设子空间的基, 扩张为原空间的基"的证法. 
+    下一个重要公式"维数公式"证法就是这类方法的重要例证.
+  \end{tcolorbox}
+
+  4. 维数公式: dim $(V_1 \bigcup V_2)$ = dim $V_1$ $+$ dim $V_2$ $-$ dim $(V_1 \bigcap V_2)$.
+
+  \begin{coro}{维数公式}{weishugongshi}
+    ~~~~令$V_1 \bigcap V_2$的一组基为$e_1,e_2,\cdots,e_m$. 由基的扩张定理, 这组基既可以扩张为$V_1$的基
+    $e_1,e_2,\cdots,e_m,e_{m+1},\cdots,e_r$, 也可以扩张为$V_2$的一组基$e_1,e_2,\cdots,e_m,e_{r+1},\cdots,e_s$. 
+    从线性表示和线性无关两个角度, 可证明$e_1,e_2,\cdots,e_m,e_{m+1},\cdots,e_s$为$V_1 \bigcup V_2$ 的一组基. 
+    此时dim $(V_1 \bigcup V_2) = s$, dim $(V_1 \bigcap V_2) = m$, dim $V_1 = r$, dim $V_1 = m+s-r$, 维数公式成立. 
+  \end{coro}
+
+  5. 子空间的直和: 若$V_1 \bigcap V_2 = 0$, 则$V_1 \bigcup V_2$ 分解为$x=x_1+x_2 (x_1 \in V_1, x_2 \in V_2)$的分解形式唯一. 
+  此时称$V_1 \bigcup V_2$为子空间$V_1,V_2$的直和, 记作$V_1 \oplus V_2$.
+  
+  \subsection{线性算子与线性变换}
+
+  1. 线性算子: 若$M$与$N$为两个集合, 且$\forall x \in M, \exists ! y \in N, y=\mathscr{A}x, $则称$\mathscr{A}$为$M\rightarrow N$ 的算子. 
+  若$\forall x,y \in M$且 $\lambda_1,\lambda_2 \in P$, 有$\mathscr{A}(\lambda_1 x_1 \lambda_2 x_2)=\lambda_1 \mathscr{A}x_1+\lambda_2 \mathscr{A} x_2$, 则称$\mathscr{A}$为线性算子.
+
+  2. 同构算子: 若$\mathscr{A}$是可逆算子, 即$\forall y \in N , \exists ! x\in M,\mathscr{A}x=y$, 则称$\mathscr{A}$为同构算子.
+  
+  3. 同构定理: $\dim M=\dim N \Leftrightarrow \exists A:M\rightarrow N$为同构算子.
+
+  4. 线性算子矩阵表示: 令$\mathscr{A}: V^n \rightarrow V^m$, 取$V^n$一组基$e_1,e_2,\cdots,e_n$, 
+  与$V^m$一组基$e_1',e_2',\cdots,e_m'$, 则$\mathscr{A} e_i=a_{i1}e_1'+\cdots+a_{im}e_m'$, 即
+  \begin{equation*}
+    \mathscr{A}(e_1,\cdots,e_n)=(\mathscr{A} e_1,\cdots,\mathscr{A} e_n)=(e_1',\cdots,e_m')A.
+  \end{equation*}
+
+  其中矩阵$A$称为基$(e_1,\cdots,e_n)$与$(e_1',\cdots,e_m')$下$\mathscr{A}$的矩阵表示.
