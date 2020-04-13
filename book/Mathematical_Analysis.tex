@@ -20,4 +20,72 @@
 
 \newpage
 
-\section{极限与连续概念}
+\section{集合与函数概念}
+
+\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
+    ~~~~这一章内容不多且不难, 可以认为是从高中数学到数分的过渡, 更可以认为是数学各个分支的基石.
+    
+    ~~~~集合论是高等数学的核心, 由此衍生出基(tu)础(tou)数学和计算机科学的区别: 一个研究连续集合, 比如实数域, 复数域等具有连续势集合上的映射, 另一个更偏向
+    离散集合, 也就是有穷集和可列集上的映射. 从前者开始诞生实分析, 复分析, 傅里叶分析, 泛函分析等各大分析, 后者则衍生出图论, 组合数学, 数据结构等计算机科学分支. 认清这一点后, 
+    我们便可以用一句话概括数学分析干了啥: 研究实数域或$n$维欧氏空间到实数域上的映射. 同时, 集合论又是各大学科的基础(笔者在数分, 实变, 离散数学三门课上过三遍集合论...), 故不可轻敌.
+
+    ~~~~映射就是数学分析的研究主体. 注意到我们只研究欧氏空间到实数域的映射, 也就是实变量函数, 我们可以归纳出这一类函数的表示方法和基本性质, 同时温习一下高中数学内容.
+    
+\end{tcolorbox}
+
+\subsection{集合论}
+
+1. 集合的定义: 具有特定性质的一些对象总体, 集合内的对象称为元素.
+
+\begin{tcolorbox}[colback=blue!5,colframe=blue!75!black,title=定义解析]
+    ~~~~这一句话概括了集合的很多隐含属性: 首先,元素有"特定"的性质, 那么该性质直接决定
+    某一对象是否属于集合, 即对象完全由性质确定; 第二, "总体"告诉我们, 研究集合要从整体上把握, 切勿以偏概全, 给集合下的结论应对集合内任一元素成立; 
+    最后, 集合表示了对象是否具有某性质, 那么同一对象不会多次出现在一个集合内.
+\end{tcolorbox}
+
+2. 集合关系: (1) 从属关系: 若对象$x$在集合$A$内, 则称$x$属于$A$, 记作$x \in A$.
+
+(2) 包含关系: 若$\forall x \in A, x \in B$, 则称$B$包含$A$, 记作$A \subset B$. 
+
+3. 集合运算: (1) 交运算: $A \cap B=\{x|x\in A, x\in B\}$
+
+(2) 并运算: $A \cup B=\{x|x\in A \text{~~or~~} x\in B\}$
+
+(3) 补运算: $\overline{A}=\{x|x \notin A \}$
+
+(4) De Morgan定律: $\overline{A \cap B}=\overline{A}\cup \overline{B};$ $\overline{A \cup B}=\overline{A}\cap \overline{B}.$
+
+\begin{theo}{德摩根定律}{theo1.1}
+只证前一部分, 后一部分证法类似.
+
+对$\forall x \in \overline{A \cap B}$, $x \notin A \cap B$, 即$x \notin A$ 或$x \notin B$. 若$x \notin A$, 则$x \in \overline{A}$; 若$x \notin B$, 则$x \in \overline{B}$.
+总之, 必有$x \in \overline{A}\cup \overline{B}.$
+
+反之, 对$\forall x \in \overline{A}\cup \overline{B}$, $x \notin A$ 或$x \notin B$, 即$x \notin A\cap B$. 立得$x \in \overline{A \cap B}.$
+
+\end{theo}
+
+(5) 笛卡尔积: $A \times B=\{(x,y)|x \in A, y \in B\}$.
+
+\begin{tcolorbox}[colback=yellow!10,colframe=red!75!black,title=小窍门]
+    ~~~~观察德摩根定律的证明, 证两个集合$A$和$B$相等就是证$A$含于$B$且$B$含于$A$. 
+    事实上, 证集合相等就这一种办法, 遇到此类题, 这么构思准没错.
+  \end{tcolorbox}
+
+  
+4. 可列集: 能按某规律排列所有元素的集合. 
+
+\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
+    ~~~~可列集合的直观理解是离散无穷, 深入学下去可知道离散无穷"远小于"连续无穷. 常见的整数集和有理数集是可列集, 
+    但是实数集不是可列集, 这导致无理数远远多于有理数, 或表述为实数轴几乎处处是无理数.
+\end{tcolorbox}
+
+\subsection{映射}
+
+1. 定义: 在两个集合$A$, $B$间定义对应关系$f: A\rightarrow B$, 使得$\forall x \in A$, $\exists y \in B$, $y=f(x)$. 其中
+$A$ 称为定义域, $B$称为值域, $f$称为$A$到$B$的映射.
+
+
+
+
+

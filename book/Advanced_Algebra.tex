@@ -48,12 +48,19 @@
 V是数域P上的线性空间,其中的元素称为向量.
 
 \begin{tcolorbox}[colback=blue!5,colframe=blue!75!black,title=定义解析]
-    ~~~~这么长的定义都是唬人的, 所以这里没(lan)有(de)写全. 最核心的也是用得最多的只有一句话: 对任意向量
+    ~~~~这么长的定义都是唬人的, 所以这里没(lan)有(de)写全. 最核心的也是用得最多的只有一个分配律: 对任意向量$x,y$以及数$a$,满足
+    \begin{equation*}
+        a(x_1+x_2)=ax_1+ax_2
+    \end{equation*}
 \end{tcolorbox}
 
 2. 基: 若线性空间$V$内存在$n$个线性无关的向量$x_1,x_2,\cdots x_n$, 使得$\forall x \in V, \exists k_1,k_2,\cdots,k_n \in P, x=k_1x_1+k_2x_2+\cdots+k_nx_n$, 
 z则称向量$x_1,x_2,\cdots,x_n$为$V$的一组基.
 
+\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
+    ~~~~上式就是线性表示的定义式. 此处一般认为$n<\infty$, 无穷维线性空间属于泛函分析的内容, 此处不赘述.
+  \end{tcolorbox}
+  
 3. 维数: 线性空间$V$中任意一组基中的向量个数称为$V$的维数,记作 dim $V$. 
 
 \begin{tcolorbox}[colback=blue!5,colframe=blue!75!black,title=定义解析]
@@ -72,8 +79,11 @@ z则称向量$x_1,x_2,\cdots,x_n$为$V$的一组基.
 \end{equation*}.
 
 \begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
-    ~~~~可以直接看成$1\times n$分块矩阵和$n \times 1$向量的乘积. 注意顺序最好不要颠倒, 习惯上把基写成行向量, 坐标写成列向量, 
+    ~~~~1. 可以直接看成$1\times n$分块矩阵和$n \times 1$向量的乘积. 注意顺序最好不要颠倒, 习惯上把基写成行向量, 坐标写成列向量, 
     在学习线性变换时我们默认了此种写法.
+    
+    ~~~~2. 注意到只要确定基, 就可以确定一组坐标, 而坐标又是最熟悉的向量的直观定义($n$个数排列), 也就是说很多线性相关性的结论可以直接平移到抽象定义上. 
+    如果不确信的话, 可以尝试证明一下$n$维向量空间中至多有$n$个线性无关的向量.
   \end{tcolorbox}
 
 5. 两组基之间的关系: 令$x_1,x_2,\cdots,x_n$ 与 $y_1,y_2,\cdots,y_n$ 为同一个线性空间的两组基,则必存在矩阵\textbf{A}, 
@@ -120,50 +130,120 @@ $$V_1=\{k_1x_1+k_2x_2+\cdots+k_mx_m|k_1,k_2,\cdots,k_m \in P\}$$
     下一个重要公式"维数公式"证法就是这类方法的重要例证.
   \end{tcolorbox}
 
-  4. 维数公式: dim $(V_1 \bigcup V_2)$ = dim $V_1$ $+$ dim $V_2$ $-$ dim $(V_1 \bigcap V_2)$.
+4. 维数公式: dim $(V_1 \bigcup V_2)$ = dim $V_1$ $+$ dim $V_2$ $-$ dim $(V_1 \bigcap V_2)$.
 
-  \begin{coro}{维数公式}{weishugongshi}
-    ~~~~令$V_1 \bigcap V_2$的一组基为$e_1,e_2,\cdots,e_m$. 由基的扩张定理, 这组基既可以扩张为$V_1$的基
-    $e_1,e_2,\cdots,e_m,e_{m+1},\cdots,e_r$, 也可以扩张为$V_2$的一组基$e_1,e_2,\cdots,e_m,e_{r+1},\cdots,e_s$. 
-    从线性表示和线性无关两个角度, 可证明$e_1,e_2,\cdots,e_m,e_{m+1},\cdots,e_s$为$V_1 \bigcup V_2$ 的一组基. 
-    此时dim $(V_1 \bigcup V_2) = s$, dim $(V_1 \bigcap V_2) = m$, dim $V_1 = r$, dim $V_1 = m+s-r$, 维数公式成立. 
-  \end{coro}
+\begin{coro}{维数公式}{weishugongshi}
+~~~~令$V_1 \bigcap V_2$的一组基为$e_1,e_2,\cdots,e_m$. 由基的扩张定理, 这组基既可以扩张为$V_1$的基
+$e_1,e_2,\cdots,e_m,e_{m+1},\cdots,e_r$, 也可以扩张为$V_2$的一组基$e_1,e_2,\cdots,e_m,e_{r+1},\cdots,e_s$. 
+从线性表示和线性无关两个角度, 可证明$e_1,e_2,\cdots,e_m,e_{m+1},\cdots,e_s$为$V_1 \bigcup V_2$ 的一组基. 
+此时dim $(V_1 \bigcup V_2) = s$, dim $(V_1 \bigcap V_2) = m$, dim $V_1 = r$, dim $V_1 = m+s-r$, 维数公式成立. 
+\end{coro}
 
-  5. 子空间的直和: 若$V_1 \bigcap V_2 = 0$, 则$V_1 \bigcup V_2$ 分解为$x=x_1+x_2 (x_1 \in V_1, x_2 \in V_2)$的分解形式唯一. 
-  此时称$V_1 \bigcup V_2$为子空间$V_1,V_2$的直和, 记作$V_1 \oplus V_2$.
-  
-  \subsection{线性算子与线性变换}
+5. 子空间的直和: 若$V_1 \bigcap V_2 = 0$, 则$V_1 \bigcup V_2$ 分解为$x=x_1+x_2 (x_1 \in V_1, x_2 \in V_2)$的分解形式唯一. 
+此时称$V_1 \bigcup V_2$为子空间$V_1,V_2$的直和, 记作$V_1 \oplus V_2$.
 
-  1. 线性算子: 若$M$与$N$为两个集合, 且$\forall x \in M, \exists ! y \in N, y=\mathscr{A}x, $则称$\mathscr{A}$为$M\rightarrow N$ 的算子. 
-  若$\forall x,y \in M$且 $\lambda_1,\lambda_2 \in P$, 有$\mathscr{A}(\lambda_1 x_1 \lambda_2 x_2)=\lambda_1 \mathscr{A}x_1+\lambda_2 \mathscr{A} x_2$, 则称$\mathscr{A}$为线性算子.
+\subsection{线性算子与线性变换}
 
-  2. 同构算子: 若$\mathscr{A}$是可逆算子, 即$\forall y \in N , \exists ! x\in M,\mathscr{A}x=y$, 则称$\mathscr{A}$为同构算子.
-  
-  3. 同构定理: $\dim M=\dim N \Leftrightarrow \exists A:M\rightarrow N$为同构算子.
+1. 线性算子: 若$M$与$N$为两个集合, 且$\forall x \in M, \exists ! y \in N, y=\mathscr{A}x, $则称$\mathscr{A}$为$M\rightarrow N$ 的算子. 
+若$\forall x,y \in M$且 $\lambda_1,\lambda_2 \in P$, 有$\mathscr{A}(\lambda_1 x_1 +\lambda_2 x_2)=\lambda_1 \mathscr{A}x_1+\lambda_2 \mathscr{A} x_2$, 则称$\mathscr{A}$为线性算子.
 
-  4. 线性算子矩阵表示: 令$\mathscr{A}: V^n \rightarrow V^m$, 取$V^n$一组基$e_1,e_2,\cdots,e_n$, 
-  与$V^m$一组基$e_1',e_2',\cdots,e_m'$, 则$\mathscr{A} e_i=a_{i1}e_1'+\cdots+a_{im}e_m'$, 即
-  \begin{equation*}
-    \mathscr{A}(e_1,\cdots,e_n)=(\mathscr{A} e_1,\cdots,\mathscr{A} e_n)=(e_1',\cdots,e_m')A.
-  \end{equation*}
+2. 同构算子: 若$\mathscr{A}$是可逆算子, 即$\forall y \in N , \exists ! x\in M,\mathscr{A}x=y$, 则称$\mathscr{A}$为同构算子.
 
-  其中矩阵$A$称为基$(e_1,\cdots,e_n)$与$(e_1',\cdots,e_m')$下$\mathscr{A}$的矩阵表示.
+3. 同构定理: $\dim M=\dim N \Leftrightarrow \exists A:M\rightarrow N$为同构算子.
 
-  5. 像的坐标: 令$x=(x_1,\cdots,x_n)\begin{pmatrix}
-      a_1\\
-      \vdots\\
-      a_n
-  \end{pmatrix}$, $\mathscr{A}(x_1,\cdots,x_n)=(y_1,\cdots,y_m)A$, 
-  则$\mathscr{A} x$在$(y_1,\cdots,y_n)$下的坐标为$A\begin{pmatrix}
+4. 线性算子矩阵表示: 令$\mathscr{A}: V^n \rightarrow V^m$, 取$V^n$一组基$e_1,e_2,\cdots,e_n$, 
+与$V^m$一组基$e_1',e_2',\cdots,e_m'$, 则$\mathscr{A} e_i=a_{i1}e_1'+\cdots+a_{im}e_m'$, 即
+\begin{equation*}
+\mathscr{A}(e_1,\cdots,e_n)=(\mathscr{A} e_1,\cdots,\mathscr{A} e_n)=(e_1',\cdots,e_m')A.
+\end{equation*}
+
+其中矩阵$A$称为基$(e_1,\cdots,e_n)$与$(e_1',\cdots,e_m')$下$\mathscr{A}$的矩阵表示.
+
+5. 像的坐标: 令$x=(x_1,\cdots,x_n)\begin{pmatrix}
     a_1\\
     \vdots\\
     a_n
-  \end{pmatrix}$.
+\end{pmatrix}$, $\mathscr{A}(x_1,\cdots,x_n)=(y_1,\cdots,y_m)A$, 
+则$\mathscr{A} x$在$(y_1,\cdots,y_n)$下的坐标为$A\begin{pmatrix}
+a_1\\
+\vdots\\
+a_n
+\end{pmatrix}$.
 
-  6. 线性变换: 由线性空间$V$到其自身的线性算子$\mathscr{A}$称为$V$上的线性变换.
+6. 线性变换: 由线性空间$V$到其自身的线性算子$\mathscr{A}$称为$V$上的线性变换.
 
-  7. 相似矩阵: 若线性空间$V$的两组基为$(x_1,\cdots,x_n)$与$(y_1,\cdots,y_n)$, 且$(x_1,\cdots,x_n)=(y_1,\cdots,y_n)P$, 
-  $\mathscr{A}(x_1,\cdots,x_n)=(x_1,\cdots,x_n)A, \mathscr{A}(y_1,\cdots,y_n)=(y_1,\cdots,y_n)B,$ 则$A=P^{-1}BP$. 
-  定义矩阵$A$与$B$相似, 当且仅当存在可逆矩阵$P$使得$A=P^{-1}BP$.
+7. 相似矩阵: 若线性空间$V$的两组基为$(x_1,\cdots,x_n)$与$(y_1,\cdots,y_n)$, 且$(x_1,\cdots,x_n)=(y_1,\cdots,y_n)P$, 
+$\mathscr{A}(x_1,\cdots,x_n)=(x_1,\cdots,x_n)A, \mathscr{A}(y_1,\cdots,y_n)=(y_1,\cdots,y_n)B,$ 则$A=P^{-1}BP$. 
+定义矩阵$A$与$B$相似, 当且仅当存在可逆矩阵$P$使得$A=P^{-1}BP$.
   
   
+\subsection{线性变换的特征值与特征向量}
+
+1. 定义: 设$\mathscr{A}$为线性空间$V$上的线性变换. 若$\exists x \in V, \lambda \in P$ 使得$\mathscr{A} x=\lambda x$, 则
+$x$称为对应于特征值$\lambda$的特征向量.
+
+2. 计算方式: 令$|\lambda E-A|=0$, 解$\lambda_1,\cdots,\lambda_n$, 再解线性方程组$(\lambda E-A)x=0$ 求解对应的特征向量.
+\begin{coro}{特征值的计算}{coro1.2}
+    ~~~~设线性变换$V$的一组坐标为$e_1,\cdots,e_n$, $x$在这组基下的坐标为$(x_1,\cdots,x_n)$, 且$\mathscr{A}(e_1,\cdots,e_n)=(e_1,\cdots,e_n)A$.
+
+    ~~~~则$\mathscr{A}x=\mathscr{A}(e_1,\cdots,e_n)\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_n
+    \end{pmatrix}=(e_1,\cdots,e_n)A\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_n
+    \end{pmatrix}$.
+
+    由条件$\mathscr{A}x=\lambda x$得$A\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_n
+    \end{pmatrix}=\lambda\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_n
+    \end{pmatrix}$, 即$x_1,\cdots,x_n$为线性方程组$(\lambda E-A)\begin{pmatrix}
+        x_1\\
+        \vdots\\
+        x_n
+    \end{pmatrix}=0$的根. 该方程不止有零解, 当且仅当$\lambda E-A$为非奇异矩阵, 从$|\lambda E-A|=0$中可解出所有特征值, 代入解线性方程组可解出对应特征向量.
+\end{coro}
+
+    3. 特征子空间: 对应$\lambda_i$的特征向量张成的子空间$V_{\lambda_i}={x|\mathscr{A}x=\lambda_i x}$称为$\mathscr{A}$属于特征值$\lambda_i$的特征子空间.
+
+    4. 可对角化矩阵: 若存在对角矩阵$\Lambda$与可逆矩阵P, 使$P^{-1}AP=\Lambda$, 则矩阵$A$是可对角化的. 矩阵$A$可对角化的充要条件为$A$ 有$\dim V$ 个线性无关的特征向量.
+    
+    \begin{theo}{矩阵可对角化条件}{theo1.1}
+        充分性易证. 设$\dim V=n$, 把特征向量拼为非奇异矩阵$P=(p_1,\cdots,p_n)$, 并设$p_i$对应的特征值为$\lambda_i$, 则
+        $AP=A(p_1,\cdots,p_n)=(Ap_1,\cdots,Ap_n)=(\lambda p_1,\cdots,\lambda p_n)=\Lambda P$, 即$P^{-1}AP=\Lambda$,其中对角矩阵
+        \begin{equation*}
+            \Lambda=\begin{pmatrix}
+                \lambda_1 & 0 & \cdots &0\\
+                0 &\lambda_2  & \cdots &0\\
+                \vdots &\vdots &\vdots &\vdots\\
+                0&0&\cdots &\lambda_n
+            \end{pmatrix}
+        \end{equation*}
+        再证必要性. 由$(Ap_1,\cdots,Ap_n)=(\lambda_1 p_1,\cdots,\lambda_n p_n)$知$\lambda_i,p_i$满足$Ap_i=\lambda_i p_i$. 
+        若解不出$n$个线性无关的特征向量$p_i$, 则$P$不能为非奇异矩阵, 得$A$不可对角化, 故必能解出$n$个线性无关的特征向量.
+    \end{theo}
+
+\subsection{内积空间}
+
+1. 定义: 在线性空间$V$中引入度量. 对$\forall x,y \in V$, 定义$<x,y>$满足
+\begin{equation*}
+    \left\{ \begin{aligned}
+        <x,y>&=~<y,x>\\
+        <x,x>&\geq~0\\
+        <k_1x_1+k_2x_2,y>&=~k_1<x_1,y>+k_2<x_2,y>
+    \end{aligned}\right.
+\end{equation*}, 则称$<x,y>$为内积.
+
+2. 欧氏空间: 定义了内积的实线性空间; 
+   
+~~~~酉空间: 定义了内积的复线性空间, 其中$<x,y>=\overline{<y,x>}$.
+
+3. 夹角
+
