@@ -23,7 +23,7 @@
 \section{集合与函数概念}
 
 \begin{tcolorbox}[colback=red!5,colframe=red!75!black]
-    ~~~~这一章内容不多且不难, 可以认为是从高中数学到数分的过渡, 更可以认为是数学各个分支的基石.
+    ~~~~这部分内容不多且不难, 可以认为是从高中数学到数分的过渡, 更可以认为是数学各个分支的基石.
     
     ~~~~集合论是高等数学的核心, 由此衍生出基(tu)础(tou)数学和计算机科学的区别: 一个研究连续集合, 比如实数域, 复数域等具有连续势集合上的映射, 另一个更偏向
     离散集合, 也就是有穷集和可列集上的映射. 从前者开始诞生实分析, 复分析, 傅里叶分析, 泛函分析等各大分析, 后者则衍生出图论, 组合数学, 数据结构等计算机科学分支. 认清这一点后, 
@@ -85,7 +85,73 @@
 1. 定义: 在两个集合$A$, $B$间定义对应关系$f: A\rightarrow B$, 使得$\forall x \in A$, $\exists y \in B$, $y=f(x)$. 其中
 $A$ 称为定义域, $B$称为值域, $f$称为$A$到$B$的映射.
 
+2. 特殊映射: (1) 单射: $\forall x_1,x_2 \in A , f(x_1)\neq f(x_2)$.
 
+(2) 满射: $\forall y \in B, \exists x \in A, y=f(x)$.
 
+(3) 双射: $\forall x \in A ,\exists !y \in B, y=f(x)$. 双射等价于单射+满射.
 
+(4) 逆映射: 令 $f:A\rightarrow B$为双射, 定义 $f^{-1}:B \rightarrow A,$  使得$x=f^{-1}(y)$ 等价于$y=f(x)$.
 
+3. 函数: 数学分析中研究的函数特指实数(欧氏空间)到实数的映射. 定义域指定为$\mathbb{R}$时, $f$称为一元实函数; 定义域指定为$\mathbb{R}^n$时, 
+$f$称为多元实(变)函数.
+
+4. 一元函数的表示方式: (1)解析式: 将因变量$y$用自变量$x$表示为 $y=f(x)$.
+
+(2) 参数方程: $\left\{\begin{aligned}
+    y&=&\phi(t)\\
+    x&=&\psi(t)\\
+\end{aligned}\right.$, 其中$t$称为参数.
+
+(3) 隐函数: $F(x,y)=0$, 通常从中解不出显式解析式$y=f(x)$.
+
+5. 函数特性: (1) 单调性. $\forall x_1<x_2, f(x_1)<f(x_2),$ 则$f(x)$单增; $\forall x_1<x_2, f(x_1)>f(x_2),$ 则$f(x)$单减;
+
+(2) 奇偶性. $f(x)=f(-x)$为偶函数, $f(x)=-f(-x)$为奇函数.
+
+(3) 周期性. $\exists T>0, f(x+T)=f(x)$, 则$f(x)$以$T$为周期.
+
+(4) 有界性. $\exists M>0,$ $|f(x)|<M$恒成立, $f(x)$为有界函数.
+
+\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
+    ~~~~这部分内容看起来头疼, 一般也不会让你证是不是满射之类的, 很多都无关紧要. 出镜率高的概念有: 逆映射, 参数方程, 隐函数, 单调性和有界性.
+\end{tcolorbox}
+
+\section{极限}
+
+\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
+~~~~极限是分析理论的基石, 是把微积分概念严谨化不可或缺的概念. 学习极限的最主要目的是熟悉$\varepsilon-N$语言, 并能熟练用这种语言证明.
+
+~~~~什么是极限? 直观上讲就是一列数能够任意逼近某个值. 这个任意性可以用$\varepsilon$概括, 即某项以后, 所有数与该值的距离小于任意正数$\epsilon$. 
+用数学语言写出来, 就是极限的$\varepsilon-N$定义.
+
+~~~~怎么用极限概念证明问题? 首先熟悉实数系五大基本定理, 再取定适当的$\varepsilon$和$N$, 使用$\varepsilon-N$语言证明或推翻结论.
+
+\end{tcolorbox}
+
+\subsection{实数系的连续性}
+
+1. 确界: 最小上界称为上确界; 最大下界称为下确界. 数学语言描述: 
+
+$\sup S =\min\{M|\forall x \in S, x \leq M\}$, 
+$\inf S =\max\{m|\forall x \in S, x \geq m\}$.
+
+\begin{tcolorbox}[colback=yellow!10,colframe=red!75!black,title=小窍门]
+ ~~~~这个定义平时不怎么用, 用得更多的是另一种描述(以上确界为例):
+
+ ~~~~(1) $M$为上界, 即$\forall x \in S, s \leq M$;
+ 
+ ~~~~(2) $M-\varepsilon$都不是上界, 即$\forall \varepsilon>0, \exists x_0 \in S, x_0>M-\varepsilon$.
+
+\end{tcolorbox}
+
+2. 确界存在性定理: 非空有上界的数集必有上确界; 非空有下界的数集必有下确界.
+
+\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
+~~~~为什么把确界存在性定理单列? 因为此处把这个定理作为出发点证明其它定理. 证明确界存在性定理的方法是十进制小数逼近, 感觉不那么严谨.
+\end{tcolorbox}
+
+\subsection{数列极限}
+
+1. 定义: 对数列$\{a_n\}$, 若$\forall \varepsilon>0, \exists N \in N^*, n>N$时, 恒有$|a_n-A|<\varepsilon$, 
+则数列$\{a_n\}$的极限为$A$, 记作$\lim\limits_{n\rightarrow \infty} a_n=A$.

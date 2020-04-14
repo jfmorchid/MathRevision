@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.3.14)  13 APR 2020 19:18
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.3.14)  14 APR 2020 12:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1304,7 +1304,10 @@ LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/sl' in size <12> not avail
 (Font)              Font shape `TU/TimesNewRoman(0)/m/it' tried instead on input line 58.
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 59.
-) [3]
+ [3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]) [5] [6]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 39.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
  (./Revision.aux (./PREFACE/intro.aux) (./book/Mathematical_Analysis.aux))
@@ -1317,16 +1320,16 @@ Package rerunfilecheck Warning: File `Revision.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `Revision.out':
-(rerunfilecheck)             Before: 5E67C0FF6A3FE2C98201291E0C5AD533
-(rerunfilecheck)             After:  D7B5FE3F6688A8DA10BD77662BA76F2D.
+(rerunfilecheck)             Before: 1DAB035268DC5B16C421BDCF859EC23B
+(rerunfilecheck)             After:  E4C11591D6FD7C81C1BFAC0588A17499.
  ) 
 Here is how much of TeX's memory you used:
- 41394 strings out of 492922
- 824970 string characters out of 6136751
- 866389 words of memory out of 5000000
- 44868 multiletter control sequences out of 15000+600000
+ 41403 strings out of 492922
+ 825134 string characters out of 6136751
+ 867389 words of memory out of 5000000
+ 44877 multiletter control sequences out of 15000+600000
  538359 words of font info for 99 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  56i,12n,79p,953b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Revision.pdf (6 pages).
+Output written on Revision.pdf (9 pages).
