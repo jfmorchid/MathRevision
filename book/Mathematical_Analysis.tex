@@ -153,5 +153,14 @@ $\inf S =\max\{m|\forall x \in S, x \geq m\}$.
 
 \subsection{数列极限}
 
-1. 定义: 对数列$\{a_n\}$, 若$\forall \varepsilon>0, \exists N \in N^*, n>N$时, 恒有$|a_n-A|<\varepsilon$, 
+1. 定义: 对数列$\{a_n\}$, 若$\forall \varepsilon>0, \exists N \in \mathbb{N}^*, n>N$时, 恒有$|a_n-A|<\varepsilon$, 
 则数列$\{a_n\}$的极限为$A$, 记作$\lim\limits_{n\rightarrow \infty} a_n=A$.
+
+2. 性质: (1)唯一性. 若$A,B$为$\{x_n\}$极限, 则$A=B$.
+
+(2) 有界性. 若$\lim\limits_{n\rightarrow \infty} x_n=A<+\infty$, 则$\{x_n\}$有界.
+
+(3) 夹逼准则. 若$\exists N_0\in \mathbb{N}^*$, $n>N_0$时, $x_n\leq a_n\leq y_n$, 
+且$\lim\limits_{n\rightarrow \infty} x_n=\lim\limits_{n\rightarrow \infty} y_n=A$, 
+则$\lim\limits_{n\rightarrow \infty} a_n=A$. 
+

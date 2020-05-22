@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper,openany,twoside,cap]{ctexbook}
 \input{setup/package.tex}   %引用宏包所在位置
 \input{setup/format.tex}    %格式所在位置
-\begin{document}
+\begin{document}\begin{spacing}{1.5}
 \pagenumbering{Roman}    %Roman字体书写页码
 %---------------------------------------------------封面等-----------------------
 %\include{preface/cover}                         %封面
@@ -24,11 +24,12 @@
 \mainmatter    %前言和目录页码结束，正文重新开始设置页码
 %-----------------------------------------正文开始------------------------------
 %\include{book/chap1}       %第二章
-\include{book/Mathematical_Analysis}       %数学分析
+%\include{book/Mathematical_Analysis}       %数学分析
 %\include{book/Database_System}       %数据库系统
 %\include{book/Advanced_Algebra}       %高等代数
 %\include{book/Analytic_Geometry}       %解析几何
 %\include{book/ODE}       %常微分方程
+\include{book/Probability_And_Statistics}
 
 %\addtocounter{chapter}{7}
 %-----------------------------------------正文结束------------------------------
@@ -36,5 +37,5 @@
 %\addtocontents{toc}{\protect\end{multicols}}   %目录分两栏结束
 %\include{reference/references}                               %参考文献部分
 \clearpage
-\end{document}
+\end{spacing}\end{document}
 
