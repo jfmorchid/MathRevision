@@ -1,176 +1,223 @@
 \chapter{数据库系统}
-\thispagestyle{empty}
-
-\setlength{\fboxrule}{0pt}\setlength{\fboxsep}{0cm}
-\noindent\shadowbox{
-\begin{tcolorbox}[arc=0mm,colback=lightblue,colframe=darkblue,title=Database System]
-\kai{~~~~SQL.}\\
-
-%\kai{~~~~数分1的重点: 极限与连续概念, 一元函数微分学, 微分中值定理}\\
-
-%\kai{~~~~数分2的重点: 一元函数积分学, 数项级数和函数项级数, 广义积分}\\
-
-%\kai{~~~~数分3的重点: 多元函数微分学, 含参变量积分, 多元函数积分学(重积分, 曲线与曲面积分)}
-
-\end{tcolorbox}}
-\setlength{\fboxrule}{1pt}\setlength{\fboxsep}{4pt}
-
-
-\newpage
 
 \section{数据库基本概念}
 
-\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
-    每章开头的介绍
-\end{tcolorbox}
+\textbf{1. 数据：}存储的基本对象， 记录是计算机表示的和存储数据的一种格式或方法
 
-\subsection{数据抽象}
+\textbf{2. 数据库：}长期存储在计算机中有组织、可共享的大量数据的集合。特点是永久存储、有组织、可共享
 
-1. 物理层: 接近底层物理存储的抽象层.
+\textbf{3. 数据库系统：}计算机引入数据库后的系统。特点：相互关联的数据集合，较少的数据冗余（关系规范化，程序与数据相互独立，数据安全可靠，保证数据正确性
 
-2. 逻辑层: 描述数据及数据间关系的抽象层.
+\textbf{4. 数据独立性：}应用程序不依赖于特定物理表示。逻辑独立性是信息内容变化不影响应用程序，物理独立性是物理存储位置/结构不影响应用程序
 
-3. 视图层: 较高层的抽象, 仅为特定用户展现数据库的某一部分.
+\section{数据模型}
 
-\subsection{实例和模式}
+\textbf{1. 数据模型：}对现实数据的模拟。分为概念层数据模型和组织层数据模型。
 
-1. 实例: 某时刻存储在数据库中的信息.
+\textbf{2. 概念层数据模型：}抽象实体及实体间的关联关系，常见的有（实体-联系）E-R模型。
 
-2. 模式: 数据库的总体设计, 可分为物理模式, 逻辑模式和子模式.
+\textbf{3. E-R模型：}把实体写在框内，属性写在圆角矩形内，联系写在菱形内。用连线将联系与关联的实体连接。
 
-3. 物理数据独立性: 程序员使用逻辑模式构建的应用程序, 不依赖于数据库的物理模式.
+\textbf{4. 组织层数据模型：}以数据的组织方式描述信息。常见的为关系模型。
 
-\subsection{数据模型}
+\textbf{5. 关系模型：}用二维表（关系）组织数据，关系数据库是关系的集合。关系中的行称为记录（元组），列称为属性。关系模型中的主要操作是增删改查，用行、列唯一确定数据。
 
-1. 定义: 描述物理层, 逻辑层与视图层设计的方式.
+\textbf{6. 主码：}关系中用于唯一确定一个元组的最小属性组。可作为关系主码的所有属性称为候选码。
 
-2. 关系模型: 用二维表的几何表示数据和数据间的联系.
+\textbf{7. 数据完整性约束：}实体完整性、参照完整性和用户定义完整性。
 
-3. E-R模型: 实体(基本对象)和实体间的联系构成的模型.
+\quad（1）实体完整性：所有关系必须有主码，不允许记录无主码或主码相同。
 
-\subsection{数据库设计}
+\quad（2）参照完整性：关系中某属性的取值受其它关系约束，用外码实现。
 
-1. 概念设计: 得到数据需求后, 选择数据模型, 确定概念模式.
+\quad（3）用户定义完整性：针对实际应用定义的数据约束条件
 
-2. 逻辑设计: 将概念模式映射到数据模型上.
+\textbf{8. 数据库系统的结构：}三级模式结构，分为外模式、概念模式和内模式
 
-3. 物理设计: 指定物理存储模式.
+\quad（1）内模式：数据的物理存储方式
 
-\section{关系型数据库}
+\quad（2）概念模式：数据的逻辑结构和关联关系
 
-\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
-    每章开头的介绍
-\end{tcolorbox}
+\quad（3）外模式：特定用户感兴趣部分的局部描述
 
-\subsection{关系模型}
+\section{SQL语言}
 
-1. 关系: 即二维表, 每张二维表表示一个关系.
+\textbf{1. SQL：}关系数据库管理系统的标准语言
 
-2. 关系数据库: 由表的集合构成, 行代表一组值(又称元组)之间的联系, 列对应记录类型的属性.
+\quad（1）数据定义：CREATE，DROP， ALTER
 
-3. 属性的域: 一个属性允许取值的集合.
+\quad（2）数据查询：SELECT，FROM，WHERE，HAVING等
 
-\subsection{关系数据库模式}
+\quad（3）数据操作：INSERT，UPDATE，DELETE
 
-1. 关系模式的组成: 属性序列以及各属性对应的域.
+\quad（4）数据控制：GRANT，REVOKE，DENY
 
-2. 超码: 能唯一标识元组的一个或多个属性集合.
+\textbf{2. 数据类型：}int，numeric，decimal，float，char，varchar，text，datetime
 
-3. 主码(PRIMARY KEY): 在数据库中用于区分不同元组的最小超码.
+\textbf{3. 关系定义：}
+\begin{lstlisting}[language=SQL]
+    CREATE TABLE 表名（
+    列名 数据类型 完整性约束，
+    列名 数据类型 完整性约束...）
+\end{lstlisting}
 
-4. 外码(FOREIGN KEY): 引入其它关系的主码, 表示了一组参照关系.
+\textbf{4. 完整性约束：}常见的有NOT NULL（限定非空），DEFAULT（默认值），UNIQUE（不能重复），CHECK（不等式约束），主码约束和外码约束
 
-5. 模式图:能表达关系, 主码和参照关系的图. 主码用下划线表示,外码通过连接线指向被参照关系.
+\quad（1）主码约束：PRIMARY KEY， 指定当前属性为主码；或单独列出，PRIMARY KEY（列名）
 
-\subsection{SQL中对关系的操作}
+\quad（2）外码约束： FOREIGN KEY（列）只能单独列出，FOREIGN KEY（列名） REFERENCES 参照表名（参照列名）。参照列名必为主键或有UNIQUE约束
 
-1. 定义一个关系: CREATE TABLE
+\quad（3）不等式约束：CHECK(逻辑表达式)
 
-2. 删除一个关系: DROP TABLE
+\textbf{5. 关系删除：} DROP TABLE 表名
 
-3. 为关系增加属性: ALTER TABLE * ADD *
+\textbf{6. 关系修改：}ALTER TABLE 表名 ，在其后加入要改的内容。
 
-\section{SQL查询语句}
+\quad（1）修改列定义：ALTER COLUMN 列名 新数据类型 
 
-\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
-    每章开头的介绍
-\end{tcolorbox}
+\quad（2）加一列：ADD 列名 数据类型 完整性约束
 
-\subsection{SQL基本数据类型}
+\quad（3）删一列：DROP 列名
 
-1. char: 定长字符型, char(n) 表n位字符串.
+\section{数据查询}
 
-2. varchar: 可变长字符串, varchar(n) 表至多n位的字符串.
+\textbf{1. 基本结构：} SELECT FROM WHERE GROUP BY HAVING ORDER BY
 
-3. int: 整数型, 全称为integer, 通常取-65536到65535的整数.
+\textbf{2. 单表查询：}
+\begin{lstlisting}[language=SQL]
+    SELECT 列名 AS 别名  
+    FROM 表名 
+    WHERE 筛选条件    
+\end{lstlisting}
 
-4. smallint: 小整数, 通常取-256到255的整数.
+\quad（1）去重： SELECT DISTINCT $\cdots$
 
-5. numeric: 定点数, numeric(p,q) 表总共最多p位, 小数位最多q位
+\quad（2）区间筛选： WHERE 列名 BETWEEN 上限 AND 下限
 
-6. float: 浮点小数
+\quad（3）集合筛选： WHERE 列名 IN {$\cdots$}
 
-\subsection{SQL查询语句}
+\quad（4）字符串匹配筛选：WHERE 列名 LIKE '$\cdots$'。\_匹配1个字符，%匹配多个字符，[$\cdots$]匹配括号中的任意一个字符，[^$\cdots$]不匹配括号中的任意一个字符
 
-1. 基本结构: SELECT * FROM * WHERE *
-\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
-    ~~~~良好的书写习惯要求select, from, where分三行书写, 这样每个部分会呈现得比较清晰. 后面create这些语句最好也
-    分多行, 不要舍不得空间!!
-  \end{tcolorbox}
+\quad（5）筛选空值： WHERE 列名 IS NULL
 
-2. SELECT A1, A2, ..., An: 查询后最终显示的属性为A1, A2, ..., An.
+\quad（6）多重条件筛选：WHERE ($\cdots$ OR $\cdots$) AND $\cdots$
 
-3. FROM r1, r2, ..., rn: 查询过程中访问关系r1, r2, ..., rn的笛卡尔积.
+\quad（7）查询结果排序：ORDER BY 列名 （ASC/DESC)
 
-4. WHERE P: 显示符合逻辑表达式P的元组.
+\quad（8）聚合函数： SELECT f(列名) AS 别名。可选用COUNT，SUM，AVG，MAX，MIN等。
 
-\subsection{花式SELECT}
+\quad（9）分组统计：GROUP BY 列名 HAVING 组筛选条件
 
-1. 指定显示的排列顺序: 在WHERE后插入 ORDER BY A, 表示以属性A升序显示. ORDER BY A DESC 表示以属性A降序显示.
+\quad（10）取前n行数据：SELECT TOP n {WITH TIES} 列名
 
-2. 分组显示: 在WHERE后插入 GROUP BY A, 则显示结果时, 将属性A相同的元组放在同一组显示.
+\quad（11）CASE表达式：SELECT 表名 CASE 值1 THEN 别名1 CASE 值2 THEN 别名2$\cdots$
 
-3. 聚集函数: 以集合为输入, 单个值为输出的函数. 常见的有 AVG (均值), MIN/MAX (最值), SUM(总和), COUNT(计数), 用法为 SELECT f(A). 
-作用于GROUP BY分组时, 按组给出聚集结果.
+\textbf{3. 多表连接查询：}SELECT 列名 FROM 表1 INNER JOIN 表2 ON 筛选条件。为表取别名可实现自连接，即表1、表2为同一张表
 
-\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
-    ~~~~将聚集作用于分组时, SELECT的对象有一定要求, 就是不能把没有被聚集或分组的属性显示出来. 比如以学院为单位分组, 
-    一般不能直接显示教师年龄, 因为一个学院中的教师会有不同的年龄.
-\end{tcolorbox}
+\textbf{4. 子查询：}将另一个查询结果嵌套在查询条件中。SELECT 列名 FROM 表名 WHERE 表达式 IN（子查询） 。存在性测试中， WHERE EXISTS（子查询）
 
-4. 分组限定条件: 针对 GROUP BY 分组生效的逻辑约束. 在GROUP BY 后插入 HAVING Q, 则仅显示符合条件Q的分组.
+\section{其它数据操作}
 
-5. 集合运算: SELECT的结果还可以进行集合的交, 并, 差运算. (SELECT * FROM * WHERE *) UNION (SELECT * FROM * WHERE *)
-为求两个查询结果的并集. 类似地, INTERSECT表示求交集, EXCEPT 表示差集.
+\textbf{1. 插入数据：} INSERT INTO 表名 VALUES (属性值)
 
-6. DISTINCT: SELECT DISTINCT A 表示去除查询结果中重复的元组再显示.
+\textbf{2. 更新数据：} UPDATE 表名 SET 列名 = 表达式 {WHERE 筛选条件}
 
-\subsection{花式FROM}
+\textbf{3. 删除数据：} DELETE FROM 表名 {WHERE  筛选条件}
 
-1. 自然连接: ri NARURAL JOIN rj 表示 将ri和rj的所有属性拼接在一起,不重复保留共有的属性. 仅考虑在共有的属性中取值相同的元组.
+\textbf{4. 查询结果保存：} SELECT 列名 INTO　新表名
 
-2. 同名属性处理方式: 若ri和rj 均含有属性A, 以示区分, 分别写作ri.A 和 rj.A. 若不引起歧义, 可直接写作A.
+\section{视图}
 
-3. 重命名: FROM ri AS S, 则可用名称S代替ri使用,常用于关系与自身的笛卡尔积. AS可用于SELECT部分和FROM部分.
+\textbf{1. 概念：}查询语句产生的结果，有别名和列名。
 
-\subsection{花式WHERE}
+\textbf{2. 创建视图：}CREATE VIEW 视图名 AS SELECT$\cdots$
 
-1. 缺省WHERE: 若查询语句仅有SELECT和FROM, 则不加筛选地展示所有元组.
+\textbf{3. 修改视图：}ALTER VIEW 视图名 AS SELECT$\cdots$
 
-2. BETWEEN运算: WHERE Ai BETWEEN $a$ AND $b$ 等价于 $a \leq \text{Ai} \leq b$.
+\textbf{4. 删除视图：}DROP VIEW 视图名
 
-3. 空值: NULL代表某一属性值为空, Ai IS NULL 当且仅当 A为空时取真值. NULL与任何值作比较均得到结果UNKNOWN. 若筛选结果为UNKNOWN, 也不显示元组.
+\textbf{5. 索引：}表中所包含值的列表，用来加快数据的查询速度。CREATE {CLUSTERD} INDEX 索引名 ON 表名(列名)
 
-4. 空关系测试: EXISTS(SELECT\%)仅在查询结果不为空时取真值.
+\section{规范化理论}
 
-5. 重复元组存在性测试: UNIQUE(SELECT \%)仅在查询结果不含重复元组时取真值.
+\textbf{1. 函数依赖：}某一属性的取值依赖于另一属性。若两条记录的X相同能推出Y相同，则称X决定Y，Y依赖于X。
 
-\subsection{字符串模式匹配}
+\quad（1）完全依赖：X中任意去掉一个属性都不能唯一决定Y
 
-1. 模式符号\%: 匹配任意字串.
+\quad（2）部分依赖：X中某一子集可决定Y
 
-2. 模式符号\_: 匹配任意一个字符.
+\quad（3）传递依赖：若Z依赖于Y且Y依赖于X，则称Z传递依赖于X
 
-3. ESCAPE '$\backslash$': 使用'$\backslash$'作为转义字符, 如''$\backslash$'\%' 表百分号字符.
+\textbf{2. 关系规范化：}将有错误函数依赖的关系模式转化为良好关系模式
 
-4. LIKE操作符: WHERE s LIKE p 当且仅当字符串s适配模式p时为TRUE, 注意模式是大小写敏感的.
+\quad（1）候选码：决定关系中全部属性值的最小属性组
+
+\quad（2）主码：关系中用于唯一表示记录的属性组
+
+\quad（3）外码：用于建立关系表间关联关系的属性组
+
+\textbf{3. 范式：}关系所满足的不同程度要求，包括1NF、2NF和3NF。
+
+\quad（1）第一范式：不包含重复组的关系。把所有数据项都拆成不可再分的最小属性，可将关系转化为1NF
+
+\quad（2）第二范式：在1NF基础上，每个非主属性都完全依赖于主码。去掉部分依赖的方法是将主码的所有子集单独拎出作为新关系的主码，将属性以完全依赖某一主码为标准归类，最后去掉只有主码的关系
+
+\quad（3）第三范式：在2NF基础上，所有非主属性都不传递依赖于主码。去掉传递依赖的方法是将传递的中间属性单独取出，作为新关系的主码，再将依赖于它的所有属性从原关系移至新关系
+
+\section{数据库保护}
+
+\textbf{1. 事务：}完整的工作单元，全部执行或都不执行。
+
+\quad（1）原子性：事务是数据库的逻辑工作单位，不可部分执行
+
+\quad（2）一致性：事务执行的不能使数据库变为不一致状态
+
+\quad（3）隔离性：事务的执行不能被其它事务干扰
+
+\quad（4）持久性：事务成功执行后，数据库被永久改变
+
+\textbf{2. 并发操作：}同时运行的多个事务。
+
+\quad（1）丢失修改：另一个事务覆盖了当前事务提交结果
+
+\quad（2）脏数据：读取了另一事务撤销前的数据
+
+\quad（3）不可重复读：由于另一事务修改，前后读取数据不一致
+
+\quad（4）幽灵数据：由于另一数据修改，读取时多了/少了部分记录
+
+\textbf{3. 并发控制：}合理调度并发操作，使一个事务的执行不受其它事务干扰
+
+\quad（1）共享锁（S锁）：将数据标记为只读。其它事务可以继续加S锁，但不能加X锁，直到当前S锁被释放
+
+\quad（2）排它锁（X锁）：允许当前事务读取和修改数据，但其它事务不能加任何锁或进行任何操作，只能进入等待状态
+
+\textbf{4. 封锁协议：}为数据加锁的规则
+
+\quad（1）一级封锁协议：对数据加X锁，直到当前事务结束才释放。可防止修改，且保证事务可恢复
+
+\quad（2）二级封锁协议：一级封锁协议基础上，对读取的数据加S锁，读完后即释放。可防止读“脏数据”
+
+\quad（3）三级封锁协议：一级封锁协议基础上，对读取数据加S锁，事务结束后才释放。可保证数据可重复读取。
+
+\textbf{5. 数据库备份：}对数据进行复制，保证故障后数据可恢复。应备份表、用户、全部数据和数据库日志。
+
+\textbf{6. 数据库恢复：}将数据库从错误描述状态恢复到最近的正确状态。恢复方法有数据备份、事务日志、镜像技术。
+
+\section{数据库设计}
+
+\textbf{1. 步骤：}需求分析、结构设计（概念、逻辑、物理）、行为设计（功能、事务、程序）、数据库实施、运行和维护阶段。
+
+\textbf{2. 结构设计：}概念结构设计+逻辑结构设计。
+
+\quad（1）概念结构设计：自底向上。先将数据抽象为实体和属性，用E-R图表达实体间的关联关系，再集成为全局E-R图。
+
+\quad（2）逻辑结构设计：将E-R图转化为关系表。之后根据函数依赖关系，对数据模型优化，并设计用户的外模式。
+
+\textbf{3. 行为设计：}功能分析、功能设计、事务设计。
+
+\quad（1）功能分析：指出对实体的操作，并给出语义约束
+
+\quad（2）功能设计：设计各功能模块
+
+\quad（3）事务设计：输入设计、输出设计等

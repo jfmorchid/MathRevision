@@ -27,15 +27,15 @@
 
 \subsection{随机事件}
 
-1. 随机现象: 重复实验会出现不同结果的现象.
+\textbf{1. 随机现象: }重复实验会出现不同结果的现象.
 
-2. 样本空间: 随机现象可能出现的结果组成的集合.
+\textbf{2. 样本空间: }随机现象可能出现的结果组成的集合.
 
-3. 随机事件: 样本空间的子集. 当实验结果属于此子集时, 称随机事件发生.
+\textbf{3. 随机事件: }样本空间的子集. 当实验结果属于此子集时, 称随机事件发生.
 
-4. 随机变量: 用于描述随机事件的人为设定变量(非正式定义).
+\textbf{4. 随机变量: }用于描述随机事件的人为设定变量(非正式定义).
 
-5. 事件的运算: 和集合一致, 有交并补余四大运算. 有两个公式很重要.
+\textbf{5. 事件的运算: }和集合一致, 有交并补余四大运算. 有两个公式很重要.
 
 ~~~~(1) 集合减法公式: $A-B=A \cap \bar{B}$.
 
@@ -47,45 +47,45 @@
 
 \subsection{概率}
 
-1. 公理化定义: 在事件域$(\Omega,\mathscr{F})$上定义可测函数$P(A)$满足:
+\textbf{1. 公理化定义: }在事件域$(\Omega,\mathscr{F})$上定义可测函数$P(A)$满足:
 
 ~~~~(1) 非负性: $P(A) \geq 0$; (2)正则性: $P(\Omega)=1$;
 
 ~~~~(3)可列可加性: 事件$A_1,\cdots,A_n$互不相容时, $P(\bigcup\limits_{n=1}^\infty A_n)=\sum\limits_{n=1}^\infty P(A_i)$.
 
-2. 用频率定义概率: 令$n(A)$为事件$A$发生的频数, 则可用大量重复事件的频率表示概率: $P(A)=\lim\limits_{n \rightarrow \infty} \frac{n(A)}{n}$.
+\textbf{2. 用频率定义概率: }令$n(A)$为事件$A$发生的频数, 则可用大量重复事件的频率表示概率: $P(A)=\lim\limits_{n \rightarrow \infty} \frac{n(A)}{n}$.
 
-3. 古典概型: 若样本空间有$n$个等可能发生的样本点, 则事件$A$包含$k$个样本点时, $P(A)=\frac{k}{n}$.
+\textbf{3. 古典概型: }若样本空间有$n$个等可能发生的样本点, 则事件$A$包含$k$个样本点时, $P(A)=\frac{k}{n}$.
 
-4. 几何概型: 若样本空间$\Omega$的面积测度为$S_n$, 事件$A$包含其中面积为$S_A$ 的一部分, 则$P(A)=\frac{S_A}{S_n}$. (蒙特卡罗法的理论依据)
+\textbf{4. 几何概型: }若样本空间$\Omega$的面积测度为$S_n$, 事件$A$包含其中面积为$S_A$ 的一部分, 则$P(A)=\frac{S_A}{S_n}$. (蒙特卡罗法的理论依据)
 
-5. 贝叶斯概率: 对事件发生可能性的主观预测, 在机器学习中使用频率很高.
+\textbf{5. 贝叶斯概率: }对事件发生可能性的主观预测, 在机器学习中使用频率很高.
 
 \subsection{概率的性质}
 
-1. 有限可加性: 若$A_1,\cdots,A_n$互不相容, 则$P(\bigcup\limits_{i=1}^n A_i)=\sum\limits_{i=1}^n P(A_i)$.
+\textbf{1. 有限可加性: }若$A_1,\cdots,A_n$互不相容, 则$P(\bigcup\limits_{i=1}^n A_i)=\sum\limits_{i=1}^n P(A_i)$.
 
-2. 单调性: 若$A \subset B$, 则$P(A)\leq P(B)$.
+\textbf{2. 单调性: }若$A \subset B$, 则$P(A)\leq P(B)$.
 
-3. 加法公式: $P(A \bigcup B)=P(A)+P(B)-P(AB)$.
+\textbf{3. 加法公式: }$P(A \bigcup B)=P(A)+P(B)-P(AB)$.
 
 \subsection{条件概率}
 
-1. 定义: $P(A|B)$表示已知$B$发生的条件下$A$发生的概率. $P(A|B)=\frac{P(AB)}{P(B)}$.
+\textbf{1. 定义: }$P(A|B)$表示已知$B$发生的条件下$A$发生的概率. $P(A|B)=\frac{P(AB)}{P(B)}$.
 
-2. 乘法公式: $P(AB)=P(B)P(A|B)$, 即定义式的变种.
+\textbf{2. 乘法公式: }$P(AB)=P(B)P(A|B)$, 即定义式的变种.
 
-3. 全概率公式: 若$B_i$互不相容, 且$\bigcup\limits_{i=1^n}B_i=\Omega$, 则
+\textbf{3. 全概率公式: }若$B_i$互不相容, 且$\bigcup\limits_{i=1^n}B_i=\Omega$, 则
 \begin{equation*}
     P(A)=\sum\limits_{i=1}^n P(A|B_i)P(B_i)
 \end{equation*}
 
-4. 贝叶斯公式: 用先验概率推后验概率.  若$B_i$互不相容, 且$\bigcup\limits_{i=1^n}B_i=\Omega$, 则
+\textbf{4. 贝叶斯公式: }用先验概率推后验概率.  若$B_i$互不相容, 且$\bigcup\limits_{i=1^n}B_i=\Omega$, 则
 \begin{equation*}
     P(B_i|A)=\frac{P(A|B_i)P(B_i)}{\sum\limits_{k=1}^n P(A|B_k)P(B_k)}
 \end{equation*}
 
-5. 独立性: 若$P(A|B)=P(A)$, 即$P(AB)=P(A)P(B)$, 则称事件$A$和$B$相互独立.
+\textbf{5. 独立性: }若$P(A|B)=P(A)$, 即$P(AB)=P(A)P(B)$, 则称事件$A$和$B$相互独立.
 
 \section{随机变量及其分布}
 
@@ -98,9 +98,9 @@
 
 \subsection{随机变量}
 
-1. 定义: 样本空间$\Omega$上的实值函数$X(\omega)$. 
+\textbf{1. 定义: }样本空间$\Omega$上的实值函数$X(\omega)$. 
 
-2. 离散随机变量的确定: 使用分布列描述.
+\textbf{2. 离散随机变量的确定: }使用分布列描述.
 
 \begin{table}[H]
     \centering
@@ -114,7 +114,7 @@
 
 其中$p_i$表示随机变量$X$取值$X_i$的概率, $\sum\limits_{i=1}^n p_i=1$.
 
-3. 连续随机变量的描述: 使用分布函数与概率密度函数.
+\textbf{3. 连续随机变量的描述: }使用分布函数与概率密度函数.
 
 ~~~~(1) 分布函数$F(x)$: $F(x)=P(X \leq x)$, 是单调递增的右连续函数, 且$F(+\infty)=1, F(-\infty)=0$.
 
@@ -122,7 +122,7 @@
 
 \subsection{常用分布及概率密度函数}
 
-1. 离散分布
+\textbf{1. 离散分布}
 
 ~~~~(1) 泊松分布: $P(X=k)=\frac{\lambda^k}{k!}e^{-\lambda}$, 用于计数过程, 记作$X\sim P(\lambda)$.
 
@@ -132,7 +132,7 @@
 
 ~~~~(4) 几何分布: $P(X=k)=(1-p)^{k-1}p$, 具有无记忆性.
 
-2. 连续分布
+\textbf{2. 连续分布}
 
 ~~~~(1) 正态分布: $p(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{1\frac{(x-\mu)^2}{2\sigma^2}}$, 是最常用的分布. 记作$X\sim N(\mu, \sigma^2)$, 标准正态分布即$N(0,1)$.
 
@@ -144,23 +144,23 @@
 
 \subsection{数字特征}
 
-1. 数学期望: $X$在不同取值数按概率的加权平均数, 是消除随机性的主要手段, 记作$Ex$.
+\textbf{1. 数学期望: }$X$在不同取值数按概率的加权平均数, 是消除随机性的主要手段, 记作$Ex$.
 在离散场合, $EX=\sum\limits_{n=1}^\infty p_ix_i$. 在连续场合, $EX=\int_{-\infty}^{+\infty}xp(x)\mathrm{d}x$.
 
-2. 方差: $DX=E[(X-EX)^2]$, 也记作$\text{Var}(X)$, 用于衡量数据的集中程度. 常用的计算公式为
+\textbf{2. 方差: }$DX=E[(X-EX)^2]$, 也记作$\text{Var}(X)$, 用于衡量数据的集中程度. 常用的计算公式为
 \begin{equation*}
     DX=E(X^2)-(EX)^2
 \end{equation*}
 
-3. 标准差: $\sigma(x)=\sqrt{DX}$, 也记作$Std(X)$, 好处是与$X$的量纲一致.
+\textbf{3. 标准差: }$\sigma(x)=\sqrt{DX}$, 也记作$Std(X)$, 好处是与$X$的量纲一致.
 
-4. 切比雪夫不等式: $P(|X-EX|\geq \varepsilon)\leq \frac{DX}{\varepsilon^2}$.
+\textbf{4. 切比雪夫不等式: }$P(|X-EX|\geq \varepsilon)\leq \frac{DX}{\varepsilon^2}$.
 
 \subsection{随机变量函数的分布}
 
-1. 离散情形: 先求各项的像$g(x_1),\cdots, g(x_n)$, $g(x_i$对应概率仍为$p_i$, 再合并相同项.
+\textbf{1. 离散情形: }先求各项的像$g(x_1),\cdots, g(x_n)$, $g(x_i$对应概率仍为$p_i$, 再合并相同项.
 
-2. 连续情形: 若$Y=g(x)$严格单调, 反函数为$x=h(y)$, $X$的概率密度函数为$p(x)$, 则$Y$的概率密度函数为$p_Y(y)=p_X(h(y)) \cdot |h'(y)|$.
+\textbf{2. 连续情形: }若$Y=g(x)$严格单调, 反函数为$x=h(y)$, $X$的概率密度函数为$p(x)$, 则$Y$的概率密度函数为$p_Y(y)=p_X(h(y)) \cdot |h'(y)|$.
 一般情况下, 需要根据$P(g(x)\leq y)$反解出$x$的范围, 再利用$X$的分布函数求解.
 
 \section{多元随机变量及其分布}
@@ -173,15 +173,15 @@
 
 \subsection{多元随机变量}
 
-1. 定义: 样本空间$\Omega$上的向量值函数$X(\omega)=(X_1(\omega),\cdots,X_n(\omega))$.
+\textbf{1. 定义: }样本空间$\Omega$上的向量值函数$X(\omega)=(X_1(\omega),\cdots,X_n(\omega))$.
 
-2. 联合分布函数: $F(x_1,\cdots, x_n)=P(X_1\leq x_1, \cdots, X_n \leq x_n)$
+\textbf{2. 联合分布函数: }$F(x_1,\cdots, x_n)=P(X_1\leq x_1, \cdots, X_n \leq x_n)$
 
-3. 离散情形的联合分布列: 仅用于二元分布$(X,Y)$, 用$i$行$j$列元素$p_{ij}$表示$X=X_i,Y=Y_j$的概率, 其中$\sum\limits_{i,j}p_{ij}=1$.
+\textbf{3. 离散情形的联合分布列: }仅用于二元分布$(X,Y)$, 用$i$行$j$列元素$p_{ij}$表示$X=X_i,Y=Y_j$的概率, 其中$\sum\limits_{i,j}p_{ij}=1$.
 
-4. 连续情形的联合密度函数: $p(x_1,\cdots, x_n)=\frac{\partial^nF(x_1,\cdots,x_n)}{\partial x_1\partial x_2 \cdots \partial x_n}$.
+\textbf{4. 连续情形的联合密度函数: }$p(x_1,\cdots, x_n)=\frac{\partial^nF(x_1,\cdots,x_n)}{\partial x_1\partial x_2 \cdots \partial x_n}$.
 
-5. 多元正态分布: 最重要的多元连续分布. 令$x=(x_1,\cdots,x_n)$, 均值向量为$\mu$, 协方差矩阵为$\Gamma$, 则$n$元正态分布的联合密度函数
+\textbf{5. 多元正态分布: }最重要的多元连续分布. 令$x=(x_1,\cdots,x_n)$, 均值向量为$\mu$, 协方差矩阵为$\Gamma$, 则$n$元正态分布的联合密度函数
 \begin{equation*}
     p(x_1,\cdots,x_n)=\frac{1}{(2\pi)^\frac{n}{2}|\Gamma|^\frac{1}{2}}e^{-\frac{1}{2}(x-\mu)^T\Gamma^{-1}(x-\mu)}
 \end{equation*}
@@ -195,19 +195,19 @@
 
 \subsection{边缘分布}
 
-1. 边缘分布函数: $F_x(x)=F(x,\infty)$, $F_y(y)=F(\infty,y)$.
+\textbf{1. 边缘分布函数: }$F_x(x)=F(x,\infty)$, $F_y(y)=F(\infty,y)$.
 
-2. 离散情形的边缘分布列: $P(X=X_i)=\sum\limits_j P(X=X_i,Y=Y_j)$; $P(Y=Y_j)=\sum\limits_i P(X=X_i,Y=Y_j)$
+\textbf{2. 离散情形的边缘分布列: }$P(X=X_i)=\sum\limits_j P(X=X_i,Y=Y_j)$; $P(Y=Y_j)=\sum\limits_i P(X=X_i,Y=Y_j)$
 
-3. 连续情形的边缘密度函数: $p_X(x)=\int_{-\infty}^\infty p(x,y) \mathrm{d}y$; $p_Y(y)=\int_{-\infty}^\infty p(x,y) \mathrm{d}x$.
+\textbf{3. 连续情形的边缘密度函数: }$p_X(x)=\int_{-\infty}^\infty p(x,y) \mathrm{d}y$; $p_Y(y)=\int_{-\infty}^\infty p(x,y) \mathrm{d}x$.
 
-4. 随机变量的独立性: 若$\prod\limits_{i=1}^n p_i(X_i)=p(x_1,\cdots,x_n)$, 即联合密度函数为边缘密度函数之积, 则称$X_1,\cdots, X_n$相互独立.
+\textbf{4. 随机变量的独立性: }若$\prod\limits_{i=1}^n p_i(X_i)=p(x_1,\cdots,x_n)$, 即联合密度函数为边缘密度函数之积, 则称$X_1,\cdots, X_n$相互独立.
 
 \subsection{多元随机变量函数的分布}
 
-1. $Z=X+Y$的分布: 可用后面提到的特征函数法, 也可用卷积公式, 即$p_Z(z)=\int_{-\infty}^\infty p_X(x)p_Y(z-x)\mathrm{d}x$.
+\textbf{1. $Z=X+Y$的分布: }可用后面提到的特征函数法, 也可用卷积公式, 即$p_Z(z)=\int_{-\infty}^\infty p_X(x)p_Y(z-x)\mathrm{d}x$.
 
-2. 次序统计量分布: 若$X_{(1)},\cdots,X_{(n)}$独立同分布且升序排列, 则第$k$个次序统计量$X_{(k)}$的概率密度函数为
+\textbf{2. 次序统计量分布: }若$X_{(1)},\cdots,X_{(n)}$独立同分布且升序排列, 则第$k$个次序统计量$X_{(k)}$的概率密度函数为
 \begin{equation*}
     p_{(k)}(x)=\frac{n!}{(k-1)!(n-k)!}[F(x)]^{k-1}p(x)[1-F(x)]^{n-k}
 \end{equation*}
@@ -216,21 +216,21 @@
     
 ~~~~~~~~~~~~~~~$\max X$即$X_{(n)}$的概率密度函数为$n[F(x)]^{n-1}p(x)$. 
 
-3. 变量变换法: 令$u=u(x,y), v=v(x,y)$, 从中反解出$x=x(u,v), y=y(u,v)$, 则$p(u,v)=p(x,y)\left|\frac{\partial (x,y)}{\partial(u,v)}\right|$.
+\textbf{3. 变量变换法: }令$u=u(x,y), v=v(x,y)$, 从中反解出$x=x(u,v), y=y(u,v)$, 则$p(u,v)=p(x,y)\left|\frac{\partial (x,y)}{\partial(u,v)}\right|$.
 
 \subsection{多元随机变量的特征数}
 
-1. 数学期望: $g(x,y)$的期望为$\int_R g(x,y)p(x,y)\mathrm{d}x\mathrm{d}y$.
+\textbf{1. 数学期望: }$g(x,y)$的期望为$\int_R g(x,y)p(x,y)\mathrm{d}x\mathrm{d}y$.
 
-2. 方差: 定义不变, 仍有$\text{Var}(x)=E(X-EX),\text{Var}(y)=E(Y-EY)$.
+\textbf{2. 方差: }定义不变, 仍有$\text{Var}(x)=E(X-EX),\text{Var}(y)=E(Y-EY)$.
 
-3. 协方差: $\text{Cov}(X,Y)=E[(X-EX)(Y-EY)]=E(XY)-EXEY$, 用于刻画两变量的相关程度.
+\textbf{3. 协方差: }$\text{Cov}(X,Y)=E[(X-EX)(Y-EY)]=E(XY)-EXEY$, 用于刻画两变量的相关程度.
 
-4. 相关系数: $\text{Corr}(X,Y)=\frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)}\sqrt{\text{Var}(Y)}}$. 当$\text{Corr}(x)\in (0,1]$时, 称$X$和$Y$正相关; $\text{Corr}(x)\in [-1,0)$时, 称$X$和$Y$负相关; $\text{Corr}(x)=0$时, 称$X$和$Y$不相关.
+\textbf{4. 相关系数: }$\text{Corr}(X,Y)=\frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)}\sqrt{\text{Var}(Y)}}$. 当$\text{Corr}(x)\in (0,1]$时, 称$X$和$Y$正相关; $\text{Corr}(x)\in [-1,0)$时, 称$X$和$Y$负相关; $\text{Corr}(x)=0$时, 称$X$和$Y$不相关.
 
-5. 方差运算性质: $\text{Var}(X\pm Y)=\text{Var}(X)+\text{Var}(Y)\pm 2\text{Cov}(X,Y)$
+\textbf{5. 方差运算性质: }$\text{Var}(X\pm Y)=\text{Var}(X)+\text{Var}(Y)\pm 2\text{Cov}(X,Y)$
 
-6. $n$元随机变量的协方差矩阵: \begin{equation*}
+\textbf{6. $n$元随机变量的协方差矩阵: }\begin{equation*}
     \Gamma=\begin{pmatrix}
         \text{Cov}(X_1,X_1) & \text{Cov}(X_1,X_2)&\cdots&\text{Cov}(X_1,X_n)\\
         \text{Cov}(X_2,X_1) & \text{Cov}(X_2,X_2)&\cdots&\text{Cov}(X_2,X_n)\\
@@ -243,19 +243,19 @@
 
 \subsection{条件分布与条件期望}
 
-1. 离散条件分布: $P_{i|j}=P(X=X_i|Y=y_j)=\frac{p_ij}{\sum\limits_i p_ij}$.
+\textbf{1. 离散条件分布: }$P_{i|j}=P(X=X_i|Y=y_j)=\frac{p_ij}{\sum\limits_i p_ij}$.
 
-2. 连续条件分布: $p(y|x)=\frac{p(x,y)}{p_X(x)}$; $p(x|y)=\frac{p(x,y)}{p_Y(y)}$ 
+\textbf{2. 连续条件分布: }$p(y|x)=\frac{p(x,y)}{p_X(x)}$; $p(x|y)=\frac{p(x,y)}{p_Y(y)}$ 
 
-3. 全概率公式: $p_Y(y)=\int_{-\infty}^\infty p_X(x)p(y|x)\mathrm{d}x$.
+\textbf{3. 全概率公式: }$p_Y(y)=\int_{-\infty}^\infty p_X(x)p(y|x)\mathrm{d}x$.
 
-4. 贝叶斯公式: \begin{equation*}
+\textbf{4. 贝叶斯公式: }\begin{equation*}
     p(x|y)=\frac{p(y|x)p_X(x)}{\int_{-\infty}^\infty p(y|x)p_X(x)\mathrm{d}x}
 \end{equation*}
 
-5. 条件数学期望: $E(X|Y=y)=\int_{-\infty}^\infty xp(x|y)\mathrm{d}x$.
+\textbf{5. 条件数学期望: }$E(X|Y=y)=\int_{-\infty}^\infty xp(x|y)\mathrm{d}x$.
 
-6. 重期望公式: $E[E(X|Y)]=EX$.
+\textbf{6. 重期望公式: }$E[E(X|Y)]=EX$.
 
 \section{大数定律和中心极限定理}
 
@@ -267,44 +267,44 @@
 
 \subsection{随机变量的特征函数}
 
-1. 定义: $\varphi(t)=E(e^{itX})$. 离散情形下, $\varphi(t)=\sum\limits_{k=1}^\infty p_ke^{itX_k}$; 连续情形下, $\varphi(t)=\int_{-\infty}^\infty p(x)e^{itx}\mathrm{d}x$.
+\textbf{1. 定义: }$\varphi(t)=E(e^{itX})$. 离散情形下, $\varphi(t)=\sum\limits_{k=1}^\infty p_ke^{itX_k}$; 连续情形下, $\varphi(t)=\int_{-\infty}^\infty p(x)e^{itx}\mathrm{d}x$.
 
-2. 性质: (1) 若$X$与$Y$独立, $Z=X+Y$, 则$\varphi_Z(t)=\varphi_X(t)\cdot \varphi_Y(t)$.
+\textbf{2. 性质: }(1) 若$X$与$Y$独立, $Z=X+Y$, 则$\varphi_Z(t)=\varphi_X(t)\cdot \varphi_Y(t)$.
 
 ~~~~ (2) 求各阶矩的方式: $\varphi^{(k)}(0)=i^kE(X^k)$.
 
 ~~~~ (3) 唯一性定理: 分布函数由特征函数唯一确定.
 
-3. 逆转公式: $F(x_2)-F(x_1)=\lim\limits_{T\rightarrow +\infty}\frac{1}{2\pi}\int_{-T}^T \frac{e^{-itx_1}-e^{-itx_2}}{it}\varphi(t)\mathrm{d}t$.
+\textbf{3. 逆转公式: }$F(x_2)-F(x_1)=\lim\limits_{T\rightarrow +\infty}\frac{1}{2\pi}\int_{-T}^T \frac{e^{-itx_1}-e^{-itx_2}}{it}\varphi(t)\mathrm{d}t$.
 
-4. 连续随机变量的逆变换公式: $p(x)=\frac{1}{2\pi} \int_{-\infty}^\infty e^{-itx}\varphi(t)\mathrm{d}t$.
+\textbf{4. 连续随机变量的逆变换公式: }$p(x)=\frac{1}{2\pi} \int_{-\infty}^\infty e^{-itx}\varphi(t)\mathrm{d}t$.
 
 \subsection{大数定律}
 
-1. 一般形式: 对任意$\varepsilon>0$, 有
+\textbf{1. 一般形式: }对任意$\varepsilon>0$, 有
 \begin{equation*}
     \lim\limits_{n\rightarrow +\infty} P\left(\left| \frac{1}{n}\sum\limits_{i=1}^n X_i-\frac{1}{n}\sum\limits_{i=1}^n EX_i \right|<\varepsilon\right)=1
 \end{equation*}
 
-2. 伯努利大数定律: 令$S_n$为$n$重伯努利试验中事件发生的次数, $p$为事件发生的概率, 则对任意$\varepsilon>0$, 有
+\textbf{2. 伯努利大数定律: }令$S_n$为$n$重伯努利试验中事件发生的次数, $p$为事件发生的概率, 则对任意$\varepsilon>0$, 有
 \begin{equation*}
     \lim\limits_{n\rightarrow +\infty} P\left(\left| \frac{S_n}{n}-p \right|<\varepsilon\right)=1
 \end{equation*}
 
-3. 切比雪夫大数定律: 当$\{X_n\}$两两不相关且$Var(X_i)$有界时, 大数定律成立.
+\textbf{3. 切比雪夫大数定律: }当$\{X_n\}$两两不相关且$Var(X_i)$有界时, 大数定律成立.
 
-4. 辛钦大数定律: 当$X_1,\cdots,X_n$独立同分布且$EX_i$存在时, 大数定律成立.
+\textbf{4. 辛钦大数定律: }当$X_1,\cdots,X_n$独立同分布且$EX_i$存在时, 大数定律成立.
 
-5. 辛钦大数定律的证明: 令$\varphi(t)$为$X_i$共同的特征函数, 数学期望为$a$, 将$\varphi(t)$在$t=0$处泰勒展开: $\varphi(t)=1+iat+o(t)$. 
+\textbf{5. 辛钦大数定律的证明: }令$\varphi(t)$为$X_i$共同的特征函数, 数学期望为$a$, 将$\varphi(t)$在$t=0$处泰勒展开: $\varphi(t)=1+iat+o(t)$. 
 故$\varphi_{\frac{1}{n}\sum\limits_{i=1}^n X_i}(t)=\left[\varphi\left(\frac{t}{n}\right)\right]^n \sim e^{iat}$, 恰是退化分布的特征函数.
 
 \subsection{中心极限定理}
 
-1. 林德伯格-莱维中心极限定理: 令$X_n$独立同分布, $EX_i=\mu$, $DX_i=\sigma^2$, 则$n\rightarrow \infty$时, $\frac{\sum\limits_{i-1}^n X_i-n\mu}{\sigma\sqrt{n}}$的分布弱收敛于标准正态分布.
+\textbf{1. 林德伯格-莱维中心极限定理: }令$X_n$独立同分布, $EX_i=\mu$, $DX_i=\sigma^2$, 则$n\rightarrow \infty$时, $\frac{\sum\limits_{i=1}^n X_i-n\mu}{\sigma\sqrt{n}}$的分布弱收敛于标准正态分布.
 
-2. 棣莫弗-拉普拉斯中心极限定理: 令$S_n$为$n$重伯努利试验中事件发生的次数, $p$为事件发生的概率, 则$\frac{S_n-np}{\sqrt{np(1-p)}}$在$n\rightarrow \infty$时的分布弱收敛于标准正态分布.
+\textbf{2. 棣莫弗-拉普拉斯中心极限定理: }令$S_n$为$n$重伯努利试验中事件发生的次数, $p$为事件发生的概率, 则$\frac{S_n-np}{\sqrt{np(1-p)}}$在$n\rightarrow \infty$时的分布弱收敛于标准正态分布.
 
-3. 中心极限定理的证明: 将$X_i$标准化: $Y_i=\frac{X_i-\mu}{\sigma}$, 则$EY_i=0$且$DY_i=1$. 令$Y_N$的特征函数为$\varphi(t)$, 故$\frac{1}{\sqrt{n}}\sum\limits_{i=1}^n Y_i$的特征函数为$\left[\varphi\left(\frac{t}{\sqrt{n}}\right)\right]^n$.
+\textbf{3. 中心极限定理的证明: }将$X_i$标准化: $Y_i=\frac{X_i-\mu}{\sigma}$, 则$EY_i=0$且$DY_i=1$. 令$Y_N$的特征函数为$\varphi(t)$, 故$\frac{1}{\sqrt{n}}\sum\limits_{i=1}^n Y_i$的特征函数为$\left[\varphi\left(\frac{t}{\sqrt{n}}\right)\right]^n$.
 由泰勒展开: $\varphi\left(\frac{t}{\sqrt{n}}\right)=1-\frac{t^2}{2n}+o(t^2)$, 在$n\rightarrow \infty $时, $\frac{1}{\sqrt{n}}\sum\limits_{i=1}^n Y_i$的特征函数趋近于$e^{-\frac{t^2}{2}}$, 恰为$N(0,1)$的特征函数.
 
 \section{数理统计基本概念}
@@ -319,45 +319,45 @@
 
 \subsection{统计学基本思想}
 
-1. 任务: 收集受随机因素影响的数据, 并根据样本推断总体分布. 
+\textbf{1. 任务: }收集受随机因素影响的数据, 并根据样本推断总体分布. 
 
-2. 总体: 研究对象的全体. 具体分布未知, 一般认为分布族已知, 即推断分布中的未知参数.
+\textbf{2. 总体: }研究对象的全体. 具体分布未知, 一般认为分布族已知, 即推断分布中的未知参数.
 
-3. 样本: 从总体中随机抽取的$n$个数据, 记作$x_1,x_2,\cdots,x_n$. 若这些样本独立同分布 (i.i.d.), 则称为简单随机样本.
+\textbf{3. 样本: }从总体中随机抽取的$n$个数据, 记作$x_1,x_2,\cdots,x_n$. 若这些样本独立同分布 (i.i.d.), 则称为简单随机样本.
 
-4. 统计量: 当总体分布族已知而参数未知时, 可以构造只与样本有关而与未知参数无关的函数$T=T(x_1,\cdots, x_n)$, 利用统计量的特征估计未知参数.
+\textbf{4. 统计量: }当总体分布族已知而参数未知时, 可以构造只与样本有关而与未知参数无关的函数$T=T(x_1,\cdots, x_n)$, 利用统计量的特征估计未知参数.
 
 \subsection{常用统计量}
 
-1. 样本均值: $\bar{x}=\frac{1}{n}\sum\limits_{i=1}^n x_i$.
+\textbf{1. 样本均值: }$\bar{x}=\frac{1}{n}\sum\limits_{i=1}^n x_i$.
 
-2. 样本方差: $s^2=\frac{1}{n-1}\sum\limits_{i=1}^n (x_i-\bar{x})^2$. 计算时常用公式
+\textbf{2. 样本方差: }$s^2=\frac{1}{n-1}\sum\limits_{i=1}^n (x_i-\bar{x})^2$. 计算时常用公式
 \begin{equation*}
     s^2=\frac{1}{n-1}(\sum\limits_{i=1}^n x_i^2 - n\bar{x}^2)
 \end{equation*}
 
-3. 样本标准差: $s=\sqrt{s^2}$.
+\textbf{3. 样本标准差: }$s=\sqrt{s^2}$.
 
-4. 样本$k$阶矩: $a_k=\frac{1}{n}\sum\limits_{i=1}^n x_i^k$.
+\textbf{4. 样本$k$阶矩: }$a_k=\frac{1}{n}\sum\limits_{i=1}^n x_i^k$.
 
 \subsection{抽样分布}
 
-1. 定义: 统计量的分布称为抽样分布.
+\textbf{1. 定义: }统计量的分布称为抽样分布.
 
-2. $\chi^2$分布: 若简单随机样本$x_1,\cdots,x_n$ $\sim N(0,1)$, 则$\sum\limits_{i=1}^n x_i^2$服从自由度为$n$的$\chi^2$分布,记作
+\textbf{2. $\chi^2$分布: }若简单随机样本$x_1,\cdots,x_n$ $\sim N(0,1)$, 则$\sum\limits_{i=1}^n x_i^2$服从自由度为$n$的$\chi^2$分布,记作
 \begin{equation*}
     \sum\limits_{i=1}^n x_i^2 \sim \chi^2(n)
 \end{equation*}
 
 其概率密度函数只在第一象限定义且非对称. 不用刻意记忆其具体p.d.f., 但需注意$\chi^2(2)$的概率密度函数为$\frac{1}{2}e^{-\frac{1}{2}x}$ ($x>0$).
 
-3. $F$分布: 令独立随机变量$X \sim \chi^2(m), Y \sim \chi^2(n)$, 则$\frac{X/m}{Y/n}$服从自由度为$m$与$n$的$F$分布, 记作
+\textbf{3. $F$分布: }令独立随机变量$X \sim \chi^2(m), Y \sim \chi^2(n)$, 则$\frac{X/m}{Y/n}$服从自由度为$m$与$n$的$F$分布, 记作
 \begin{equation*}
     \frac{X/m}{Y/n} \sim F(m,n)
 \end{equation*}
 $F$分布具有的特殊性质: 若$X \sim F(m,n)$, 则$\frac{1}{X} \sim F(n,m)$.
 
-4. $t$分布: $X \sim N(0,1)$, $Y \sim \chi^2(n)$, 则$\frac{X}{\sqrt{Y/n}}$服从自由度为$n$的$t$分布, 记作
+\textbf{4. $t$分布: }$X \sim N(0,1)$, $Y \sim \chi^2(n)$, 则$\frac{X}{\sqrt{Y/n}}$服从自由度为$n$的$t$分布, 记作
 \begin{equation*}
     \frac{X}{\sqrt{Y/n}} \sim t(n)
 \end{equation*}
@@ -365,34 +365,34 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 
 \subsection{利用抽样分布统计推断}
 
-1. 前置条件: $x$服从正态分布, 即$x \sim N(\mu, \sigma^2)$.
+\textbf{1. 前置条件: }$x$服从正态分布, 即$x \sim N(\mu, \sigma^2)$.
 
-2. $\sigma^2$已知, 对$\mu$统计推断: 构造统计量
+\textbf{2. $\sigma^2$已知, 对$\mu$统计推断: }构造统计量
 \begin{equation*}
     \frac{\bar{x}-\mu}{\sigma/\sqrt{n}} \sim N(0,1)
 \end{equation*}
 
 
-3. $\sigma^2$未知, 对$\mu$统计推断: 由$\bar{x}$与$s^2$相互独立, 可构造统计量
+\textbf{3. $\sigma^2$未知, 对$\mu$统计推断: }由$\bar{x}$与$s^2$相互独立, 可构造统计量
 \begin{equation*}
     \frac{\bar{x}-\mu}{s/\sqrt{n}} \sim t(n-1)
 \end{equation*}
 
-4. 对$\sigma^2$统计推断:
+\textbf{4. 对$\sigma^2$统计推断:}
 \begin{equation*}
     \frac{(n-1)S^2}{\sigma^2} \sim \chi^2(n-1)
 \end{equation*}
 
-5. 双正态总体方差比推断: 令$X~N(\mu_1,\sigma_1^2), Y\sim N(\mu_2,\sigma_2^2)$, 构造统计量
+\textbf{5. 双正态总体方差比推断: }令$X~N(\mu_1,\sigma_1^2), Y\sim N(\mu_2,\sigma_2^2)$, 构造统计量
 \begin{equation*}
     \frac{s_X^2}{s_Y^2} \sim F(m-1,n-1)
 \end{equation*}
 
 \subsection{充分统计量}
 
-1. 定义: 若统计量$T$包含了样本的全部信息, 即给定$T$的取值后, $x_1,\cdots, x_n$的分布与未知参数$\theta$无关, 则称$T$为$\theta$的充分统计量.
+\textbf{1. 定义: }若统计量$T$包含了样本的全部信息, 即给定$T$的取值后, $x_1,\cdots, x_n$的分布与未知参数$\theta$无关, 则称$T$为$\theta$的充分统计量.
 
-2. 因子分解定理: 若总体分布为$f(x;\theta)$, 存在函数$g(T,\theta)$与$h(x_1,\cdots,x_n)$使得$f(x_1,\cdots,x_n;\theta)=g(T,\theta)\cdot h(x_1,\cdots,x_n)$, 则$T$为$\theta$的充分统计量.
+\textbf{2. 因子分解定理: }若总体分布为$f(x;\theta)$, 存在函数$g(T,\theta)$与$h(x_1,\cdots,x_n)$使得$f(x_1,\cdots,x_n;\theta)=g(T,\theta)\cdot h(x_1,\cdots,x_n)$, 则$T$为$\theta$的充分统计量.
 
 \section{参数估计}
 
@@ -405,9 +405,9 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 
 \subsection{矩估计}
 
-1. 思想: 点估计的一种, 另一种即下面讨论的最大似然估计. 令总体分布为$X(\theta)$. 用样本矩$a_k=\sum\limits_{i=1}^n X_i^k$代替总体矩$EX^k(\theta)$, 列方程求解未知参数.
+\textbf{1. 思想: }点估计的一种, 另一种即下面讨论的最大似然估计. 令总体分布为$X(\theta)$. 用样本矩$a_k=\sum\limits_{i=1}^n X_i^k$代替总体矩$EX^k(\theta)$, 列方程求解未知参数.
 
-2. 以正态分布的矩估计为例: 令$X \sim N(\mu,\sigma^2)$, 则
+\textbf{2. 以正态分布的矩估计为例: }令$X \sim N(\mu,\sigma^2)$, 则
 \begin{equation*}
     \left\{\begin{aligned}
         EX &=~~~~~\mu&=\frac{1}{n}\sum\limits_{i=1}^n x_i\\
@@ -416,13 +416,13 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 \end{equation*}
 从中解出$\hat{\mu}=\bar{x}$, $\hat{\sigma}^2=\frac{1}{n}\sum\limits_{i=1}^n(x_i-\bar{x})^2 =s_n^2$.
 
-3. 矩估计的相合性: 若$\lim\limits_{n\rightarrow \infty} E(\hat{\theta})=\theta$, $\lim\limits_{n\rightarrow \infty} D(\hat{\theta})=0$, 则称$\hat{\theta}$为$\theta$的相合估计. 矩估计通常为相合估计.
+\textbf{3. 矩估计的相合性: }若$\lim\limits_{n\rightarrow \infty} E(\hat{\theta})=\theta$, $\lim\limits_{n\rightarrow \infty} D(\hat{\theta})=0$, 则称$\hat{\theta}$为$\theta$的相合估计. 矩估计通常为相合估计.
 
 \subsection{最大似然估计}
 
-1. 思想: 选取参数$\theta$, 使得样本概率$f(x_1,\cdots,x_n;\theta)=\prod\limits_{i=1}^n f(x_i;\theta)$最大.
+\textbf{1. 思想: }选取参数$\theta$, 使得样本概率$f(x_1,\cdots,x_n;\theta)=\prod\limits_{i=1}^n f(x_i;\theta)$最大.
 
-2. 求解方式: 令似然函数$L(\theta)=\prod\limits_{i=1}^n f(x_i;\theta)$, 求解方程以解出$\hat{\theta}$:
+\textbf{2. 求解方式: }令似然函数$L(\theta)=\prod\limits_{i=1}^n f(x_i;\theta)$, 求解方程以解出$\hat{\theta}$:
 \begin{equation*}
     \frac{\mathrm{d}\ln L(\theta)}{\mathrm{d}\theta}=0
 \end{equation*}
@@ -436,7 +436,7 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 \end{equation*}
 解得$\hat{\mu}=\bar{x}$, $\hat{\sigma}^2=s_n^2$, 恰好与矩估计结果一致.
 
-4. EM算法: Expectation Maximization, 针对似然函数中存在不可观测的隐变量$z$时的局部ML优化.
+\textbf{4. EM算法: }Expectation Maximization, 针对似然函数中存在不可观测的隐变量$z$时的局部ML优化.
 
 ~~~~ (1) E步: 构造似然函数$Q(\theta | x,\theta^{(i)})=E_z[\ln L(\theta;x,z)]$, 目的是消除隐变量$z$的随机性;
 
@@ -449,13 +449,13 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 
 \subsection{点估计的评价标准}
 
-1. 无偏性: 若$E(\hat{\theta})=\theta$, 则称$\hat{\theta}$为$\theta$的无偏估计.
+\textbf{1. 无偏性: }若$E(\hat{\theta})=\theta$, 则称$\hat{\theta}$为$\theta$的无偏估计.
 
-2. 有效性: 若$\hat{\theta}_1, \hat{\theta}_2$均为$\theta$的无偏估计, 且$D\hat{\theta}_1>D\hat{\theta}_2$, 则估计$\hat{\theta}_2$比估计$\hat{\theta}_1$更有效.
+\textbf{2. 有效性: }若$\hat{\theta}_1, \hat{\theta}_2$均为$\theta$的无偏估计, 且$D\hat{\theta}_1>D\hat{\theta}_2$, 则估计$\hat{\theta}_2$比估计$\hat{\theta}_1$更有效.
 
-3. Fisher信息量: $I(\theta)=E\left[\frac{\partial}{\partial \theta}\ln f(x;\theta)\right]^2$. $I(\theta)$越大, 表示总体分布中包含未知参数$\theta$的信息越多.
+\textbf{3. Fisher信息量: }$I(\theta)=E\left[\frac{\partial}{\partial \theta}\ln f(x;\theta)\right]^2$. $I(\theta)$越大, 表示总体分布中包含未知参数$\theta$的信息越多.
 
-4. Cramer-Rao不等式: 若$T$为$g(\theta)$的无偏估计, 则
+\textbf{4. Cramer-Rao不等式: }若$T$为$g(\theta)$的无偏估计, 则
 \begin{equation*}
     DT \geq \frac{[g'(\theta)]^2}{nI(\theta)}
 \end{equation*}
@@ -463,13 +463,13 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 
 \subsection{贝叶斯估计}
 
-1. 思想: 在抽样之前, 便有关于$\theta$的先验信息, 即$\theta$服从先验分布$\pi(\theta)$. 以后验信息
+\textbf{1. 思想: }在抽样之前, 便有关于$\theta$的先验信息, 即$\theta$服从先验分布$\pi(\theta)$. 以后验信息
 \begin{equation*}
     \pi(\theta|x)=\frac{f(x|\theta)\pi(\theta)}{\int_\theta f(x|\theta)\pi(\theta)\mathrm{d} \theta}
 \end{equation*}
 以后验分布的最大值点作为$\theta$的点估计.
 
-2. 朴素贝叶斯分类器: 假设各属性$A_1,\cdots,A_n$相互独立, 在得到新的样本$A_1=a_1,\cdots,A_n=a_n$后, 尝试将样本归类: $Y \in {y_1,\cdots,y_m}$.
+\textbf{2. 朴素贝叶斯分类器: }假设各属性$A_1,\cdots,A_n$相互独立, 在得到新的样本$A_1=a_1,\cdots,A_n=a_n$后, 尝试将样本归类: $Y \in {y_1,\cdots,y_m}$.
 
 朴素贝叶斯分类器的最大化目标为: 以样本信息为先验, 寻找可能性最大的分类结果, 即
 \begin{equation*}
@@ -481,15 +481,15 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 \end{equation*}
 每一项都可以通过现有样本点在$Y=y_k$时$A_i=a_i$的占比求出, 选出使优化目标最大的$k$, 便可作出最优决策$Y=y_k$.
 
-3. 共轭先验: 若$\pi(\theta)$与$\pi(\theta|x)$同属一个分布族, 则称该分布族为$\theta$的共轭先验分布族, 此时样本的作用仅是将分布族中的未知参数作调整.
+\textbf{3. 共轭先验: }若$\pi(\theta)$与$\pi(\theta|x)$同属一个分布族, 则称该分布族为$\theta$的共轭先验分布族, 此时样本的作用仅是将分布族中的未知参数作调整.
 
 \subsection{区间估计}
 
-1. 思想: 区别于点估计, 区间估计的目标是给出$\theta$可能的所在区间$[\hat{\theta}_1,\hat{\theta}_2]$, 使$\theta$有$1-\alpha$的概率落入该区间. 通常使用枢轴量法, 即构造合适的统计量, 利用抽样分布的分位数划定置信限.
+\textbf{1. 思想: }区别于点估计, 区间估计的目标是给出$\theta$可能的所在区间$[\hat{\theta}_1,\hat{\theta}_2]$, 使$\theta$有$1-\alpha$的概率落入该区间. 通常使用枢轴量法, 即构造合适的统计量, 利用抽样分布的分位数划定置信限.
 
-2. 单侧区间估计: 若给出$\hat{\theta}$, 使得$P(\theta \geq \hat{\theta})\geq 1-\alpha$, 则$\hat{\theta}$称为单侧置信下限; 若给出$\hat{\theta}$, 使得$P(\theta \leq \hat{\theta})\geq 1-\alpha$, 则$\hat{\theta}$称为单侧置信上限. 求解方法与双侧区间估计类似.
+\textbf{2. 单侧区间估计: }若给出$\hat{\theta}$, 使得$P(\theta \geq \hat{\theta})\geq 1-\alpha$, 则$\hat{\theta}$称为单侧置信下限; 若给出$\hat{\theta}$, 使得$P(\theta \leq \hat{\theta})\geq 1-\alpha$, 则$\hat{\theta}$称为单侧置信上限. 求解方法与双侧区间估计类似.
 
-3. 单正态分布总体区间估计: 设$X \sim N(\mu, \sigma^2)$. 主要依据为1.5.4节给出的统计量.
+\textbf{3. 单正态分布总体区间估计: }设$X \sim N(\mu, \sigma^2)$. 主要依据为1.5.4节给出的统计量.
 
 ~~~~ (1) $\sigma^2$已知, 对$\mu$区间估计: 构造统计量
 \begin{equation*}
@@ -510,7 +510,7 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 则通过$\chi^2 \in [\chi^2_{\frac{\alpha}{2}}(n-1),\chi^2_{1-\frac{\alpha}{2}}(n-1)]$ 反解置信度为$1-\alpha$时$\sigma^2$的置信区间.
 
 
-4. 双独立正态分布总体区间估计: $X\sim N(\mu_1,\sigma_1^2)$, $Y \sim N(\mu_2,\sigma_2^2)$. $X$有$m$个样本, 且$Y$有$n$个样本.
+\textbf{4. 双独立正态分布总体区间估计: }$X\sim N(\mu_1,\sigma_1^2)$, $Y \sim N(\mu_2,\sigma_2^2)$. $X$有$m$个样本, 且$Y$有$n$个样本.
 
 (1) $\sigma_1^2$与$\sigma_2^2$已知, 对$\mu_1-\mu_2$ 估计: 构造统计量
 \begin{equation*}
@@ -537,20 +537,20 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 
 \subsection{基本思想}
 
-1. 假设检验的基本问题: 选定原假设$H_0$与备择假设$H_1$, 若$H_0$发生的可能性非常小, 则拒绝原假设而接受备择假设; 若不能拒绝原假设, 则接受原假设. 假设检验的一般问题记作
+\textbf{1. 假设检验的基本问题: }选定原假设$H_0$与备择假设$H_1$, 若$H_0$发生的可能性非常小, 则拒绝原假设而接受备择假设; 若不能拒绝原假设, 则接受原假设. 假设检验的一般问题记作
 \begin{equation*}
     H_0: \_\_\_\_  \ \ \text{vs}\ \ H_1:\_\_\_\_
 \end{equation*}
 
-2. 检验方法: 先假设$H_0$成立, 结合某一检验统计量的分布给出拒绝域. 若该统计量落入拒绝域, 则拒绝$H_0$, 否则接受$H_0$.
+\textbf{2. 检验方法: }先假设$H_0$成立, 结合某一检验统计量的分布给出拒绝域. 若该统计量落入拒绝域, 则拒绝$H_0$, 否则接受$H_0$.
 
-3. 两类错误: 若$H_0$为真, 但统计量落入拒绝域, 则犯了第一类错误$\alpha$; 若$H_0$为假, 但接受了$H_0$, 则犯第二类错误$\beta$.
+\textbf{3. 两类错误: }若$H_0$为真, 但统计量落入拒绝域, 则犯了第一类错误$\alpha$; 若$H_0$为假, 但接受了$H_0$, 则犯第二类错误$\beta$.
 
-4. 显著性水平$\alpha$: 控制犯第一类错误的可能性$\leq \alpha$, 即假设$H_0$为真, 检验统计量落入拒绝域的概率应小于等于$\alpha$.
+\textbf{4. 显著性水平$\alpha$: }控制犯第一类错误的可能性$\leq \alpha$, 即假设$H_0$为真, 检验统计量落入拒绝域的概率应小于等于$\alpha$.
 
 \subsection{正态总体假设检验}
 
-1. 单正态总体假设检验: $X \sim N(\mu,\sigma^2)$, 样本量为$n$, 构造的统计量依然如1.5.4节所述. 由于等式假设和不等式假设仅涉及双侧置信区间和单侧置信区间, 处理手法类似, 故仅以等式假设为例.
+\textbf{1. 单正态总体假设检验: }$X \sim N(\mu,\sigma^2)$, 样本量为$n$, 构造的统计量依然如1.5.4节所述. 由于等式假设和不等式假设仅涉及双侧置信区间和单侧置信区间, 处理手法类似, 故仅以等式假设为例.
 
 ~~~~ (1) $\sigma^2$已知, 检验 $H_0:\mu =\mu_0$~~~vs~~~~$H_1:\mu \neq \mu_0$: 构造统计量
 \begin{equation*}
@@ -570,7 +570,7 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 \end{equation*}
 当$H_0$为真时, $\chi^2 \sim \chi^2(n-1)$, 即拒绝域为$\{\chi^2 \leq \chi^2_{\frac{\alpha}{2}}(n-1),~~\text{or}~~\chi^2\geq \chi^2_{1-\frac{\alpha}{2}(n-1)}\}$.
 
-2. 双正态总体假设检验: 设$X\sim N(\mu_1,\sigma_1^2), Y\sim N(\mu_2,\sigma_2^2)$, 且$X$的样本数为$m$, $Y$的样本数为$n$.
+\textbf{2. 双正态总体假设检验: }设$X\sim N(\mu_1,\sigma_1^2), Y\sim N(\mu_2,\sigma_2^2)$, 且$X$的样本数为$m$, $Y$的样本数为$n$.
 
 ~~~~ (1) $\sigma_1^2$和$\sigma_2^2$已知, 检验$H_0:\mu_1 =\mu_2$~~~vs~~~~$H_1:\mu_1 \neq \mu_2$: 取检验统计量
 \begin{equation*}
@@ -594,38 +594,38 @@ $t$分布与$F$分布间存在联系: 若$X \sim t(n)$,  则$X^2 \sim F(1,n)$.
 
 \subsection{广义似然比检验}
 
-1. 思想: 检验$H_0:\theta \in \Theta$~~~vs~~~~$H_1:\theta \notin \Theta$ 时, 取统计量
+\textbf{1. 思想: }检验$H_0:\theta \in \Theta$~~~vs~~~~$H_1:\theta \notin \Theta$ 时, 取统计量
 \begin{equation*}
     \Lambda(x_1,\cdots,x_n)=\frac{\sup\limits_{\theta \in \Theta} f(x_1,\cdots,x_n;\theta)}{\sup\limits_{\theta \notin \Theta} f(x_1,\cdots,x_n;\theta)}
 \end{equation*}
 $\Lambda$越大, 说明$H_0$越有可能成立.
 
-2. 拒绝域. 尚未有统一的形式. 但可以用渐近分布$2\Lambda \sim \chi^2(n)$, 其中$n$为独立参数的个数.
+\textbf{2. 拒绝域:} 尚未有统一的形式. 但可以用渐近分布$2\Lambda \sim \chi^2(n)$, 其中$n$为独立参数的个数.
 
 \subsection{拟合优度检验}
 
-1. 分布拟合检验: 设总体被分为$r$个类 $A_1,\cdots,A_r$, $A_i$类中有$n_i$个样本, 检验原假设$H_0:A_i$所占比率为$p_i$, 其中$\sum\limits_{i=1}^r p_i=1$, $\sum\limits_{i=1}^r n_i=n$. 构造统计量
+\textbf{1. 分布拟合检验: }设总体被分为$r$个类 $A_1,\cdots,A_r$, $A_i$类中有$n_i$个样本, 检验原假设$H_0:A_i$所占比率为$p_i$, 其中$\sum\limits_{i=1}^r p_i=1$, $\sum\limits_{i=1}^r n_i=n$. 构造统计量
 \begin{equation*}
     \chi^2=\sum\limits_{i=1}^r \frac{(n_i-np_i)^2}{np_i} \sim \chi^2(r-1)
 \end{equation*}
 拒绝域为$\{\chi^2 \geq \chi^2_{1-\alpha}(r-1)\}$.
 
-2. $\chi^2$拟合优度检验: 若$X$的分布函数为$F(x)$, 将样本归为$r$类: $(-\infty,a_1],$ $(a_1,a_2], \cdots,(a_{r-1},+\infty)$, 每一类理论占比$p_i=F(a_i)-F(a_{i-1})$, 实际
+\textbf{2. $\chi^2$拟合优度检验: }若$X$的分布函数为$F(x)$, 将样本归为$r$类: $(-\infty,a_1],$ $(a_1,a_2], \cdots,(a_{r-1},+\infty)$, 每一类理论占比$p_i=F(a_i)-F(a_{i-1})$, 实际
 有$n_i$个样本落入第$i$类, 在此基础上应用分布拟合检验.
 
 \subsection{正态性检验}
 
-1. 目的: 检验总体是否服从正态分布.
+\textbf{1. 目的: }检验总体是否服从正态分布.
 
-2. 概率图纸法: 令样本从小到大排列为$x_{(1)},\cdots,x_{(n)}$, 将点$\left(x_{(i)},\frac{i-0.375}{n+0.25}\right)$描在图纸上, 若近似成一条直线, 则认为总体$X$服从正态分布.
+\textbf{2. 概率图纸法: }令样本从小到大排列为$x_{(1)},\cdots,x_{(n)}$, 将点$\left(x_{(i)},\frac{i-0.375}{n+0.25}\right)$描在图纸上, 若近似成一条直线, 则认为总体$X$服从正态分布.
 
 \subsection{游程检验}
 
-1. 目的: 检验样本是否随机抽取.
+\textbf{1. 目的: }检验样本是否随机抽取.
 
-2. 游程检验: 设样本中位数为$M_e$, 将样本按抽样时间顺序排列, 并将$\geq M_e$的值替换为1, $<M_e$的值替换为0, 得到一串0-1序列.
+\textbf{2. 游程检验: }设样本中位数为$M_e$, 将样本按抽样时间顺序排列, 并将$\geq M_e$的值替换为1, $<M_e$的值替换为0, 得到一串0-1序列.
 
-3. 判断依据: 把以0为界的连续1串称为1游程, 以1为界的连续0串称为0游程. 若0游程数和1游程数之和过大或过小, 则拒绝采样随机性, 拒绝域通过查表得出.
+\textbf{3. 判断依据: }把以0为界的连续1串称为1游程, 以1为界的连续0串称为0游程. 若0游程数和1游程数之和过大或过小, 则拒绝采样随机性, 拒绝域通过查表得出.
 
 \section{方差分析}
 \begin{tcolorbox}[colback=red!5,colframe=red!75!black]
@@ -637,32 +637,32 @@ $\Lambda$越大, 说明$H_0$越有可能成立.
 
 \subsection{基本思想}
 
-1. 检验问题: 设因素$A$有$r$个水平, 各水平均为正态总体$N(\mu_i,\sigma^2)$且方差相等, 检验因素$A$对均值的影响是否显著,即检验
+\textbf{1. 检验问题: }设因素$A$有$r$个水平, 各水平均为正态总体$N(\mu_i,\sigma^2)$且方差相等, 检验因素$A$对均值的影响是否显著,即检验
 \begin{equation*}
     H_0: \mu_0=\mu_1=\cdots=\mu_r ~~~\text{vs}~~~~H_1:\mu_0,\mu_1,\cdots,\mu_r \text{不全相等}
 \end{equation*}
 
-2. 统计模型: 令$y_{ij}$表第$i$个总体的第$j$次试验结果, $m_i$为水平$A_i$的样本数, 总样本数$n=\sum\limits_{i=1}^r m_i$. 
+\textbf{2. 统计模型: }令$y_{ij}$表第$i$个总体的第$j$次试验结果, $m_i$为水平$A_i$的样本数, 总样本数$n=\sum\limits_{i=1}^r m_i$. 
 记$\varepsilon_{ij}=y_{ij}-\mu_i$为随机误差, 则$\varepsilon_{ij}$相互独立, 且$\epsilon_{ij}\sim N(0,\sigma^2)$.
 
-3. 组内偏差: 令$\bar{y}_i$表示第$i$个总体的组内均值, 则用$S_e=\sum\limits_{i=1}^r\sum\limits_{j=1}^{m_i}(y_{ij}-\bar{y}_i)^2$表示第$i$个总体的组内偏差.
+\textbf{3. 组内偏差: }令$\bar{y}_i$表示第$i$个总体的组内均值, 则用$S_e=\sum\limits_{i=1}^r\sum\limits_{j=1}^{m_i}(y_{ij}-\bar{y}_i)^2$表示第$i$个总体的组内偏差.
 
-4. 组间偏差: 令$\bar{y}$为所有样本的均值, 则用$S_A=\sum\limits_{i=1}^r m_i(\bar{y_i}-y)^2$表示因素$A$导致的组间偏差.
+\textbf{4. 组间偏差: }令$\bar{y}$为所有样本的均值, 则用$S_A=\sum\limits_{i=1}^r m_i(\bar{y_i}-y)^2$表示因素$A$导致的组间偏差.
 
-5. 平方和分解公式: 令总偏差为$S_T=\sum\limits_{i=1}^r\sum\limits_{j=1}^{m_i} (y_{ij}-\bar{y})^2$, 由$y_{ij}-\bar{y}=(y_{ij}-\bar{y}_i)+(\bar{y}_i-\bar{y})$可推导如下重要公式:
+\textbf{5. 平方和分解公式: }令总偏差为$S_T=\sum\limits_{i=1}^r\sum\limits_{j=1}^{m_i} (y_{ij}-\bar{y})^2$, 由$y_{ij}-\bar{y}=(y_{ij}-\bar{y}_i)+(\bar{y}_i-\bar{y})$可推导如下重要公式:
 \begin{equation*}
     S_T=S_A+S_e
 \end{equation*}
 
 \subsection{单因素方差分析}
 
-1. 基本思想: 由平方和分解公式, 若$S_A$远大于$S_e$, 即偏差大部分由因素$A$导致, 则认为因素$A$影响显著. 构造检验统计量
+\textbf{1. 基本思想: }由平方和分解公式, 若$S_A$远大于$S_e$, 即偏差大部分由因素$A$导致, 则认为因素$A$影响显著. 构造检验统计量
 \begin{equation*}
     F=\frac{S_A/(r-1)}{S_e/(n-r)} \sim F(r-1,n-r)
 \end{equation*}
 当$F$大于临界值$F_{1-\alpha}(r-1,n-r)$时, 拒绝原假设, 认为因素$A$显著.
 
-2. 单因素方差分析表
+\textbf{2. 单因素方差分析表}
 \begin{table}[H]
     \resizebox{\textwidth}{!}{
     \begin{tabular}{c|c|c|ccc}
@@ -673,13 +673,13 @@ $\Lambda$越大, 说明$H_0$越有可能成立.
     \end{tabular}}
 \end{table}
 
-3. 填表方法: 先计算$S_T=\sum\limits_{i=1}^r\sum\limits_{j=1}^{m_i} (y_{ij}-\bar{y})^2$, 再计算$S_e=\sum\limits_{i=1}^r\sum\limits_{j=1}^{m_i}(y_{ij}-\bar{y}_i)^2$, 由平方和分解公式计算$S_A=S_T-S_e$, 再从左到右填写剩下内容. 最后比较$F$比和临界值, 若$F$比大于临界值, 则拒绝$H_0$, 认为因素$A$显著.
+\textbf{3. 填表方法: }先计算$S_T=\sum\limits_{i=1}^r\sum\limits_{j=1}^{m_i} (y_{ij}-\bar{y})^2$, 再计算$S_e=\sum\limits_{i=1}^r\sum\limits_{j=1}^{m_i}(y_{ij}-\bar{y}_i)^2$, 由平方和分解公式计算$S_A=S_T-S_e$, 再从左到右填写剩下内容. 最后比较$F$比和临界值, 若$F$比大于临界值, 则拒绝$H_0$, 认为因素$A$显著.
 
 \subsection{方差齐性检验}
 
-1. 目的: 检验$r$个总体是否符合方差相等的假设条件.
+\textbf{1. 目的: }检验$r$个总体是否符合方差相等的假设条件.
 
-2. 哈特利检验: 令$H=\frac{\max\{s_1^2,\cdots,s_r^2\}}{\min\{s_1^2,\cdots,s_r^2\}}$, 则$H$越接近1, 越有可能认为方差相等. 查表得$H$分布的分位数和拒绝域.
+\textbf{2. 哈特利检验: }令$H=\frac{\max\{s_1^2,\cdots,s_r^2\}}{\min\{s_1^2,\cdots,s_r^2\}}$, 则$H$越接近1, 越有可能认为方差相等. 查表得$H$分布的分位数和拒绝域.
 
 \section{回归分析}
 
@@ -691,18 +691,18 @@ $\Lambda$越大, 说明$H_0$越有可能成立.
 
 \subsection{基本思想}
 
-1. 目的: 令$x$为自变量, $y$为因变量, 用函数关系$y=f(x)$拟合$x$与$y$间的相关关系, 并要求误差尽可能小.
+\textbf{1. 目的: }令$x$为自变量, $y$为因变量, 用函数关系$y=f(x)$拟合$x$与$y$间的相关关系, 并要求误差尽可能小.
 
-2 一元线性回归: 用$y=\beta_0+\beta_1 x$拟合相关关系, 统计模型为
+\textbf{2. 一元线性回归: }用$y=\beta_0+\beta_1 x$拟合相关关系, 统计模型为
 \begin{equation*}
     y_i=\beta_0+\beta_1 x_i +\varepsilon_i , \varepsilon_i \sim N(0,\sigma^2)
 \end{equation*}
 
 \subsection{回归系数的最小二乘估计}
 
-1. 目的: 令$n$组样本对为$(x_i,y_i)$, 求$\hat{\beta}_0,\hat{\beta}_1$, 使误差和$Q=\sum\limits_{i=1}^n (y_i-\beta_0-\beta_1 x_i)^2$最小.
+\textbf{1. 目的: }令$n$组样本对为$(x_i,y_i)$, 求$\hat{\beta}_0,\hat{\beta}_1$, 使误差和$Q=\sum\limits_{i=1}^n (y_i-\beta_0-\beta_1 x_i)^2$最小.
 
-2. 求解: 由$\frac{\partial Q}{\partial \beta_0}=0$, 得$2\sum\limits_{i=1}^n (\beta_0+\beta_1x_i-y_i)=0$.
+\textbf{2. 求解: }由$\frac{\partial Q}{\partial \beta_0}=0$, 得$2\sum\limits_{i=1}^n (\beta_0+\beta_1x_i-y_i)=0$.
 
 ~~~~~~~~~~~~~~~由$\frac{\partial Q}{\partial \beta_1}=0$, 得$2\sum\limits_{i=1}^n x_i(\beta_0+\beta_1x_i-y_i)=0$. 联立解得
 
@@ -710,19 +710,19 @@ $\Lambda$越大, 说明$H_0$越有可能成立.
     \hat{\beta}_1=\frac{n\sum\limits_{i=1}^n x_iy_i-\sum\limits_{i=1}^n x_i \sum\limits_{i=1}^n y_i}{n\sum\limits_{i=1}^n x_i^2 -(\sum\limits_{i=1}^n x_i)^2} , ~~~~\hat{\beta}_0=\bar{y}-\hat{\beta}_1\bar{x}
 \end{equation*}
 
-3. 估计的性质: $\hat{\beta}_0,\hat{\beta}_1$均为无偏估计.
+\textbf{3. 估计的性质: }$\hat{\beta}_0,\hat{\beta}_1$均为无偏估计.
 
 \subsection{区间估计与预测}
 
-1. 区间估计目的: 给定$x_0$, 求$E(y_0)=\beta_0+\beta_1x_0$的区间估计.
+\textbf{1. 区间估计目的: }给定$x_0$, 求$E(y_0)=\beta_0+\beta_1x_0$的区间估计.
 
-2. 区间估计方法: 令$\hat{y}_0=\hat{\beta}_0+\hat{\beta}_1 x_0$, 构造统计量
+\textbf{2. 区间估计方法: }令$\hat{y}_0=\hat{\beta}_0+\hat{\beta}_1 x_0$, 构造统计量
 \begin{equation*}
     \frac{\hat{y}_0-(\beta_0+\beta_1 x_0)}{\hat{\sigma}\sqrt{\frac{1}{n}+\frac{(x_0-\bar{x})^2}{l_{xx}}}} \sim t(n-2)
 \end{equation*}
 其中$l_{xx}=\sum\limits_{i=1}^n x_i^2-\frac{1}{n}(\sum\limits_{i=1}^n x_i)^2$.
 
-3. 预测: 给定$x_0$的条件下, 求$y_0$的区间估计. 构造统计量
+\textbf{3. 预测: }给定$x_0$的条件下, 求$y_0$的区间估计. 构造统计量
 \begin{equation*}
     \frac{\hat{y}_0-y_0}{\hat{\sigma}\sqrt{1+\frac{1}{n}+\frac{(x_0-\bar{x})^2}{l_{xx}}}} \sim t(n-2)
 \end{equation*}
@@ -730,14 +730,14 @@ $\Lambda$越大, 说明$H_0$越有可能成立.
 
 \subsection{显著性检验}
 
-1. 目的: 检验$y$和$x$的相关性是否显著. 若$y$与$x$无关, 则$\beta_1=0$, 即检验假设$H_0:\beta_1=0$~~~vs~~~~$H_1:\beta_1 \neq 0$.
+\textbf{1. 目的: }检验$y$和$x$的相关性是否显著. 若$y$与$x$无关, 则$\beta_1=0$, 即检验假设$H_0:\beta_1=0$~~~vs~~~~$H_1:\beta_1 \neq 0$.
 
-2. $t$检验: 取检验统计量
+\textbf{2. $t$检验: }取检验统计量
 \begin{equation*}
     t=\frac{\hat{\beta}_1}{\hat{\sigma}/\sqrt{l_{xx}}} \sim t(n-2)
 \end{equation*}
 
-3. $F$检验: 取$S_R=\sum\limits_{i=1}^n (\hat{y}_i-\bar{y})^2,~~~~ S_e=\sum\limits_{i=1}^n (y_i-\hat{y}_i)^2,~~~~S_e=\sum\limits_{i=1}^n (y_i-\bar{y})^2$, 则有平方和分解公式$S_T=S_R+S_e$. 列方差分析表:
+\textbf{3. $F$检验: }取$S_R=\sum\limits_{i=1}^n (\hat{y}_i-\bar{y})^2,~~~~ S_e=\sum\limits_{i=1}^n (y_i-\hat{y}_i)^2,~~~~S_e=\sum\limits_{i=1}^n (y_i-\bar{y})^2$, 则有平方和分解公式$S_T=S_R+S_e$. 列方差分析表:
 \begin{table}[H]
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{c|c|c|ccc}
@@ -751,9 +751,9 @@ $\Lambda$越大, 说明$H_0$越有可能成立.
 
 \subsection{多元线性回归}
 
-1. 目的: 用$y=\omega^Tx+b$拟合向量$y$与$x$之间的相关关系.
+\textbf{1. 目的: }用$y=\omega^Tx+b$拟合向量$y$与$x$之间的相关关系.
 
-2. 求解: 最小二乘法. 解为$\theta=(X^TX)^{-1}X^TY$, 其中$(x1,y1),\cdots,(xm,ym)$为样本点, 
+\textbf{2. 求解: }最小二乘法. 解为$\theta=(X^TX)^{-1}X^TY$, 其中$(x1,y1),\cdots,(xm,ym)$为样本点, 
 \begin{equation*}
     \theta=\begin{pmatrix}
         \omega_1\\
@@ -776,8 +776,8 @@ $\Lambda$越大, 说明$H_0$越有可能成立.
 
 \subsection{非线性回归}
 
-1. 确定函数形式: 根据散点图形状, 确定变换$z=\varphi(y)$.
+\textbf{1. 确定函数形式: }根据散点图形状, 确定变换$z=\varphi(y)$.
 
-2. 作变换: 重新绘制$(x,z)$的散点图.
+\textbf{2. 作变换: }重新绘制$(x,z)$的散点图.
 
-3. 线性回归: 若$z$与$x$的散点图近似直线, 则对$x$和$z$作一元线性回归.
+\textbf{3. 线性回归: }若$z$与$x$的散点图近似直线, 则对$x$和$z$作一元线性回归.
