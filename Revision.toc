@@ -75,16 +75,16 @@
 \contentsline {subsection}{\numberline {2.7.2}存储结构}{37}{subsection.2.7.2}% 
 \contentsline {subsection}{\numberline {2.7.3}算法与应用}{38}{subsection.2.7.3}% 
 \contentsline {section}{\numberline {2.8}图}{38}{section.2.8}% 
-\contentsline {subsection}{\numberline {2.8.1}逻辑结构}{38}{subsection.2.8.1}% 
+\contentsline {subsection}{\numberline {2.8.1}逻辑结构}{39}{subsection.2.8.1}% 
 \contentsline {subsection}{\numberline {2.8.2}存储结构}{39}{subsection.2.8.2}% 
 \contentsline {subsection}{\numberline {2.8.3}算法与应用}{39}{subsection.2.8.3}% 
 \contentsline {section}{\numberline {2.9}查找技术}{40}{section.2.9}% 
 \contentsline {subsection}{\numberline {2.9.1}线性表的查找技术}{40}{subsection.2.9.1}% 
-\contentsline {subsection}{\numberline {2.9.2}树表的查找技术}{40}{subsection.2.9.2}% 
+\contentsline {subsection}{\numberline {2.9.2}树表的查找技术}{41}{subsection.2.9.2}% 
 \contentsline {subsection}{\numberline {2.9.3}散列表的查找技术}{41}{subsection.2.9.3}% 
 \contentsline {section}{\numberline {2.10}排序技术}{41}{section.2.10}% 
 \contentsline {subsection}{\numberline {2.10.1}插入型排序}{41}{subsection.2.10.1}% 
-\contentsline {subsection}{\numberline {2.10.2}交换型排序}{41}{subsection.2.10.2}% 
+\contentsline {subsection}{\numberline {2.10.2}交换型排序}{42}{subsection.2.10.2}% 
 \contentsline {subsection}{\numberline {2.10.3}选择型排序}{42}{subsection.2.10.3}% 
 \contentsline {subsection}{\numberline {2.10.4}归并型排序}{42}{subsection.2.10.4}% 
 \contentsline {chapter}{\numberline {第三章\hspace {.3em}}数据库系统}{43}{chapter.3}% 
