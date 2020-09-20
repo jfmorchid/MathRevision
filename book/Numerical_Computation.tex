@@ -1,0 +1,54 @@
+\chapter{数学分析}
+\thispagestyle{empty}
+
+\setlength{\fboxrule}{0pt}\setlength{\fboxsep}{0cm}
+\noindent\shadowbox{
+\begin{tcolorbox}[arc=0mm,colback=lightblue,colframe=darkblue,title=Mathematical Analysis]
+\kai{~~~~数值计算么么哒}
+
+\end{tcolorbox}}
+\setlength{\fboxrule}{1pt}\setlength{\fboxsep}{4pt}
+
+
+\newpage
+
+\section{背景知识}
+
+\subsection{误差分析}
+
+1. 误差来源：舍入误差；截断误差；模型误差；系统误差。
+
+2. 绝对误差：$x$为准确值，$x^*$是近似值，则绝对误差$e(x^*)=x-x^*$。
+
+3. 绝对误差限：$|e(x^*)|$的一个预估上界$\varepsilon(x^*)$称为绝对误差限。
+
+4. 相对误差：绝对误差与准确值之比
+\begin{equation*}
+    e_r(x^*)=\frac{x-x^*}{x}
+\end{equation*}
+
+5. 相对误差限：$|e_r(x^*)|$的一个预估上界$\varepsilon_r(x^*)$称为相对误差限。
+
+6. 有效数字：$x^*$左边第一个非零数字到末位数字间的位数。
+
+\subsection{计算方法设计}
+
+1. 误差传播：微小的误差在迭代过程中被不断放大的过程。
+
+~~~~（1）加减法：$\varepsilon(x^*\pm y^*)=\varepsilon(x^*)+\varepsilon(y^*)$；
+
+~~~~（2）乘法：$\varepsilon(x^*y^*)=|x^*|\varepsilon(y^*)+|y^*|\varepsilon(x^*)$；
+
+~~~~（3）函数：$e\left(f(x^*)\right)\simeq f'(x)e(x^*)$，其中$f'(x)$称为放大因子。
+
+2. 稳定性算法：计算过程中误差限逐步减小的算法；“病态”的不稳定算法：误差限急速增大的算法。
+
+3. 算法设计基本原则：
+
+~~~~（1）避免相近的数相减：会丢失有效数字；
+
+~~~~（2）避免量级差距大的数相加减：大数吃小数；
+
+~~~~（3）避免用绝对值小的数作除数：易产生浮点溢出；
+
+~~~~（4）控制误差传播，确保算法稳定性。
