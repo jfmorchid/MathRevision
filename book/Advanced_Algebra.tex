@@ -8,11 +8,10 @@
 第一个学期主要学习线性代数基础, 第二个学期主要学习线性变换和矩阵分析. 高代2被称为挂科神课不无道理, 
 相比前一学期内容跨度相当大, 瞬间抽象起来, 引入的线性空间和线性映射等抽象概念很难理解. 但是学得深入又会感觉非常有趣, 
 只要满足八大性质的集合, 就能用一组基和常见的欧氏空间和坐标联系起来, 充分体现了数学的抽象之美. }\\
+\kai{~~~~学习高等代数, 不需要任何先修知识, 但是要学会将复杂的事物抽象化描述(最好的例子:线性方程组改写为$\boldsymbol{A}\boldsymbol{x}=\boldsymbol{b}$). 
+初学阶段, 多思考, 多举例子, 多做题对提高很有帮助.}
 
-\kai{~~~~学习高等代数, 不需要任何先修知识, 但是要学会将复杂的事物抽象化描述(最好的例子:线性方程组改写为$\textbf{Ax=b}$). 
-初学阶段, 多思考, 多举例子, 多做题对提高很有帮助.}\\
-
-\kai{~~~~高代1的重点: 多项式, 行列式, 矩阵, 线性方程组, 二次型}\\
+\kai{~~~~高代1的重点: 多项式, 行列式, 矩阵, 线性方程组, 二次型}
 
 \kai{~~~~高代2的重点: 线性空间, 线性映射与线性变换, 特征值与特征向量, $\lambda$矩阵与Jordan标准形, 欧氏空间, 正交变换}
 
@@ -22,228 +21,811 @@
 
 \newpage
 
-\section{线性空间与线性变换}
+\section{多项式}
 
-\begin{tcolorbox}[colback=red!5,colframe=red!75!black]
-    \kai{
-        ~~~~这一部分从理论层次上揭示了线性代数的本质. 要学好这一章, 首先要认清向量, 矩阵等概念的本质属性, 再思考抽象定义与直观定义的联系与不同, 并熟悉一些看似玄幻却很实用的写法. 
-        
-        ~~~~线性空间是什么? 就是把"线性"这一最基本的性质剥离出来: 保持加法和数乘运算, 并以此定义一类集合, 把集合中的元素称为向量. 
+\subsection{数域与一元多项式}
 
-        ~~~~为什么把线性空间的元素称为向量? 仅用加法, 数乘保持性, 就可以把向量的线性相关性这些概念平行推到线性空间的元素上, 也就是说这么定义实际上保留了向量的本质属性(线性相关和线性表示), 去掉了直观因素. 
-        
-        ~~~~这么定义的向量和之前定义的有啥区别? 按照往常定义, 向量是按顺序排列的$n$个数, 或是$n$维空间的一点, 用这$n$个数以及$n$维坐标系便可完全确定其方位. 而在向量一章已经学过, 不仅仅坐标系能唯一确定一个向量, 
-        任意一组线性无关的向量都能线性表示任意向量, 且表示方式唯一. 这就引入基和坐标的概念, 用一组线性无关的基再加坐标, 就能表示任一向量. 同时用两组不同的基表示一个点, 就是基变换和坐标变换的问题. 
-        总之, 以"向量的表示"为主线, 就能串起线性空间的内容.  
+1. 设$P$是复数集的一个子集，且$P$对四则运算封闭，则称$P$为一个数域。
 
-        ~~~~线性变换又是什么? 是数学分析中"映射"定义的扩充, 简单来说只是两个线性空间的映射, 而且这个映射还有加法, 数乘保持性. 线性变换就更简单了, 把线性空间自己映射到自己. 使用基和坐标表示, 就可以用矩阵唯一表示
-        线性映射, 或方阵唯一表示线性变换, 这是对线性的高维映射来说十分有趣的结论. 学习线性空间和线性变换的乐趣, 就是把这么抽象的定义用直观的结论直接概括.
-    
-    }
-    \end{tcolorbox}
-
-\subsection{线性空间}
-
-1. 定义: 在数域$P$和集合$V$上定义加法和数乘两种运算: 加法满足交换律, 结合律, 零元0与逆元1; 乘法有单位元1, 满足结合律与两条分配律, 则称
-V是数域P上的线性空间,其中的元素称为向量.
-
-\begin{tcolorbox}[colback=blue!5,colframe=blue!75!black,title=定义解析]
-    ~~~~这么长的定义都是唬人的, 所以这里没(lan)有(de)写全. 最核心的也是用得最多的只有一个分配律: 对任意向量$x,y$以及数$a$,满足
-    \begin{equation*}
-        a(x_1+x_2)=ax_1+ax_2
-    \end{equation*}
-\end{tcolorbox}
-
-2. 基: 若线性空间$V$内存在$n$个线性无关的向量$x_1,x_2,\cdots x_n$, 使得$\forall x \in V, \exists k_1,k_2,\cdots,k_n \in P, x=k_1x_1+k_2x_2+\cdots+k_nx_n$, 
-z则称向量$x_1,x_2,\cdots,x_n$为$V$的一组基.
-
-\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
-    ~~~~上式就是线性表示的定义式. 此处一般认为$n<\infty$, 无穷维线性空间属于泛函分析的内容, 此处不赘述.
-  \end{tcolorbox}
-  
-3. 维数: 线性空间$V$中任意一组基中的向量个数称为$V$的维数,记作 dim $V$. 
-
-\begin{tcolorbox}[colback=blue!5,colframe=blue!75!black,title=定义解析]
-    ~~~~这么定义有一个隐含结论: 同一线性空间的任意两组基有相同个数的向量. 可以从线性表示这一角度入手, 证明这一结论.
-\end{tcolorbox}
-
-4. 向量的坐标: 选定一组基$e_1,e_2,\cdots,e_n$后, 任一向量$x=x_1e_1+\cdots+x_ne_n$在基下的坐标为$(x_1,x_2,\cdots,x_n)$.
-又可写作
+2. \textbf{一元多项式：}设$n$为非负整数，$a_1,\cdots,a_n\in P$，则称
 \begin{equation*}
-    x=(e_1,e_2,\cdots,e_n)\begin{pmatrix}
-        x_1 \\
-        x_2\\
-        \cdots\\
-        x_n
+    f(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0
+\end{equation*}
+为数域$P$上的一元多项式。
+
+3. \textbf{多项式的相等：}若$f(x)=a_nx^n+\cdots+a_1x+a_0$，$g(x)=b_nx^n+\cdots+b_1x+b_0$，
+且$a_i=b_i$，则称$f(x)$与$g(x)$相等，记作$f(x)=g(x)$。
+
+4. \textbf{多项式的次数：}若$a_n\neq 0$，则称$f(x)$为$n$次多项式，记作$\partial(f)=n$，且称$a_n$为$f(x)$的首项系数。当$a_n=1$时，称$f(x)$为首一多项式。
+
+5. \textbf{一元多项式环：}所有数域$P$上的一元多项式全体，记作$P[x]$。
+
+\subsection{一元多项式的因式}
+
+1. \textbf{多项式除法：}若$\partial(f)\geqslant \partial(g)$，且存在$q(x),r(x)\in P[x]$，使得$f(x)=q(x)\cdot g(x)+r(x)$，满足
+$\partial(r)<\partial(g)$，则称$q(x)$为$g(x)$除$f(x)$的商，$r(x)$为$g(x)$除$f(x)$的余。
+对固定的$f(x)$和$g(x)$，商和余均是唯一的。
+
+2. \textbf{整除：}若$r(x)=0$，则称$g(x)$整除$f(x)$，记作$g(x)\mid f(x)$。此时称$g(x)$为$f(x)$的因式。
+
+3. \textbf{公因式：}若$\exists h(x)\in P[x]$，使得$h(x)\mid f(x)$且$h(x)\mid g(x)$，则称$h(x)$为$f(x)$和$g(x)$的公因式。
+
+4. \textbf{最大公因式：}若$h(x)$为$f(x)$和$g(x)$的公因式，且对任意$f(x)$和$g(x)$的公因式$h_1(x)$，均有$h_1(x)\mid h(x)$，则称$h(x)$为$f(x)$的最大公因式，记作$h=(f,g)$。
+
+5. \textbf{最大公因式表示定理：}若$h=(f,g)$，则$\exists u(x),v(x)\in P[x]$，使$h(x)=u(x)\cdot f(x)+v(x)\cdot g(x)$。
+
+6. \textbf{Euclid辗转相除法：}设$f(x),g(x)\in P[x]$，以如下步骤求最大公因式：
+
+~~~~（1）若$\partial(f)=\partial(g)$，则通过数乘和减法使得$\partial(f)>\partial(g)$；
+
+~~~~（2）用商和余表示：$f(x)=q(x)\cdot g(x)+r(x)$；
+
+~~~~（3）若$r(x)=0$，则$g(x)$即为最大公因式，退出程序；
+
+~~~~（4）否则，用$g(x)$代替$f(x)$，$r(x)$代替$g(x)$，返回第（2）步。
+
+7. \textbf{互素多项式：}若$(f,g)=1$，则称$f(x)$和$g(x)$为互素多项式。
+
+\subsection{多项式的因式分解}
+
+1. \textbf{不可约多项式：}因式只有$1$和本身的多项式。
+
+2. \textbf{因式分解定理：}$\forall f(x)\in P[x]$，且$\partial(f)>1$，则存在唯一分解式
+\begin{equation*}
+    f(x)=c\cdot p_1(x)\cdot p_2(x)\cdots p_s(x)
+\end{equation*}
+其中$p_i(x)$均为首一不可约多项式，$c\in P$为常数。
+
+3. \textbf{重因式：}若$r^k(x)\mid f(x)$，而$r^{k+1}(x)\nmid f(x)$，则称$r(x)$为$f(x)$的$k$重因式。
+
+4. \textbf{代数基本定理：}对每个次数$\geqslant 1$的复系数多项式，在复数域上一定有一个一次因式。
+
+\subsection{有理系数多项式}
+
+1. \textbf{定义：}$\mathbb{Q}[x]$上的多项式。
+
+2. \textbf{性质：}每个次数$\geqslant 1$的有理系数多项式都能唯一分解为不可约有理系数多项式的乘积。
+
+3. \textbf{本原多项式：}在$g(x)=b_nx^n+\cdots+b_1x_1+b_0$中，若$b_n,\cdots,b_0$互素，则称$g(x)$为本原多项式。
+
+4. \textbf{求整系数多项式全部有理根：}若$f(x)\in \mathbb{Z}[x]$，而$\frac{r}{s}$为一个有理根（其中$r$，$s$互素），则必有$r\mid a_0$，$s\mid a_n$，
+枚举全部组合再验证即可。
+
+5. \textbf{Eisenstein判别法：}设$f(x)\in \mathbb{Z}[x]$，若存在素数$p$，使得
+
+~~~~（1）$p \nmid a_n$；（2）$p\nmid a_i$，$i=1,2,\cdot,n-1$；（3）$p^2\nmid a_n$，
+
+则$f(x)$在有理数上不可约。
+
+\section{向量与线性方程组}
+
+\subsection{线性方程组}
+
+1. \textbf{定义：}形如
+\begin{equation*}
+    \left\{\begin{aligned}
+        a_{11}x_1&+&\cdots&+&a_{1n}x_n&=&b_1\\
+        a_{21}x_1&+&\cdots&+&a_{2n}x_n&=&b_2\\
+        &\vdots&&\vdots&&\vdots&\\
+        a_{m1}x_1&+&\cdots&+&a_{mn}x_n&=&b_m
+    \end{aligned}\right.
+\end{equation*}
+的方程组称为$n$元线性方程组。
+
+2. \textbf{齐次线性方程组：}当常数项$b_1=\cdots=b_n=0$时，称上述方程组为
+
+3. \textbf{线性方程组的解：}若存在一组实数$(x_1,\cdots,x_n)$，使得全部$m$个等式成立，则称$(x_1,\cdots,x_n)$为线性方程组的一组解。线性方程组全部解的集合称为解集。
+
+4. \textbf{初等变换：}有下列三种形式：
+
+~~~~（1）用某一非零的数乘以该方程；
+
+~~~~（2）把一个方程的倍数加到另一个方程；
+
+~~~~（3）互换两个方程的位置。
+
+初等变换不改变方程组的解集。
+
+5. \textbf{高斯消元法：}将线性方程组化为阶梯型（下式中令$m>n$）：
+\begin{equation*}
+    \left\{\begin{aligned}
+        a_{11}x_1&+&a_{12}x_2&+&\cdots&+&a_{1n}x_n&=&b_1\\
+        &&a_{22}x_2&+&\cdots&+&a_{2n}x_n&=&b_2\\
+        &&&&&&\vdots&&\vdots\\
+        &&&&&&a_{nn}x_n&=&b_n\\
+        &&&&&&0&=&0\\
+        &&&&&&&&\vdots\\
+        &&&&&&0&=&0
+    \end{aligned}\right.
+\end{equation*}
+自下而上依次求解$x_n,x_{n-1},\cdots,x_1$。
+
+6. \textbf{线性方程组解的个数：}称“$0=0$”以外的方程为有效方程，个数为$r$。
+
+~~~~（1）无解：若存在方程“$0=c$”，其中常数$c\neq 0$，则方程组无解；
+
+~~~~（2）恰有一组解：若$r=n$，则方程组恰有一组解；
+
+~~~~（3）无穷多组解：若$r<n$，则方程组有无穷多组解，每组解均能用$n-r$个自由变量表示。
+
+\subsection{向量空间}
+
+1. \textbf{向量：}$\mathbb{R}^n$中的元素$\boldsymbol{x}=(x_1,\cdots,x_n)$称为向量，可用于表示$n$元线性方程组的一组解。
+
+2. \textbf{$n$维向量空间：}在$\mathbb{R}^n$上定义加法和数乘构成的空间。令$\boldsymbol{x}=(x_1,\cdots,x_n)$，$\boldsymbol{y}=(y_1,\cdots,y_n)$，则
+
+~~~~（1）加法：$\boldsymbol{x}+\boldsymbol{y}=(x_1+y_1,\cdots,x_n+y_n)$；
+
+~~~~（2）数乘：$\lambda x =(\lambda x_1,\cdots,\lambda x_n)$；
+
+~~~~（3）点积：$\boldsymbol{x}\cdot \boldsymbol{y}=x_1y_1+x_2y_2+\cdots+x_ny_n$。
+
+3. \textbf{线性组合：}若$\exists k_1,\cdots,k_n\in \mathbb{R}$，使$\boldsymbol{\beta} = k_1\boldsymbol{\alpha}_1+\cdots+k_n\boldsymbol{\alpha}_n$，则称$\boldsymbol{\beta}$为$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n$的一个线性组合，
+也称$\boldsymbol{\beta}$可被$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n$线性表示。
+
+4. \textbf{线性相关：}若存在不全为零的$k_1,\cdots,k_n\in \mathbb{R}$，使得
+\begin{equation*}
+    k_1\boldsymbol{\alpha}_1+\cdots+k_n\boldsymbol{\alpha}_n=0
+\end{equation*}
+则称$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n$线性相关。
+
+5. \textbf{线性无关：}若$k_1\boldsymbol{\alpha}_1+\cdots+k_n\boldsymbol{\alpha}_n=0\Rightarrow k_1=k_2=\cdots=k_n=0$，则称$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n$线性无关。
+
+6. \textbf{极大线性无关组：}若$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n$线性无关，且$\forall k = n+1,\cdots,m$，均有$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n,\boldsymbol{\alpha}_k$线性相关，
+则称$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n$为向量组$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n,\boldsymbol{\alpha}_{n+1},\cdots,\boldsymbol{\alpha}_m$的一个极大线性无关组，
+其中的向量个数称为$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m$的秩，记作rank$(\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m)=n$。
+
+7. \textbf{重要结论$^*$：}$n$维向量组的秩不超过$n$，即$n$个线性无关的$n$维向量必定可以线性表示所有$n$维向量。
+
+\subsection{线性方程组解的结构}
+
+1. \textbf{解的性质：}同一方程组的解经过加法、数乘运算，仍是原方程组的解。
+
+2. \textbf{基础解系：}一组线性无关的解向量$\boldsymbol{\eta}_1,\cdots,\boldsymbol{\eta}_t$，且能线性表示方程组的所有解。
+
+3. \textbf{导出组：}将$b_1,\cdots,b_n$换为$0$，得到对应的齐次线性方程组称为原方程组的导出组。
+
+4. \textbf{非齐次线性方程组的通解：}设$\boldsymbol{\gamma}_0$为原方程组的一组解，则所有解可表示为$\boldsymbol{\gamma}=\boldsymbol{\gamma}_0+\boldsymbol{\eta}$，其中$\boldsymbol{\eta}$是导出组的任意解。
+
+\section{矩阵与行列式}
+
+\subsection{矩阵的概念}
+
+1. \textbf{定义：}由$m$个$n$维行向量组成的数表称为$m\times n$矩阵，记作
+\begin{equation*}
+    \boldsymbol{A}=\begin{pmatrix}
+        a_{11}&a_{12}&\cdots&a_{1n}\\
+        a_{21}&a_{22}&\cdots&a_{2n}\\
+        \vdots&\vdots&&\vdots\\
+        a_{m1}&a_{m2}&\cdots&a_{mn}
     \end{pmatrix}
-\end{equation*}.
+\end{equation*}
+为了表述方便，通常还会使用如下两种表述矩阵的方式：
 
-\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
-    ~~~~1. 可以直接看成$1\times n$分块矩阵和$n \times 1$向量的乘积. 注意顺序最好不要颠倒, 习惯上把基写成行向量, 坐标写成列向量, 
-    在学习线性变换时我们默认了此种写法.
-    
-    ~~~~2. 注意到只要确定基, 就可以确定一组坐标, 而坐标又是最熟悉的向量的直观定义($n$个数排列), 也就是说很多线性相关性的结论可以直接平移到抽象定义上. 
-    如果不确信的话, 可以尝试证明一下$n$维向量空间中至多有$n$个线性无关的向量.
-  \end{tcolorbox}
+~~~~（1）元素、下标表示法：$\boldsymbol{A}=(a_{ij})_{m\times n}$。
 
-5. 两组基之间的关系: 令$x_1,x_2,\cdots,x_n$ 与 $y_1,y_2,\cdots,y_n$ 为同一个线性空间的两组基,则必存在矩阵\textbf{A}, 
-使得$(x_1,x_2,\cdots,x_n)=(y_1,y_2,\cdots,y_n)\textbf{A}$, 称矩阵\textbf{A}为基$y_1,y_2,\cdots,y_n$到$x_1,x_2,\cdots,x_n$ 的过渡矩阵.
+~~~~（2）列向量表示法：令$\boldsymbol{A}$的$n$个列向量分别为$\boldsymbol{\alpha}_j=(a_{1j},a_{2j},\cdots,a_{mj})^T$，则
+矩阵$\boldsymbol{A}$可表示为$\boldsymbol{A}=(\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n)$。
 
-\begin{tcolorbox}[colback=yellow!10,colframe=red!75!black,title=小窍门]
-    ~~~~如果觉得基很难理解, 就放在欧氏空间上看. $(x_1,x_2,\cdots,x_n)$与$(y_1,y_2,\cdots,y_n)$是两个满秩矩阵, 它们必定相抵, \textbf{A}就可以理解为那个初等变换矩阵. 
-    到后面就知道, 线性空间和同一维数的欧氏空间本来就是等价的.
-\end{tcolorbox}
+2. \textbf{矩阵的加法：}令$\boldsymbol{A}=(a_{ij})_{m\times n}$，$\boldsymbol{B}=(b_{ij})_{m\times n}$，$\boldsymbol{C}=\boldsymbol{A}+\boldsymbol{B}$，则$c_{ij}=a_{ij}+b_{ij}$。
 
+3. \textbf{矩阵的数乘：}令$\lambda \in \mathbb{R}$，$\boldsymbol{A}=(a_{ij})_{m\times n}$，$\boldsymbol{B}=\lambda \cdot A$，则$b_{ij}=\lambda \cdot a_{ij}$。
 
-6. 向量的坐标变换公式: 在线性空间$V$中,某向量在基$x_1,x_2,\cdots,x_n$下的坐标为$(a_1,a_2,\cdots,a_n)^T$,在基$y_1,y_2,\cdots,y_n$下的坐标为$(b_1,b_2,\cdots,b_n)^T$, 且
-$y_1,y_2,\cdots,y_n$到$x_1,x_2,\cdots,x_n$的过渡矩阵为\textbf{A},则有
+4. \textbf{矩阵乘法：}令$\boldsymbol{A}=(a_{ij})_{m\times n}$，$\boldsymbol{B}=(b_{ij})_{n\times s}$，$C=AB$，则
 \begin{equation*}
-    \begin{pmatrix}
+    C=(c_{ij})_{m\times s}\text{，}c_{ij}=\sum\limits_{k=1}^n a_{ik}\cdot b_{kj}
+\end{equation*}
+可以简单理解为$\boldsymbol{C}$的第$i$行第$j$列由$\boldsymbol{A}$的第$i$个行向量和$\boldsymbol{B}$的第$j$个列向量点积得到。
+
+5. \textbf{方阵：}$n$行$n$列的矩阵称为$n$阶方阵。如常见的$n$阶单位矩阵：
+\begin{equation*}
+    E_n=\begin{pmatrix}
+        1&0&\cdots&0\\
+        0&1&\cdots&0\\
+        \vdots&\vdots&&\vdots\\
+        0&0&\cdots&1
+    \end{pmatrix}
+\end{equation*}
+
+6. \textbf{转置：}令$\boldsymbol{A}=(a_{ij})_{m\times n}$，称$\boldsymbol{B}=(b_{ij})_{n\times m}$为$\boldsymbol{A}$的转置，记作$\boldsymbol{B}=\boldsymbol{A}^T$，其中$b_{ij}=a_{ji}$。
+若$\boldsymbol{A}^T=\boldsymbol{A}$，则称$\boldsymbol{A}$为对称方阵。
+
+\subsection{行列式}
+
+1. 二阶行列式：
+\begin{equation*}
+    \left|\begin{matrix}
+        a&b\\
+        c&d
+    \end{matrix}\right|=ad-bc
+\end{equation*}
+代表向量$(a,b)$和向量$(c,d)$所夹平行四边形的有向面积。
+
+2. \textbf{$n$阶行列式：}称$n$阶方阵$\boldsymbol{A}$的行列式为
+\begin{equation*}
+    \text{det}\boldsymbol{A}=\left|\begin{matrix}
+        a_{11}&a_{12}&\cdots&a_{1n}\\
+        a_{21}&a_{22}&\cdots&a_{2n}\\
+        \vdots&\vdots&&\vdots\\
+        a_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{matrix}\right|
+\end{equation*}
+
+3. 行列式的性质：
+
+~~~~（1）上三角矩阵的行列式为对角线乘积，即
+\begin{equation*}
+    \text{det}\boldsymbol{A}=\left|\begin{matrix}
+        a_{11}&a_{12}&\cdots&a_{1n}\\
+        0&a_{22}&\cdots&a_{2n}\\
+        \vdots&\vdots&&\vdots\\
+        0&0&\cdots&a_{nn}
+    \end{matrix}\right|=\prod\limits_{i=1}^n a_{ii}
+\end{equation*}
+
+~~~~（2）将方阵作转置，行列式不变，即det$\boldsymbol{A}=$det$\boldsymbol{A}^T$；
+
+~~~~（3）若$\boldsymbol{A}$的某一行向量为$\boldsymbol{0}$，则det$\boldsymbol{A}=0$；
+
+~~~~（4）互换$\boldsymbol{A}$的两行，det$\boldsymbol{A}$变号；
+
+~~~~（5）将$\boldsymbol{A}$的某一行的$k$倍加到另一行，det$\boldsymbol{A}$不变。
+
+4. \textbf{行列式的求法：}按如下步骤进行。
+
+~~~~（1）若$a_{11}=0$，即$\boldsymbol{A}$的第一列为$\boldsymbol{0}$，由$\boldsymbol{A}^T$有一行为$\boldsymbol{0}$知，det$\boldsymbol{A}=0$；
+
+~~~~（2）否则，若$a_{11}=0$，则存在$a_{j1}\neq 0$，交换第$1$行和第$j$行后，$a_{11}\neq 0$，det$\boldsymbol{A}$变号；
+
+~~~~（3）将第$i$行（$i>1$）减去第一行的$\frac{a_{i1}}{a_{11}}$倍，之后$a_{i1}=0$；
+
+~~~~（4）对右下角的$(n-1)\times (n-1)$方阵作相同处理，返回第($1$)步。
+
+经上述处理后，方阵$\boldsymbol{A}$被化为上三角方阵，直接求对角元素乘积即可。
+
+5. \textbf{行列式按行展开：}将det($\boldsymbol{A}$)按第$i$行展开，有
+\begin{equation*}
+    \text{det} \boldsymbol{A} =\sum\limits_{j=1}^n a_{ij}A_{ij}
+\end{equation*}
+其中$A_{ij}=(-1)^{i+1}M_{ij}$称为代数余子式，$M_{ij}$为划去第$i$行和第$j$列后剩余部分的行列式。同样可将det$\boldsymbol{A}$按第$j$列展开如下：
+\begin{equation*}
+    \text{det}\boldsymbol{A}=\sum\limits_{i=1}^n a_{ij}A_{ij}
+\end{equation*}
+
+\subsection{在解线性方程组中的应用}
+
+1. \textbf{方程组的矩阵表示：}令系数矩阵、解向量、常数向量分别为
+\begin{equation*}
+    A=\begin{pmatrix}
+        a_{11}&a_{12}&\cdots&a_{1n}\\
+        a_{21}&a_{22}&\cdots&a_{2n}\\
+        \vdots&\vdots&&\vdots\\
+        a_{m1}&a_{m2}&\cdots&a_{mn}\\
+    \end{pmatrix}\text{，}\boldsymbol{x}=\begin{pmatrix}
+        x_1\\
+        x_2\\
+        \vdots\\
+        x_n
+    \end{pmatrix}\text{，}\boldsymbol{b}=\begin{pmatrix}
         b_1\\
         b_2\\
-        \cdots\\
+        \vdots\\
         b_n
-    \end{pmatrix}=\textbf{A}\cdot
-    \begin{pmatrix}
-        a_1\\
-        a_2\\
-        \cdots\\
-        a_n
-    \end{pmatrix}.
+    \end{pmatrix}
 \end{equation*}
+则线性方程组可表示为
+\begin{equation*}
+    \boldsymbol{A}\boldsymbol{x}=\boldsymbol{b}
+\end{equation*}
+
+2. \textbf{克莱姆法则：}当$\boldsymbol{A}$为方阵时，令$d_i=\text{det}(\boldsymbol{\alpha}_1,\boldsymbol{\alpha}_2,\cdots,\boldsymbol{\alpha}_{i-1},\boldsymbol{b},\boldsymbol{\alpha}_{i+1},\cdots,\boldsymbol{\alpha}_n)$，$d=\text{det}\boldsymbol{A}$。
+若$d\neq 0$，则线性方程组有唯一解$x_i=\frac{d_i}{d}$。
+
+3. \textbf{线性方程组：线性方程组有解判别定理：}方程组$\boldsymbol{A}\boldsymbol{x}=\boldsymbol{b}$有解的充要条件是
+\begin{equation*}
+    \text{rank}(\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n)=\text{rank}(\boldsymbol{\alpha}_1,\cdots\boldsymbol{\alpha}_n,\boldsymbol{b})
+\end{equation*}
+即系数矩阵的秩等于增广矩阵的秩。
+
+\subsection{矩阵的性质}
+
+1. \textbf{矩阵的秩：}即列向量组$(\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n)$的秩。同一矩阵行向量组和列向量组的秩相等。
+
+2， 矩阵乘积的性质：当$\boldsymbol{A}$，$\boldsymbol{B}$均为$n\times n$矩阵时，$|\boldsymbol{A}\boldsymbol{B}|=|\boldsymbol{A}|\cdot|\boldsymbol{B}$；rank$(\boldsymbol{A}\boldsymbol{B})\leqslant\text{rank}\boldsymbol{B}$。 
+
+3. \textbf{退化方阵：}当det$(\boldsymbol{A})=0$时，称方阵$\boldsymbol{A}$为退化的。
+
+4. \textbf{矩阵的逆：}若存在方阵$\boldsymbol{B}$，使得$\boldsymbol{A}\boldsymbol{B}=\boldsymbol{B}\boldsymbol{A}=\boldsymbol{E}$，则称$\boldsymbol{B}$为方阵$\boldsymbol{A}$的逆矩阵，记作$\boldsymbol{A}^{-1}$。
+
+5. \textbf{求矩阵的逆：}当$\boldsymbol{A}$为非退化方阵时，有两种方法求矩阵$A$的逆：
+
+~~~~（1）对矩阵$[A|E]$作行变换，得到$[E|A^{-1}]$；
+
+~~~~（2）考虑伴随矩阵
+\begin{equation*}
+    A^*=\begin{pmatrix}
+        A_{11}&A_{21}&\cdots&A_{n1}\\
+        A_{12}&A_{22}&\cdots&A_{n1}\\
+        \vdots&\vdots&&\vdots\\
+        A_{1n}&A_{2n}&\cdots&A_{nn}
+    \end{pmatrix}
+\end{equation*}
+其中$A_{ij}$为$a_{ij}$位置的代数余子式。则有如下恒等式成立：
+\begin{equation*}
+    A^{-1}=\frac{1}{|A|}A^*
+\end{equation*}
+
+6. \textbf{初等矩阵：}由单位矩阵$\boldsymbol{E}$经过一次初等变换得到的矩阵。
+
+7. \textbf{矩阵等价：}若$\boldsymbol{A}$，$\boldsymbol{B}$为$m\times n$矩阵，且存在$m$阶可逆方阵$\boldsymbol{P}$和$n$阶可逆方阵$\boldsymbol{Q}$，使得$\boldsymbol{A}=\boldsymbol{P}\boldsymbol{B}\boldsymbol{Q}$，
+则称$\boldsymbol{A}$和$\boldsymbol{B}$等价，此时$\boldsymbol{A}$可由$\boldsymbol{B}$经过初等变换得到。
+
+\section{二次型}
+
+\subsection{二次型的矩阵表示}
+
+1. \textbf{二次型：}一个关于$x_1,\cdots,x_n$的二次齐次多项式
+\begin{equation*}
+    f(x_1,\cdots,x_n)=a_{11}x_1^2+2a_{12}x_1x_2+\cdots+2a_{n,n-1}x_nx_{n-1}+a_{nn}x_n^2
+\end{equation*}
+
+2. \textbf{矩阵表示：}令对称矩阵\begin{equation*}
+    A=\begin{pmatrix}
+        a_{11}&a_{12}&\cdots&a_{1n}\\
+        a_{21}&a_{22}&\cdots&a_{2n}\\
+        \vdots&\vdots&&\vdots\\
+        a_{m1}&a_{m2}&\cdots&a_{mn}\\
+    \end{pmatrix}\text{，}\boldsymbol{x}=\begin{pmatrix}
+        x_1\\
+        x_2\\
+        \vdots\\
+        x_n
+    \end{pmatrix}
+\end{equation*}
+则上述二次型可用$\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}$表示。
+
+3. \textbf{非退化线性替换：}令$\boldsymbol{P}$为$n$阶可逆方阵，作非退化线性替换$\boldsymbol{x}=\boldsymbol{P}\boldsymbol{y}$，
+则\begin{equation*}
+    \boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}=\boldsymbol{y}^T(\boldsymbol{P}^T\boldsymbol{A}\boldsymbol{P})\boldsymbol{y}
+\end{equation*}
+
+4. \textbf{矩阵合同：}若存在$n$阶可逆方阵$\boldsymbol{P}$，使得$\boldsymbol{B}=\boldsymbol{P}^T\boldsymbol{A}\boldsymbol{P}$，则称矩阵$\boldsymbol{A}$和$\boldsymbol{B}$合同，此时二次型
+$\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}$可由非退化线性替换$\boldsymbol{x}=\boldsymbol{P}\boldsymbol{y}$化为二次型$\boldsymbol{y}^T\boldsymbol{B}\boldsymbol{y}$。
+
+\subsection{二次型的化简}
+
+1. \textbf{标准形：}形如$d_1x_1^2+d_2x_2^2+\cdots+d_nx_n^2$的平方和形式。
+
+2. \textbf{化简可行性：}任一对称矩阵均合同于某一对角矩阵，即任意二次型均可通过非退化线性替换转化为标准形。
+
+3. 配方法：
+
+~~~~（1）若存在$t$使得$a_{tt}=0$，则按$x_t$为主元，配方后换元以消去$x_t$的一次项；
+
+~~~~（2）若$\forall t$，$a_{tt}=0$，但$a_{ij}\neq 0$。令$x_i=z_i+z_j$，$x_j=z_i-z_j$，其余变量不变，则$a_{ij}x_ix_j$可转化为含$z_i^2$和$z_j^2$的部分，返回$(1)$。
+
+4. \textbf{规范形：} 形如$z_1^2+\cdots+z_p^2-z_{p+1}^2-\cdots-z_r^2$的二次型。任意实二次型可被非退化线性替换转化为唯一规范形。
+
+5. \textbf{惯性指数：}正平方项的个数$p$称为正惯性指数，负平方项的个数$r-p$称为负惯性指数。
+
+6. \textbf{正定二次型：}$\forall \boldsymbol{x} \in \mathbb{R}^n$，$\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}>0$，则称二次型$\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}$正定。
+$n$元实二次型正定的充要条件是正惯性指数等于$n$。
+
+7. \textbf{半正定：}$\forall \boldsymbol{x} \in \mathbb{R}^n$，$\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}\geqslant 0$，则称二次型$\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{x}$半正定。
+
+\section{线性空间}
+
+\subsection{线性空间的定义}
+
+1. \textbf{线性空间：}设$V$为非空集合，$P$为数域，在$V$上定义加法和数乘运算：
+
+~~~~（1）加法：$\boldsymbol{\gamma}=\boldsymbol{\alpha}+\boldsymbol{\beta}$，其中$\boldsymbol{\alpha},\boldsymbol{\beta}\in V$。
+
+~~~~（2）数乘：$\boldsymbol{\delta}=k\boldsymbol{\alpha}$，其中$k\in P$，$\alpha\in V$。
+
+且加法具有结合律、交换律、单位元（$0$）和逆元（减法）；数乘具有结合律，单位元（$1$）；加法和数乘满足两项分配律，则称$V$为数域$P$上的线性空间，将$V$中的元素称为向量。
+
+2. \textbf{线性空间举例：}分量属于$P$的全体$n$元数组$P^n$；数域$P$上的一元多项式环$P[x]$。
+
+\subsection{基与坐标}
+
+1. \textbf{可继承$R^n$中向量的概念：}线性表示、线性相关、线性无关、线性组合、极大线性无关组、秩。由于之前已经讨论过这些概念，此处不再赘述。
+
+2. \textbf{维数：}若$V$中最多存在$n$个线性无关的向量，则称$V$为$n$维线性空间。
+
+3. \textbf{基：}$n$维线性空间$V$中，$n$个线性无关的向量$\varepsilon_1,\cdots,\varepsilon_n$称为$V$的一组基。使用$\varepsilon_1,\cdots,\varepsilon_n$可以线性表示$V$中的所有向量。
+
+4. \textbf{坐标：}令$\boldsymbol{\alpha}\in V$，则$\boldsymbol{\alpha}$可唯一地表示为如下形式：
+\begin{equation*}
+    \boldsymbol{\alpha}=x_1\boldsymbol{\varepsilon}_1+\cdots+x_n\boldsymbol{\varepsilon}_n
+\end{equation*}
+称$(x_1,\cdots,x_n)$为$\boldsymbol{\alpha}$在基$\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n$下的坐标。
+
+5. 向量的基-坐标表示法：
+\begin{equation*}
+    \boldsymbol{\alpha}=(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)\begin{pmatrix}
+        x_1\\
+        x_2\\
+        \vdots\\
+        x_n
+    \end{pmatrix}
+\end{equation*}
+
+\subsection{基变换与坐标变换}
+
+1. \textbf{两组基的转换：}令$\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n$和$\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n'$为$V$的两组基，且
+\begin{equation*}
+    \boldsymbol{\varepsilon}_i' =a_{1i}\boldsymbol{\varepsilon}_1+\cdots+a_{ni}\boldsymbol{\varepsilon}_n=(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)\begin{pmatrix}
+        a_{1i}\\
+        a_{2i}\\
+        \vdots\\
+        a_{ni}
+    \end{pmatrix}
+\end{equation*}
+则有如下等式成立，其中$\boldsymbol{A}=(a_{ij})_{n\times n}$称为$\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n$到$\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n'$的过渡矩阵。
+\begin{equation*}
+    (\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n')=(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)\begin{pmatrix}
+        a_{11}&a_{12}&\cdots&a_{1n}\\
+        a_{21}&a_{22}&\cdots&a_{2n}\\
+        \vdots&\vdots&&\vdots\\
+        a_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{pmatrix}
+\end{equation*}
+
+2. \textbf{同一向量在两组基下的坐标变换：}令
+\begin{equation*}
+    \boldsymbol{x}=(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)\begin{pmatrix}
+        x_1\\
+        x_2\\
+        \vdots\\
+        x_n
+    \end{pmatrix}    
+\end{equation*}
+代入$(\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n')=(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)\boldsymbol{A}$，得到
+\begin{equation*}
+    x=(\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n')A^{-1}\begin{pmatrix}
+        x_1\\
+        x_2\\
+        \vdots\\
+        x_n
+    \end{pmatrix}
+\end{equation*}
+因此$\boldsymbol{x}$在基$\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n'$下的坐标为$\boldsymbol{A}^{-1}(x_1,\cdots,x_n)^T$。
 
 \subsection{线性子空间}
 
-1. 定义: 令$V$为线性空间. 若$V_1 \in V$且加法, 数乘运算对$V_1$封闭,则$V_1$称为$V$的一个线性子空间.
+1. \textbf{定义：}若$W\subset V$，$W\neq \Phi$，且$W$对加法和数乘运算封闭，则称$W$为$V$的线性子空间。
 
-2. 生成子空间: 若$x_1,x_2,\cdot x_m$为一组线性无关的向量,则
+2. \textbf{生成子空间：}设$\boldsymbol{\alpha},\cdots,\boldsymbol{\alpha}_m\in V$为一组线性无关的向量，则所有能被$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m$线性表示的向量构成$V$的一个子空间，称为由$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m$生成的子空间，记作
+$L(\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m)$。
 
-$$V_1=\{k_1x_1+k_2x_2+\cdots+k_mx_m|k_1,k_2,\cdots,k_m \in P\}$$
+3. \textbf{子空间基的扩充定理$^*$：}若$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m$为子空间$W$的一组基，则必存在$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m,\boldsymbol{\alpha}_{m+1},\cdots,\boldsymbol{\alpha}_n$是$V$的一组基。
 
-称为由向量$x_1,x_2,\cdots,x_m$生成的子空间.
+4. \textbf{子空间的交：}若$V_1\subset V$，$V_2\subset V$均为$V$的子空间，则$V_1\cap V_2$也为$V$的子空间。
 
-3. 基的扩张定理: 设$V_1$为$n$维线性空间$V$的子空间,且$x_1,x_2,\cdots,x_m$为$V_1$的一组基,则存在向量$x_{m+1},\cdots,x_n$, 
-使得$x_1,x_2,\cdots,x_m,x_{m+1},\cdots,x_n$为$V$的一组基.
+5. \textbf{子空间的和：}若$V_1\subset V$，$V_2\subset V$均为$V$的子空间，则$\{\boldsymbol{\alpha}_1+\boldsymbol{\alpha}_2|\boldsymbol{\alpha}_1\in V_1,\boldsymbol{\alpha}_2\in V_2\}$也为$V$的子空间，记作$V_1+V_2$。
 
-\begin{tcolorbox}[colback=gray!5,colframe=orange!75!black,title=注意事项]
-    ~~~~定理本身并不难证,数学归纳就能证出. 这个定理在用于求解子空间问题时很方便, 经常会出现"假设子空间的基, 扩张为原空间的基"的证法. 
-    下一个重要公式"维数公式"证法就是这类方法的重要例证.
-  \end{tcolorbox}
-
-4. 维数公式: dim $(V_1 \bigcup V_2)$ = dim $V_1$ $+$ dim $V_2$ $-$ dim $(V_1 \bigcap V_2)$.
-
-\begin{coro}{维数公式}{weishugongshi}
-~~~~令$V_1 \bigcap V_2$的一组基为$e_1,e_2,\cdots,e_m$. 由基的扩张定理, 这组基既可以扩张为$V_1$的基
-$e_1,e_2,\cdots,e_m,e_{m+1},\cdots,e_r$, 也可以扩张为$V_2$的一组基$e_1,e_2,\cdots,e_m,e_{r+1},\cdots,e_s$. 
-从线性表示和线性无关两个角度, 可证明$e_1,e_2,\cdots,e_m,e_{m+1},\cdots,e_s$为$V_1 \bigcup V_2$ 的一组基. 
-此时dim $(V_1 \bigcup V_2) = s$, dim $(V_1 \bigcap V_2) = m$, dim $V_1 = r$, dim $V_1 = m+s-r$, 维数公式成立. 
-\end{coro}
-
-5. 子空间的直和: 若$V_1 \bigcap V_2 = 0$, 则$V_1 \bigcup V_2$ 分解为$x=x_1+x_2 (x_1 \in V_1, x_2 \in V_2)$的分解形式唯一. 
-此时称$V_1 \bigcup V_2$为子空间$V_1,V_2$的直和, 记作$V_1 \oplus V_2$.
-
-\subsection{线性算子与线性变换}
-
-1. 线性算子: 若$M$与$N$为两个集合, 且$\forall x \in M, \exists ! y \in N, y=\mathscr{A}x, $则称$\mathscr{A}$为$M\rightarrow N$ 的算子. 
-若$\forall x,y \in M$且 $\lambda_1,\lambda_2 \in P$, 有$\mathscr{A}(\lambda_1 x_1 +\lambda_2 x_2)=\lambda_1 \mathscr{A}x_1+\lambda_2 \mathscr{A} x_2$, 则称$\mathscr{A}$为线性算子.
-
-2. 同构算子: 若$\mathscr{A}$是可逆算子, 即$\forall y \in N , \exists ! x\in M,\mathscr{A}x=y$, 则称$\mathscr{A}$为同构算子.
-
-3. 同构定理: $\dim M=\dim N \Leftrightarrow \exists A:M\rightarrow N$为同构算子.
-
-4. 线性算子矩阵表示: 令$\mathscr{A}: V^n \rightarrow V^m$, 取$V^n$一组基$e_1,e_2,\cdots,e_n$, 
-与$V^m$一组基$e_1',e_2',\cdots,e_m'$, 则$\mathscr{A} e_i=a_{i1}e_1'+\cdots+a_{im}e_m'$, 即
+6. \textbf{维数公式$^*$：}记dim$V$为$V$的维数，则有如下公式成立：
 \begin{equation*}
-\mathscr{A}(e_1,\cdots,e_n)=(\mathscr{A} e_1,\cdots,\mathscr{A} e_n)=(e_1',\cdots,e_m')A.
+    \text{dim}V_1+\text{dim}V_2=\text{dim}(V_1+V_2)+\text{dim}(V_1\cap V_2)
 \end{equation*}
 
-其中矩阵$A$称为基$(e_1,\cdots,e_n)$与$(e_1',\cdots,e_m')$下$\mathscr{A}$的矩阵表示.
+7. \textbf{子空间的直和：}若$V_1\cap V_2=\{\boldsymbol{0}\}$，则$V_1$和$V_2$的和被称为直和，记作$V_1\oplus V_2$。
 
-5. 像的坐标: 令$x=(x_1,\cdots,x_n)\begin{pmatrix}
-    a_1\\
-    \vdots\\
-    a_n
-\end{pmatrix}$, $\mathscr{A}(x_1,\cdots,x_n)=(y_1,\cdots,y_m)A$, 
-则$\mathscr{A} x$在$(y_1,\cdots,y_n)$下的坐标为$A\begin{pmatrix}
-a_1\\
-\vdots\\
-a_n
-\end{pmatrix}$.
+8. \textbf{直和的性质$^*$：}$V_1+V_2=V_1\oplus V_2 \Leftrightarrow \text{dim}(V_1+V_2)=\text{dim}V_1+\text{dim}V_2$。
 
-6. 线性变换: 由线性空间$V$到其自身的线性算子$\mathscr{A}$称为$V$上的线性变换.
+\section{线性变换}
 
-7. 相似矩阵: 若线性空间$V$的两组基为$(x_1,\cdots,x_n)$与$(y_1,\cdots,y_n)$, 且$(x_1,\cdots,x_n)=(y_1,\cdots,y_n)P$, 
-$\mathscr{A}(x_1,\cdots,x_n)=(x_1,\cdots,x_n)A, \mathscr{A}(y_1,\cdots,y_n)=(y_1,\cdots,y_n)B,$ 则$A=P^{-1}BP$. 
-定义矩阵$A$与$B$相似, 当且仅当存在可逆矩阵$P$使得$A=P^{-1}BP$.
-  
-  
-\subsection{线性变换的特征值与特征向量}
+\subsection{映射与变换}
 
-1. 定义: 设$\mathscr{A}$为线性空间$V$上的线性变换. 若$\exists x \in V, \lambda \in P$ 使得$\mathscr{A} x=\lambda x$, 则
-$x$称为对应于特征值$\lambda$的特征向量.
+1. \textbf{映射：}某一对应规则$f:A\rightarrow B$，使得$\forall x \in A$，$\exists ! y \in B$，$y=f(x)$。此时称$y$为$x$在映射$f$下的像，$x$称为原像。
 
-2. 计算方式: 令$|\lambda E-A|=0$, 解$\lambda_1,\cdots,\lambda_n$, 再解线性方程组$(\lambda E-A)x=0$ 求解对应的特征向量.
-\begin{coro}{特征值的计算}{coro1.2}
-    ~~~~设线性变换$V$的一组坐标为$e_1,\cdots,e_n$, $x$在这组基下的坐标为$(x_1,\cdots,x_n)$, 且$\mathscr{A}(e_1,\cdots,e_n)=(e_1,\cdots,e_n)A$.
+2. \textbf{变换：}称集合$A$到自身的映射$f:A\rightarrow A$为$A$到自身的变换。
 
-    ~~~~则$\mathscr{A}x=\mathscr{A}(e_1,\cdots,e_n)\begin{pmatrix}
-        x_1\\
-        \vdots\\
-        x_n
-    \end{pmatrix}=(e_1,\cdots,e_n)A\begin{pmatrix}
-        x_1\\
-        \vdots\\
-        x_n
-    \end{pmatrix}$.
-
-    由条件$\mathscr{A}x=\lambda x$得$A\begin{pmatrix}
-        x_1\\
-        \vdots\\
-        x_n
-    \end{pmatrix}=\lambda\begin{pmatrix}
-        x_1\\
-        \vdots\\
-        x_n
-    \end{pmatrix}$, 即$x_1,\cdots,x_n$为线性方程组$(\lambda E-A)\begin{pmatrix}
-        x_1\\
-        \vdots\\
-        x_n
-    \end{pmatrix}=0$的根. 该方程不止有零解, 当且仅当$\lambda E-A$为非奇异矩阵, 从$|\lambda E-A|=0$中可解出所有特征值, 代入解线性方程组可解出对应特征向量.
-\end{coro}
-
-    3. 特征子空间: 对应$\lambda_i$的特征向量张成的子空间$V_{\lambda_i}={x|\mathscr{A}x=\lambda_i x}$称为$\mathscr{A}$属于特征值$\lambda_i$的特征子空间.
-
-    4. 可对角化矩阵: 若存在对角矩阵$\Lambda$与可逆矩阵P, 使$P^{-1}AP=\Lambda$, 则矩阵$A$是可对角化的. 矩阵$A$可对角化的充要条件为$A$ 有$\dim V$ 个线性无关的特征向量.
-    
-    \begin{theo}{矩阵可对角化条件}{theo1.1}
-        充分性易证. 设$\dim V=n$, 把特征向量拼为非奇异矩阵$P=(p_1,\cdots,p_n)$, 并设$p_i$对应的特征值为$\lambda_i$, 则
-        $AP=A(p_1,\cdots,p_n)=(Ap_1,\cdots,Ap_n)=(\lambda p_1,\cdots,\lambda p_n)=\Lambda P$, 即$P^{-1}AP=\Lambda$,其中对角矩阵
-        \begin{equation*}
-            \Lambda=\begin{pmatrix}
-                \lambda_1 & 0 & \cdots &0\\
-                0 &\lambda_2  & \cdots &0\\
-                \vdots &\vdots &\vdots &\vdots\\
-                0&0&\cdots &\lambda_n
-            \end{pmatrix}
-        \end{equation*}
-        再证必要性. 由$(Ap_1,\cdots,Ap_n)=(\lambda_1 p_1,\cdots,\lambda_n p_n)$知$\lambda_i,p_i$满足$Ap_i=\lambda_i p_i$. 
-        若解不出$n$个线性无关的特征向量$p_i$, 则$P$不能为非奇异矩阵, 得$A$不可对角化, 故必能解出$n$个线性无关的特征向量.
-    \end{theo}
-
-\subsection{内积空间}
-
-1. 定义: 在线性空间$V$中引入度量. 对$\forall x,y \in V$, 定义$<x,y>$满足
+3. \textbf{线性变换：}保持加法和数乘运算的变换，用$\mathscr{A}$，$\mathscr{B}$等花体字母表示，即
 \begin{equation*}
-    \left\{ \begin{aligned}
-        <x,y>&=~<y,x>\\
-        <x,x>&\geq~0\\
-        <k_1x_1+k_2x_2,y>&=~k_1<x_1,y>+k_2<x_2,y>
-    \end{aligned}\right.
-\end{equation*}, 则称$<x,y>$为内积.
+    \mathscr{A}(\boldsymbol{\alpha}+\boldsymbol{\beta})=\mathscr{A}\boldsymbol{\alpha}+\mathscr{A}\boldsymbol{\beta}\text{；}\mathscr{A}(k\boldsymbol{\alpha})=k\cdot \mathscr{A}\boldsymbol{\alpha}
+\end{equation*}
 
-2. 欧氏空间: 定义了内积的实线性空间; 
-   
-~~~~酉空间: 定义了内积的复线性空间, 其中$<x,y>=\overline{<y,x>}$.
+\subsection{线性变换的运算}
 
-3. 夹角
+1. \textbf{线性变换的乘法：}$\mathscr{A}\mathscr{B}(\boldsymbol{\alpha})=\mathscr{A}\left[\mathscr{B}\boldsymbol{\alpha}\right]$。
+乘法满足结合律，但一般不满足交换律。
 
+2. \textbf{线性变换的加法：}$(\mathscr{A}+\mathscr{B})\boldsymbol{\alpha}=\mathscr{A}\boldsymbol{\alpha}+\mathscr{B}\boldsymbol{\alpha}$。
+加法满足交换律和结合律。
+
+3. \textbf{逆变换：}若$\mathscr{A}\mathscr{B}=\mathscr{B}\mathscr{A}=\mathscr{E}$，其中$\mathscr{E}$为恒等变换，则称$\mathscr{B}$为$\mathscr{A}$的逆变换。
+
+\subsection{线性变换的矩阵表示}
+
+1. \textbf{线性变换与向量的对应关系$^*$：}设$\boldsymbol{\varepsilon},\cdots,\boldsymbol{\varepsilon}_n$为$V$的一组基，则$\forall \boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n \in V$，$\exists !\mathscr{A}$，使得$\mathscr{A}\boldsymbol{\varepsilon}_i=\boldsymbol{\alpha}_i$。
+
+2. \textbf{矩阵表示：}将$\mathscr{A}\boldsymbol{\varepsilon}_i$用$\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n$线性表示：
+\begin{equation*}
+    \mathscr{A}\boldsymbol{\varepsilon}_i=a_{1i}\boldsymbol{\varepsilon}_1+a_{2i}\boldsymbol{\varepsilon}_2+\cdots+a_{ni}\boldsymbol{\varepsilon}_n=(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)\begin{pmatrix}
+        a_{1i}\\
+        a_{2i}\\
+        \vdots\\
+        a_{ni}
+    \end{pmatrix}
+\end{equation*}
+则有\begin{equation*}
+    \mathscr{A}(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)=(\mathscr{A}\boldsymbol{\varepsilon}_1,\cdots,\mathscr{A}\boldsymbol{\varepsilon}_n)
+    =(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)\begin{pmatrix}
+        a_{11}&a_{12}&\cdots&a_{1n}\\
+        a_{21}&a_{22}&\cdots&a_{2n}\\
+        \vdots&\vdots&&\vdots\\
+        a_{n1}&a_{n2}&\cdots&a_{nn}
+    \end{pmatrix}
+\end{equation*}
+将矩阵$\boldsymbol{A}=(a_{ij})_{n\times n}$称为$\mathscr{A}$在基$\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n$下的矩阵，记作
+\begin{equation*}
+    \mathscr{A}(\boldsymbol{\varepsilon_1},\cdots,\boldsymbol{\varepsilon}_n)=(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)\boldsymbol{A}
+\end{equation*}
+
+3. \textbf{同一线性变换在不同基下的矩阵：}设$\mathscr{A}(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)=(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)\boldsymbol{A}$，同时有
+$\mathscr{A}(\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n')=(\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n')\boldsymbol{B}$，而$(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)=(\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n')\boldsymbol{P}$，
+则第一个等式两边可分别化为
+\begin{eqnarray*}
+    \mathscr{A}(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)&=&\mathscr{A}(\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n')\boldsymbol{P}=(\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n')\boldsymbol{BP}\\
+    (\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)\boldsymbol{A}&=&(\boldsymbol{\varepsilon}_1',\cdots,\boldsymbol{\varepsilon}_n')\boldsymbol{PA}
+\end{eqnarray*}
+得到$\boldsymbol{BP}=\boldsymbol{PA}$，即$\boldsymbol{A}=\boldsymbol{P}^{-1}\boldsymbol{BP}$。
+
+4. \textbf{相似矩阵：}设$\boldsymbol{A}$，$\boldsymbol{B}$均为$n$阶方阵。若存在可逆的$n$阶方阵$\boldsymbol{P}$，使$\boldsymbol{A}=\boldsymbol{P}^{-1}\boldsymbol{BP}$，则称
+矩阵$\boldsymbol{A}$与矩阵$\boldsymbol{B}$相似，记作$\boldsymbol{A}\sim\boldsymbol{B}$。相似矩阵的本质是同一线性变换在不同基下的矩阵。
+
+\subsection{特征值与特征向量}
+
+1. \textbf{定义：}令$\mathscr{A}$是$V$上的线性变换，若存在$\lambda \in P$和$\boldsymbol{\xi} \in V$，使得
+\begin{equation*}
+    \mathscr{A}\boldsymbol{\xi}=\lambda \boldsymbol{\xi}
+\end{equation*}
+则称$\lambda$为$\mathscr{A}$的一个特征值，$\boldsymbol{\xi}$为$\mathscr{A}$属于特征值$\lambda$的特征向量。
+
+2. \textbf{求解：}设$\mathscr{A}$在某组基下的矩阵为$\boldsymbol{A}$，解$\boldsymbol{A}$的特征多项式的所有根，即关于$\lambda$的方程：
+\begin{equation*}
+    |\lambda \boldsymbol{E}-\boldsymbol{A}|=0
+\end{equation*}
+解出所有符合条件的$\lambda$并逐一代入，解线性方程组：
+\begin{equation*}
+    (\lambda \boldsymbol{E}-\boldsymbol{A})\boldsymbol{x}=0
+\end{equation*}
+解得的基础解系便是属于$\lambda$的特征向量。
+
+3. \textbf{性质$^*$：}相似的矩阵有相同的特征值，即$\boldsymbol{A}=\boldsymbol{P}^{-1}\boldsymbol{B}\boldsymbol{P}$时，$|\lambda\boldsymbol{E}-\boldsymbol{A}|=|\lambda \boldsymbol{E}-\boldsymbol{B}|$。
+换句话说，同一线性变换在不同基下的特征值不变。
+
+4. Hamilton-Cayley定理，记$\boldsymbol{A}$的特征多项式为$f(\lambda)=|\lambda \boldsymbol{E}-\boldsymbol{A}|$，则$f(\boldsymbol{A})=0$。
+
+5. \textbf{对角矩阵的转化：}若$\mathscr{A}$存在$n$个线性无关的特征向量，则$\mathscr{A}$在某组基下的矩阵是对角形的。显然若$\mathscr{A}$的特征多项式有$n$个不同的根，则$\mathscr{A}$在当前基下的矩阵可相似对角化。
+
+6. \textbf{相似对角化方法：}令对角矩阵
+\begin{equation*}
+    \boldsymbol{\Lambda}=\begin{pmatrix}
+        \lambda_1&0&\cdots&0\\
+        0&\lambda_2&\cdots&0\\
+        \vdots&\vdots&&\vdots\\
+        0&0&\cdots&\lambda_n
+    \end{pmatrix}
+\end{equation*}
+对应特征值$\lambda_i$的特征向量为$\boldsymbol{\xi}_i$，则令矩阵$\boldsymbol{P}=(\boldsymbol{\xi}_1,\cdots,\boldsymbol{\xi}_n)$，则有$\boldsymbol{A}\boldsymbol{P}=\boldsymbol{P}\boldsymbol{\Lambda}$，即$\boldsymbol{P}^{-1}\boldsymbol{A}\boldsymbol{P}=\boldsymbol{\Lambda}$。
+
+\subsection{线性变换的值域与核}
+
+1. \textbf{定义：}令$\{\boldsymbol{y}|\exists \boldsymbol{x} \in V, \mathscr{A}\boldsymbol{x}=\boldsymbol{y}\}$为线性变换$\mathscr{A}$的值域，记作$\mathscr{A}V$或Im$\mathscr{A}$；
+令$\{\boldsymbol{x}\in V | \mathscr{A}\boldsymbol{x}=\boldsymbol{0}\}$为线性变换$\mathscr{A}$的核，记作$\mathscr{A}^{-1}(\boldsymbol{0})$或ker$\mathscr{A}$。
+
+2. \textbf{秩和零度：}$\mathscr{A}V$的维数称为$\mathscr{A}$的秩；$\mathscr{A}^{-1}(\boldsymbol{0})$的维数称为$\mathscr{A}$的零度。
+
+3. \textbf{重要定理$^*$：}令$\mathscr{A}(\boldsymbol{x}_1),\cdots,\mathscr{A}\boldsymbol{x}_m$为$\mathscr{A}V$的一组基，$\boldsymbol{x}_{m+1},\cdots,\boldsymbol{x}_n$为$\mathscr{A}^{-1}(\boldsymbol{0})$的一组基，则$\boldsymbol{x}_1,\cdots,\boldsymbol{x}_m,\boldsymbol{x}_{m+1},\cdots,\boldsymbol{x}_n$为$V$的一组基，由此可得
+\begin{equation*}
+    \text{dim}(\mathscr{A}V)+\text{dim}\left(\mathscr{A}^{-1}(\boldsymbol{0})\right)=\text{dim}V
+\end{equation*}
+
+\subsection{不变子空间}
+
+1. \textbf{定义：}设$W \subset V$，若$\forall \boldsymbol{\xi}\in W $，均有$\mathscr{A}\boldsymbol{\xi}\in W$，则称$W$为$\mathscr{A}$的不变子空间。
+
+2. \textbf{线性空间的分解：}设$\mathscr{A}$的特征多项式$f(\lambda)$可分解为一次因式的乘积：
+\begin{equation*}
+    f(\lambda)=\prod\limits_{i=1}^s(\lambda-\lambda_i)^{r_i}
+\end{equation*}
+则$V$可分解为若干不变子空间的直和$V=V_1\oplus V_2\cdots\oplus V_s$，其中$V_i=\{\boldsymbol{\xi}\in V|(\mathscr{A}-\lambda_i\mathscr{E})^{r_i}\boldsymbol{\xi}=0\}$，该定理用于将矩阵分解为分块准对角形。
+
+\section{λ-矩阵}
+
+\subsection{基本概念}
+
+1. \textbf{定义：}若矩阵$\boldsymbol{A}$中的元素是$\lambda$的多项式，则称$\boldsymbol{A}$为$\lambda$-矩阵，记作$\boldsymbol{A}(\lambda)$。
+
+2. \textbf{可逆：}若$\exists \boldsymbol{B}(\lambda)$，使得$\boldsymbol{A}(\lambda)\boldsymbol{B}(\lambda)=\boldsymbol{B}(\lambda)\boldsymbol{A}(\lambda)=\boldsymbol{E}$，则称$\boldsymbol{B}(\lambda)$是$\boldsymbol{A}(\lambda)$的逆矩阵，记作$\boldsymbol{A}^{-1}(\lambda)$。
+
+3. \textbf{可逆的充要条件：}$\boldsymbol{A}(\lambda)$可逆$\Leftrightarrow |\boldsymbol{A}(\lambda)|$为非零常数。
+
+\subsection{标准形}
+
+1. \textbf{初等变换：}有以下三种形式：
+
+~~~~（1）互换两行/两列的位置；
+
+~~~~（2）某行/列乘以非零常数$c$；
+
+~~~~（3）某行/列加上另一行/列的$\varphi(\lambda)$倍。
+
+2. \textbf{等价：}若$\boldsymbol{A}(\lambda)$可由一系列初等变换得到$\boldsymbol{B}(\lambda)$，则称$\boldsymbol{A}(\lambda)$与$\boldsymbol{B}(\lambda)$等价。
+
+3. \textbf{标准形：}任意$s\times n$的$\lambda$-矩阵$\boldsymbol{A}(\lambda)$均可化为下述形式的矩阵：
+\begin{equation*}
+    \begin{pmatrix}
+        d_1(\lambda)&0&0&\cdots&0&0\\
+        0&d_2(\lambda)&0&\cdots&0&0\\
+        \vdots&\vdots&\vdots&&\vdots&\vdots\\
+        0&0&\cdots&d_r(\lambda)&\cdots&0\\
+        0&0&0&\cdots &0&0\\
+       \vdots&\vdots&\vdots&&\vdots&\vdots\\
+        0&0&0&\cdots&0&0
+    \end{pmatrix}
+\end{equation*}
+其中$r\geqslant 1$，$d_i(\lambda)$为首一多项式，且$d_i(\lambda)\mid d_{i+1}(\lambda)$。该形式称为$\lambda$-矩阵的标准形。
+
+4. 化为标准形的步骤：
+
+~~~~（1）调换行、列，使$a_{11}(\lambda)$是其它所有元素的公因子；
+
+~~~~（2）从$a_{11}$出发，通过初等变换，使得$a_{1j}$和$a_{i1}$均化为$0$；
+
+~~~~（3）对右下角$(n-1)\times (n-1)$的矩阵块重复上述操作。
+
+\subsection{相似不变量}
+
+1. \textbf{不变因子：}标准形中主对角线上非零元素$d_1(\lambda),d_2(\lambda),\cdots,d_r(\lambda)$称为$\boldsymbol{A}(\lambda)$的不变因子。
+
+2. \textbf{初等因子：}将所有不变因子分解为一次首一多项式的乘积，所有一次因式的方幂称为矩阵$\boldsymbol{A}(\lambda)$的初等因子。
+
+3. \textbf{行列式因子：}$\boldsymbol{A}(\lambda)$中全部$k$阶子式的首一最大公因式$D_k(\lambda)$称为$\boldsymbol{A}(\lambda)$的$k$阶行列式因子。有如下等式成立：
+\begin{equation*}
+    D_k(\lambda)=d_1(\lambda)d_2(\lambda)\cdots d_k(\lambda)
+\end{equation*}
+
+\subsection{数字矩阵的相似标准形}
+
+1. \textbf{数字矩阵相似的条件：}$\boldsymbol{A}\sim \boldsymbol{B}\Leftrightarrow \lambda\boldsymbol{E}-\boldsymbol{A}$和$\lambda\boldsymbol{E}-\boldsymbol{B}$等价。
+
+2. \textbf{若尔当标准形：}形为
+\begin{equation*}
+    \boldsymbol{J}_i(\lambda)=\begin{pmatrix}
+        \lambda&0&\cdots&0&0\\
+        1&\lambda&\cdots&0&0\\
+        0&1&\cdots&0&0\\
+        \vdots&\vdots&&\vdots&\vdots\\
+        0&0&\cdots&\lambda&0\\
+        0&0&\cdots&1&\lambda
+    \end{pmatrix}
+\end{equation*}
+的矩阵称为若尔当块。将由若干若尔当块组成的矩阵\begin{equation*}
+    \begin{pmatrix}
+        \boldsymbol{J}_1&0&\cdots&0\\
+        0&\boldsymbol{J}_2&\cdots&0\\
+        \vdots&\vdots&&\vdots\\
+        0&0&\vdots&\boldsymbol{J}_n
+    \end{pmatrix}
+\end{equation*}
+称为若尔当形矩阵。
+
+3. \textbf{矩阵化为若尔当标准形：}设$\lambda\boldsymbol{E}-\boldsymbol{A}$的初等因子为$(\lambda-\lambda_1)^{k_1},\cdots,(\lambda-\lambda_s)^{k_s}$，则每个初等因子$(\lambda-\lambda_i)^{k_i}$对应一个若尔当块$\boldsymbol{J_i}(\lambda_i)$，将所有$\boldsymbol{J}_i$组合便得到$\boldsymbol{A}$的若尔当标准形，且除了若尔当块的
+排列方式以外，该标准形唯一。
+
+4. \textbf{友矩阵：}设多项式$d(\lambda)=\lambda^n+a_1\lambda^{n-1}+\cdots+a_n$，则称
+\begin{equation*}
+    \boldsymbol{A}=\begin{pmatrix}
+        0&0&\cdots&0&-a_n\\
+        1&0&\cdots&0&-a_{n-1}\\
+        0&1&\cdots&0&-a_{n-2}\\
+        \vdots&\vdots&&\vdots&\vdots\\
+        0&0&\cdots&1&-a_1
+    \end{pmatrix}
+\end{equation*}
+为$d(\lambda)$的友矩阵。
+
+5. \textbf{有理标准形矩阵：}称准对角矩阵
+\begin{equation*}
+    \boldsymbol{A}=\begin{pmatrix}
+        \boldsymbol{A}_1&0&\cdots&0\\
+        0&\boldsymbol{A}_2&\cdots&0\\
+        \vdots&\vdots&&\vdots\\
+        0&0&\cdots&\boldsymbol{A}_n
+    \end{pmatrix}
+\end{equation*}
+为有理标准形矩阵，其中$\boldsymbol{A}_i$为$d_i(\lambda)$的友矩阵，且$d_i(\lambda)\mid d_{i+1}(\lambda)$。
+
+6. \textbf{矩阵的有理标准形：}令$\lambda \boldsymbol{E}-\boldsymbol{A}$的不变因子为$1,1,\cdots,d_1(\lambda),\cdots,d_s(\lambda)$，
+且$\boldsymbol{A}_i$为$d_i(\lambda)$的友矩阵，便得到矩阵$\boldsymbol{A}$的有理标准形。
+
+\section{欧几里得空间}
+
+\subsection{欧氏空间与内积}
+
+1. \textbf{内积：}设$V$是$\mathbb{R}$上的线性空间，在$V$上定义二元实函数$(\boldsymbol{\alpha},\boldsymbol{\beta})$，满足如下条件：
+
+~~~~（1）正定性：$(\boldsymbol{\alpha},\boldsymbol{\alpha})\geqslant 0$，当且仅当$\boldsymbol{\alpha}=\boldsymbol{0}$时取等；
+
+~~~~（2）对称性；$(\boldsymbol{\alpha},\boldsymbol{\beta})=(\boldsymbol{\beta},\boldsymbol{\alpha})$；
+
+~~~~（3）线性性：$(k_1\boldsymbol{\alpha}+k_2\boldsymbol{\beta},\boldsymbol{\gamma})=k_1(\boldsymbol{\alpha},\boldsymbol{\gamma})+k_2(\boldsymbol{\beta},\boldsymbol{\gamma})$。
+则称$(\boldsymbol{\alpha},\boldsymbol{\beta})$为$V$上的内积，定义了内积的线性空间称为欧几里得空间。
+
+2. \textbf{欧氏空间$\mathbb{R}^n$：}在$\mathbb{R}^n$上，令$\boldsymbol{\alpha}=(a_1,\cdots,a_n)$，$\boldsymbol{\beta}=(b_1,\cdots,b_n)$，定义如下内积：
+\begin{equation*}
+    (\boldsymbol{\alpha},\boldsymbol{\beta})=a_1b_1+\cdots+a_nb_n
+\end{equation*}
+则$\mathbb{R}^n$构成一最常用的欧氏空间，下文若无特殊说明均在此空间上讨论。
+
+3. \textbf{Cauchy-Schwarz不等式：}$|(\boldsymbol{\alpha,\boldsymbol{\beta}})|\leqslant |\boldsymbol{\alpha}|\cdot |\boldsymbol{\beta}|$，当$\boldsymbol{\alpha}=k\boldsymbol{\beta}$时取等。此不等式对任一符合定义的内积均适用。
+
+4. \textbf{向量夹角：}规定向量$\boldsymbol{\alpha}$和$\boldsymbol{\beta}$的夹角为
+\begin{equation*}
+    <\boldsymbol{\alpha},\boldsymbol{\beta}>=\arccos \frac{(\boldsymbol{\alpha},\boldsymbol{\beta})}{|\boldsymbol{\alpha}|\cdot |\boldsymbol{\beta}|}
+\end{equation*}
+
+5. \textbf{模：}定义$\|\boldsymbol{\alpha}\|=(\boldsymbol{\alpha},\boldsymbol{\alpha})$为向量$\boldsymbol{\alpha}$的模，又称为$\boldsymbol{\alpha}$的长度。
+
+6. \textbf{正交：}若$(\boldsymbol{\alpha},\boldsymbol{\beta})=0$，则称$\boldsymbol{\alpha}$和$\boldsymbol{\beta}$正交，记作$\boldsymbol{\alpha}\perp \boldsymbol{\beta}$。
+
+7. \textbf{度量矩阵：}令$\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n$为$\mathbb{R}^n$上的一组基，$\boldsymbol{x}=x_1\boldsymbol{\varepsilon}_1+\cdots+x_n\boldsymbol{\varepsilon}_n$，$\boldsymbol{y}=y_1\boldsymbol{\varepsilon}_1+\cdots+y_n\boldsymbol{\varepsilon}_n$，则有
+\begin{equation*}
+    (\boldsymbol{x},\boldsymbol{y})=\sum\limits_{i=1}^n \sum\limits_{j=1}^n x_iy_j(\boldsymbol{\varepsilon}_i,\boldsymbol{\varepsilon}_j)=\boldsymbol{x}^T\boldsymbol{A}\boldsymbol{y}
+\end{equation*}
+其中方阵
+\begin{equation*}
+    \boldsymbol{A}=\begin{pmatrix}
+        (\boldsymbol{\varepsilon}_1,\boldsymbol{\varepsilon}_1)&(\boldsymbol{\varepsilon}_1,\boldsymbol{\varepsilon}_2)&\cdots&(\boldsymbol{\varepsilon}_1,\boldsymbol{\varepsilon}_n)\\
+        (\boldsymbol{\varepsilon}_2,\boldsymbol{\varepsilon}_1)&(\boldsymbol{\varepsilon}_2,\boldsymbol{\varepsilon}_2)&\cdots&(\boldsymbol{\varepsilon}_2,\boldsymbol{\varepsilon}_n)\\
+        \vdots&\vdots&&\vdots\\
+        (\boldsymbol{\varepsilon}_n,\boldsymbol{\varepsilon}_1)&(\boldsymbol{\varepsilon}_n,\boldsymbol{\varepsilon}_2)&\cdots&(\boldsymbol{\varepsilon}_n,\boldsymbol{\varepsilon}_n)
+    \end{pmatrix}
+\end{equation*}
+称为度量矩阵。
+
+\subsection{标准正交基}
+
+1. \textbf{正交向量组：}若$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m$中，$\boldsymbol{\alpha}_i\perp \boldsymbol{\alpha}_j$对$\forall i \neq j$成立，则称$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_m$为正交向量组。注意正交向量组总是线性无关的。
+
+2. \textbf{标准正交基：}若一组基$\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n$两两正交，且$|\boldsymbol{\varepsilon}_i|=1$恒成立，则称$\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n$为标准正交基。
+
+3. \textbf{标准正交基的性质：}度量矩阵为单位矩阵，即$(\boldsymbol{x},\boldsymbol{y})=\boldsymbol{x}^T\boldsymbol{y}$。
+
+4. \textbf{施密特正交化：}已知$\boldsymbol{\alpha}_1,\cdots,\boldsymbol{\alpha}_n$为$\mathbb{R}^n$上一组基，取
+\begin{eqnarray*}
+    \boldsymbol{\beta}_1=\boldsymbol{\alpha}_1,\boldsymbol{\beta}_2=\boldsymbol{\alpha}_2-\frac{(\boldsymbol{\alpha_2},\boldsymbol{\beta_1})}{(\boldsymbol{\beta}_1,\boldsymbol{\beta}_1)}\boldsymbol{\beta}_1,\cdots,\\
+    \boldsymbol{\beta}_n=\boldsymbol{\alpha}_n-\frac{(\boldsymbol{\alpha}_n,\boldsymbol{\beta}_1)}{(\boldsymbol{\beta}_1,\boldsymbol{\beta}_1)}\boldsymbol{\beta}_1-\cdots-\frac{(\boldsymbol{\alpha}_n,\boldsymbol{\beta}_{n-1})}{(\boldsymbol{\beta}_{n-1},\boldsymbol{\beta}_{n-1})}\boldsymbol{\beta}_{n-1}
+\end{eqnarray*}
+则$\frac{\boldsymbol{\beta}_1}{|\boldsymbol{\beta}_1|},\cdots,\frac{\boldsymbol{\beta}_n}{|\boldsymbol{\beta}_n|}$为一组标准正交基。
+
+\subsection{正交变换}
+
+1. \textbf{定义：}保持向量内积不变的变换：
+\begin{equation*}
+    (\mathscr{A}\boldsymbol{\alpha},\mathscr{A}\boldsymbol{\beta})=(\boldsymbol{\alpha},\boldsymbol{\beta})
+\end{equation*}
+
+2. \textbf{性质$^*$：}正交变换保持向量长度不变；在任一组标准正交基下的矩阵是正交矩阵。
+
+3. \textbf{正交矩阵：}满足$\boldsymbol{A}\boldsymbol{A}^T=\boldsymbol{E}$的矩阵。注意标准正交基构成的矩阵$(\boldsymbol{\varepsilon}_1,\cdots,\boldsymbol{\varepsilon}_n)$为正交矩阵。
+
+4. \textbf{正交子空间：}若$\forall \boldsymbol{\alpha} \in V_1,\boldsymbol{\beta}\in V_2$，均有$(\boldsymbol{\alpha},\boldsymbol{\beta})=0$，则称$V_1$和$V_2$正交。
+
+5. \textbf{正交补：}若$V_1\perp V_2$，且$V_1+V_2=V$，则称$V_1$为$V_2$的正交补。
+
+\subsection{实对称矩阵的正交对角化}
+
+1. \textbf{目标：}对实对称矩阵$\boldsymbol{A}$，寻找正交矩阵$\boldsymbol{T}$，使得$\boldsymbol{T}^{-1}\boldsymbol{A}\boldsymbol{T}$为对角矩阵。
+
+2. 步骤：
+
+~~~~（1）求出实对称矩阵$\boldsymbol{A}$的特征值；
+
+~~~~（2）对每个特征值，求解对应特征向量；
+
+~~~~（3）将特征向量施密特正交化并单位化，排列为正交矩阵$\boldsymbol{T}$，此时$\boldsymbol{T}^{-1}\boldsymbol{A}\boldsymbol{T}$正好为对角矩阵，且对角元素是矩阵$A$的所有特征值，按特征向量的顺序排列。

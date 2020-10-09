@@ -1,0 +1,162 @@
+\chapter{实变函数}
+\thispagestyle{empty}
+
+\setlength{\fboxrule}{0pt}\setlength{\fboxsep}{0cm}
+\noindent\shadowbox{
+\begin{tcolorbox}[arc=0mm,colback=lightblue,colframe=darkblue,title=Mathematical Analysis]
+\kai{~~~~实变函数是数学分析的直接后继课，主要学习测度论和Lebesgue积分。相比于数学分析，实变函数的最大特点是抽象、深入且广泛。实变函数研究的是数学分析认为性质“较差”的函数，
+由此提出了“几乎处处”的概念；对数学分析中黎曼不可积的函数，提出Lebesgue积分。}\\
+
+\kai{~~~~实变函数的基本理念是将集合论的观点与方法渗入数学分析，基本的论证手法是对特定的集合按某种要求作分解与组合。}\\
+
+
+\end{tcolorbox}}
+\setlength{\fboxrule}{1pt}\setlength{\fboxsep}{4pt}
+
+
+\newpage
+
+\section{集合论基础}
+
+\subsection{集合}
+
+1. 定义：具有特定性质的事物（即元素）组成的整体。
+
+2. 包含关系：$\forall x \in A$，$x \in B\Rightarrow A \subset B$，记作$A$包含于$B$。
+
+3. 相等关系：$A=B \Leftrightarrow A \subset B$，$B \subset A$。
+
+4. 集合交：$x \in \bigcap\limits_{i=1}^n A_i \equiv \forall i \leq n$，$x \in A_i$。
+
+5. 集合并：$x \in \bigcup\limits_{i=1}^n A_i \equiv \exists i \leq n$，$x \in A_i$。
+
+6. 分配律：$A \cup (B\cap C)=(A\cup B)\cap (A\cup C)$；$A \cap (B\cup C)=(A\cap B)\cup (A\cap C)$。
+
+7. 德摩根律：$(A\cap B)^C =A^C \cup B^C$；$(A\cup B)^C =A^C \cap B^C$。
+
+\subsection{可列个集合的运算}
+
+1. 可列交运算：$x \in \bigcap\limits_{n=1}^\infty A_n \equiv \forall n \in \mathbb{N}^*$，$x \in A_i$。
+
+2. 可列并运算：$x \in \bigcup\limits_{n=1}^\infty A_n \equiv \exists n \in \mathbb{N}^* $，$x \in A_i$。
+
+3. 域（代数）：满足下列条件：
+
+~~~~（1）$\Phi \in \mathscr{F}$；（2）$A \in \mathscr{F}\Rightarrow A^C \in \mathscr{F}$；
+
+~~~~（3）$A \in \mathscr{F}$，$B \in \mathscr{F}\Rightarrow A \cup B \in  \mathscr{F}$。
+
+4. $\sigma$-域：$\mathscr{F}$是域的前提下，$A_1,\cdots,A_n\in \mathscr{F}\Rightarrow \bigcup\limits_{n=1}^\infty A_n\in \mathscr{F}$。
+
+5. 上极限：$x \in \limsup\limits_n A_n \equiv$存在无穷多个$n$，$x \in A_n$。
+
+6. 下极限：$x \in \liminf\limits_n A_n \equiv$仅存在有限个$n$，$x \notin A_n$。
+
+7. 上、下极限的数学表述$^*$：
+
+~~~~（1）上极限： $\limsup\limits_n A_n =\bigcap\limits_{m=1}^\infty \bigcup\limits_{i=m}^\infty A_i$；
+
+~~~~（2）下极限： $\liminf\limits_n A_n =\bigcup\limits_{m=1}^\infty \bigcap\limits_{i=m}^\infty A_i$。
+
+8. 收敛集合列：若$\liminf\limits_n A_n=\limsup\limits_n A_n$，则称集合列$\{A_n\}$收敛，并将该极限记为$\lim\limits_n A_n$。
+
+
+\subsection{集合的基数}
+
+1. 定义：对有限集而言，基数指集合中的元素个数；对无限集而言，基数是关于映射的偏序关系，两者均记作$\overline{A}$。
+
+2. 对等：若$A$和$B$间存在双射$\varphi:A\rightarrow B$，则称$A$和$B$对等，又称$A$和$B$具有相同的基数，记作$A\sim B$。
+
+3. 无穷集合的定义：能与本身一个真子集对等的集合。
+
+4. Cantor定理$^*$：$\mathbb{N}^*$和$[0,1]$不对等。
+
+5. 基数偏序关系：若$A$和$B$不对等，但$A$和$B$的某个真子集对等，则称$A$的基数小于$B$的基数，记作$\overline{A}<\overline{B}$。
+
+6. Bernstein定理$^*$：若$\exists A^* \subset A$，$B^* \subset B$，使得$A\sim B^*$，$B \sim A^*$，则$A\sim B$。
+
+\subsection{可列集合}
+
+1. 定义：能与$\mathbb{N}^*$对等的集合称为可列集合。
+
+2. 充要条件：集合可列的充要条件是元素可被排成一个无穷序列。
+
+3. 常见可列集合$^*$：$\mathbb{Z}$，$\mathbb{Q}$。
+
+4. 重要定理$^*$： 若$A_1,\cdots,A_n$至多可列，则$\bigcup\limits_{n=1}^\infty A_n$至多可列。
+
+5. 不可列集合：不是可列集合的无穷集合。
+
+6. 连续势：与$\mathbb{R}$对等的集合具有连续势。
+
+\section{n维空间中的点集}
+
+\subsection{n维空间与距离}
+
+1. $n$维空间：$n$个实数组成的有序数组$(x_1,\cdots,x_n)$的全体组成的集合，记作$\mathbb{R}^n$。$\mathbb{R}^n$中的元素称为$\mathbb{R}^n$中的点，用粗体字母表示，如$\boldsymbol{x}$。
+
+2. 点的距离：满足下列条件的二元函数$\rho(\boldsymbol{x},\boldsymbol{y})$。
+
+~~~~（1）正定性：$\rho(\boldsymbol{x},\boldsymbol{y})\geqslant 0$，当且仅当$\boldsymbol{x}=\boldsymbol{y}$时，$\rho(\boldsymbol{x},\boldsymbol{y})=0$。
+
+~~~~（2）对称性：$\rho(\boldsymbol{x},\boldsymbol{y})=\rho(\boldsymbol{y},\boldsymbol{x})$。
+
+~~~~（3）三角不等式：$\rho(\boldsymbol{x},\boldsymbol{y})\leqslant \rho(\boldsymbol{x},\boldsymbol{z})+\rho(\boldsymbol{z},\boldsymbol{y})$。
+
+3. 欧几里得距离：最常用的距离，定义为
+\begin{equation*}
+    \rho(\boldsymbol{x},\boldsymbol{y})=\sqrt{\sum\limits_{i=1}^n(x_i-y_i)^2}。    
+\end{equation*}
+
+4. $\delta$邻域：称集合$\{x|\rho(\boldsymbol{x},\boldsymbol{x}_0)<\delta\}$为$\boldsymbol{x}_0$点的$\delta$邻域，记作$O(\boldsymbol{x}_0,\delta)$。
+
+5. 模：记$\boldsymbol{x}$的模为
+\begin{equation*}
+    \|\boldsymbol{x}\|=\rho(\boldsymbol{x},\boldsymbol{O})=\sqrt{\sum\limits_{i=1}^n x_i^2}
+\end{equation*}
+
+\subsection{点与集合的关系}
+
+1. 内点：若$\exists O(\boldsymbol{x}_0,\delta)\subset E$，则$\boldsymbol{x}_0$是集合$E$的内点。
+
+2. 边界点：若$\forall O(\boldsymbol{x}_0,\delta) =E_0$，$\exists \boldsymbol{x}_1 \in E_0$，$\boldsymbol{x}_1 \in E$，且$\exists \boldsymbol{x}_2 \in E_0$，$\boldsymbol{x}_2 \in E$，
+则$\boldsymbol{x}_0$是$E$的边界点。简单来说，边界点的任意一个邻域内都有$E$和$E$外的点。
+
+3. 外点：若$\exists O(\boldsymbol{x}_0)\in E^C$，则$\boldsymbol{x}_0$是$E$的外点。
+
+4. 聚点：若$\forall O(\boldsymbol{x}_0,\delta)$，存在无穷个$\boldsymbol{x}\in O(\boldsymbol{x}_0,\delta)$，使得$\boldsymbol{x}\in E$，则$\boldsymbol{x}_0$是$E$的聚点。
+
+5. 孤立点：是$E$的边界点，但不是$E$的聚点。
+
+6. 导集：$E$的所有聚点构成的集合，记作$E'$。
+
+7. 闭包：称$E\cup E'$为$E$的闭包，记作$\overline{E}$。
+
+8. 离散集合：$E'=\Phi$的集合。
+
+9. Bolzano-Weierstrass定理：若$E$是$\mathbb{R}^n$中有界的无穷集合，则$E'\neq \Phi$。
+
+\subsection{集合的分类}
+
+1. 开集：所有点均为其内点的集合。
+
+2. 闭集：满足$E' \subset E$的集合。
+
+3. 重要定理$^*$：
+
+~~~~（1）任意一族闭集之交为闭集，任意一族开集之并未开集。
+
+~~~~（2）有限多个闭集之并为闭集，有限多个开集之交为开集。
+
+4. 博雷尔有限覆盖定理：若$F$为有界闭集，$\mathscr{M}$是一族开邻域，且$\mathscr{M}$完全覆盖$F$，则必存在有限多个
+$N_1,\cdots,N_m\in \mathscr{M}$，它们完全覆盖$F$。
+
+5. 完备集：没有孤立点的闭集。
+
+6. Borel集类：在$\mathbb{R}^n$上所有开集的基础上，通过取余集、可列交、可列并构成的全体集合。Borel集类的元素称为Borel集。
+
+
+
+
+
+
